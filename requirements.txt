@@ -3,3 +3,4 @@ graphene==2.0.1
 zeep==2.4.0
 Flask-GraphQL==1.4.1
 pandas==0.21.1
+PyYAML==3.12
