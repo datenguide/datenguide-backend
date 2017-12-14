@@ -1,0 +1,35 @@
+sources:
+  base:
+    table: 11111-02-01-4
+    skip: 6
+    names:
+      - date
+      - id
+      - name
+      - munis
+  area:
+    table: 11111-01-01-4
+    skip: 6
+    names:
+      - date
+      - id
+      - name
+      - area
+    subset:
+      - id
+      - area
+  population:
+    table: 12411-01-01-4
+    skip: 8
+    names:
+      - id
+      - name
+      - t_pop
+      - m_pop
+      - f_pop
+    subset:
+      - id
+      - t_pop
+      - m_pop
+      - f_pop
+

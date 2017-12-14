@@ -1,10 +1,18 @@
 import graphene
 
+from stores.districts import DistrictStore
+from models import District
 
-class Query(graphene.ObjectType):
-    hello = graphene.String(name=graphene.String(default_value="stranger"))
 
-    def resolve_hello(self, info, name):
-        return 'Hello ' + name
+class DistrictQuery(graphene.ObjectType):
+    districts = graphene.List(District)
+    district = graphene.Field(District, id=graphene.String())
 
-schema = graphene.Schema(query=Query)
+    def resolve_districts(self, info):
+        return DistrictStore.all()
+
+    def resolve_district(self, info, id):
+        return DistrictStore.get(id)
+
+
+districts = graphene.Schema(query=DistrictQuery)
