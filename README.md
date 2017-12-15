@@ -18,7 +18,7 @@ requires Python 3
 
 ## Run server
 
-    FLASK_APP=app.py flask run
+    python app.py
 
 ## Query using GraphQL
 

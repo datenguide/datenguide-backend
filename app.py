@@ -10,3 +10,7 @@ app.debug = True
 app.add_url_rule('/districts', view_func=GraphQLView.as_view(
     'districts', schema=districts, graphiql=True)
 )
+
+
+if __name__ == '__main__':
+    app.run()
