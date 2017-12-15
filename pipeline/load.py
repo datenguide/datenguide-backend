@@ -29,6 +29,7 @@ def csv_to_pandas(definition):
             - delimiter
             - encoding
             - na_values
+            - id_field: field to use for graphql id creation
 
     Returns
     -------
@@ -43,6 +44,8 @@ def csv_to_pandas(definition):
         encoding=definition.get('encoding', settings.ENCODING),
         na_values=definition.get('na_values', settings.NA_VALUES)
     )
+
+    df['id'] = df[definition.get('id_field', settings.ID_FIELD)]
 
     if 'index' in definition:
         df.index = df[definition['index']]

@@ -4,7 +4,7 @@ sources:
     skip: 6
     names:
       - date
-      - id
+      - rs
       - name
       - munis
   area:
@@ -12,23 +12,23 @@ sources:
     skip: 6
     names:
       - date
-      - id
+      - rs
       - name
       - area
     subset:
-      - id
+      - rs
       - area
   population:
     table: 12411-01-01-4
     skip: 8
     names:
-      - id
+      - rs
       - name
       - t_pop
       - m_pop
       - f_pop
     subset:
-      - id
+      - rs
       - t_pop
       - m_pop
       - f_pop

@@ -28,13 +28,13 @@ def run():
     df = csv_to_pandas(sources['base'])
     df = df.dropna(subset=('munis',))
 
-    df['state_id'] = df['id'].str[:2]
-    df_states = df[df['id'].map(len) == 2]
+    df['state_id'] = df['rs'].str[:2]
+    df_states = df[df['rs'].map(len) == 2]
     df_states['state_name'] = df_states['name']
-    df_states['state_id'] = df_states['id']
+    df_states['state_id'] = df_states['rs']
     df = df.merge(df_states[['state_id', 'state_name']])
 
-    df = df[df['id'].map(len) == 5]
+    df = df[df['rs'].map(len) == 5]
 
     df_area = csv_to_pandas(sources['area'])
     df_area['area'] = pd.to_numeric(df_area['area'].str.replace(',', '.'))
@@ -44,6 +44,6 @@ def run():
     df = df.merge(df_area)
     df = df.merge(df_pop)
 
-    df.index = df['id']
+    df.index = df['rs']
 
     df.to_pickle(settings.DISTRICTS_SOURCE)

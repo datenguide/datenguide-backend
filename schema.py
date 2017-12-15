@@ -1,18 +1,21 @@
 import graphene
 
 from stores.districts import DistrictStore
-from models import District
+from stores.datasets import DatasetStore
+from models import District, Dataset
+from relay import Node
 
 
-class DistrictQuery(graphene.ObjectType):
+class Query(graphene.ObjectType):
+    node = Node.Field()
     districts = graphene.List(District)
-    district = graphene.Field(District, id=graphene.String())
+    datasets = graphene.List(Dataset)
+
+    def resolve_datasets(self, info):
+        return DatasetStore.all()
 
     def resolve_districts(self, info):
         return DistrictStore.all()
 
-    def resolve_district(self, info, id):
-        return DistrictStore.get(id)
 
-
-districts = graphene.Schema(query=DistrictQuery)
+schema = graphene.Schema(query=Query)

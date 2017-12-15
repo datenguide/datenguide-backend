@@ -22,7 +22,7 @@ requires Python 3
 
 ## Query using GraphQL
 
-Visit interactive `GraphiQL` at [http://127.0.0.1:5000/districts](http://127.0.0.1:5000/districts)
+Visit interactive `GraphiQL` at [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 
 List all districts:
 
@@ -31,19 +31,42 @@ List all districts:
   districts {
     id
     name
-    area
   }
 }
 ```
 
-Get data for an individual district:
+Get data for an individual district (via relay):
 
 ```graphql
 {
-  district(id:"01002") {
+  node(id:"District:01002") {
+    ... on District {
+      rs
+      name
+      area
+    }
+  }
+}
+```
+
+
+List all datasets:
+```graphql
+{
+  datasets {
     id
-    name
-    area
+  }
+}
+```
+
+Get data for an individual dataset (via relay):
+
+```graphql
+{
+  node(id: "Dataset:21111") {
+    ... on Dataset {
+      tables
+    }
   }
 }
 ```

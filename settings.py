@@ -20,3 +20,8 @@ SKIPFOOTER = 4
 
 DISTRICTS_ROOT = os.path.join(DATA_ROOT, 'districts')
 DISTRICTS_SOURCE = os.path.join(DISTRICTS_ROOT, 'districts.p')
+
+DATASET_INDEX = os.path.join(DATA_ROOT, 'index.yml')
+DATASET_ROOT = os.path.join(DATA_ROOT, 'datasets')
+
+ID_FIELD = 'rs'
