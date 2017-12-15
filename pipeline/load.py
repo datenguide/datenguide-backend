@@ -24,6 +24,7 @@ def csv_to_pandas(definition):
             - names: column names
             - index: column for use as `df.index`
             - subset: only include these columns in returned DataFrame
+            - exclude: exclude these columns in returned DataFrame
         defaults if not present:
             - delimiter
             - encoding
@@ -48,6 +49,9 @@ def csv_to_pandas(definition):
 
     if 'subset' in definition:
         df = df[definition['subset']]
+
+    if 'exclude' in definition:
+        df = df[[c for c in df.columns if c not in definition['exclude']]]
 
     for col, dtype in df.dtypes.items():
         if dtype.name == 'object':
