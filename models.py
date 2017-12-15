@@ -7,7 +7,7 @@ import graphene
 
 
 class District(graphene.ObjectType):
-    id = graphene.String()
+    rs = graphene.String()
     name = graphene.String()
     area = graphene.Float()
     f_pop = graphene.Int()
