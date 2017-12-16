@@ -49,6 +49,27 @@ Get data for an individual district (via relay):
 }
 ```
 
+Get available data for this district via relay connection:
+
+```graphql
+{
+  node(id: "District:01001") {
+    ... on District {
+      rs
+      name
+      stateName
+      data {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+    }
+  }
+}
+```
+
 
 List all datasets:
 ```graphql

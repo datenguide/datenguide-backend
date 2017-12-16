@@ -8,6 +8,18 @@ import graphene
 from relay import Node
 
 
+class Dataset(graphene.ObjectType):
+    tables = graphene.List(graphene.String)
+
+    class Meta:
+        interfaces = (Node,)
+
+
+class DatasetConnection(graphene.relay.Connection):
+    class Meta:
+        node = Dataset
+
+
 class District(graphene.ObjectType):
     rs = graphene.String()
     name = graphene.String()
@@ -21,12 +33,10 @@ class District(graphene.ObjectType):
     state_name = graphene.String()
     date = graphene.String()
 
-    class Meta:
-        interfaces = (Node,)
+    data = graphene.relay.ConnectionField(DatasetConnection)
 
-
-class Dataset(graphene.ObjectType):
-    tables = graphene.List(graphene.String)
+    def resolve_data(self, info):
+        return []
 
     class Meta:
         interfaces = (Node,)
