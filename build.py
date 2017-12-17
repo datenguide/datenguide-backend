@@ -2,9 +2,8 @@
 build data to provide via `flask.GraphQLView`
 """
 
-from pipeline import process_districts, process_datasets
+from pipeline import process
 
 
 if __name__ == '__main__':
-    process_districts()
-    process_datasets()
+    process.run()

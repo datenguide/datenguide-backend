@@ -28,11 +28,11 @@ def run():
     df = csv_to_pandas(sources['base'])
     df = df.dropna(subset=('munis',))
 
-    df['state_id'] = df['rs'].str[:2]
+    df['state__id'] = df['rs'].str[:2]
     df_states = df[df['rs'].map(len) == 2]
-    df_states['state_name'] = df_states['name']
-    df_states['state_id'] = df_states['rs']
-    df = df.merge(df_states[['state_id', 'state_name']])
+    df_states['state__name'] = df_states['name']
+    df_states['state__id'] = df_states['rs']
+    df = df.merge(df_states[['state__id', 'state__name']])
 
     df = df[df['rs'].map(len) == 5]
 

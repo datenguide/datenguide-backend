@@ -24,69 +24,34 @@ requires Python 3
 
 Visit interactive `GraphiQL` at [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 
-List all districts:
+The data is modelled in a tree-ish nested structure and so is the querying via `GraphQL`.
+
+Data is stored in key-value pairs.
+
+[Get `!ID`s for districts to refetch them (following `Relay` spec):](http://127.0.0.1:5000/?query=%7B%0A%20%20districts%20%7B%0A%20%20%20%20id%0A%20%20%7D%0A%7D%0A)
 
 ```graphql
 {
   districts {
     id
-    name
   }
 }
 ```
 
-Get data for an individual district (via relay):
+[Get data (depth: 2) for individual district:](http://127.0.0.1:5000/?query=%7B%0A%20%20node(id%3A%22Data%3A01001%22)%20%7B%0A%20%20%20%20...%20on%20Data%20%7B%0A%20%20%20%20%20%20data%20%7B%0A%20%20%20%20%20%20%20%20key%0A%20%20%20%20%20%20%20%20value%0A%20%20%20%20%20%20%20%20data%20%7B%0A%20%20%20%20%20%20%20%20%20%20key%0A%20%20%20%20%20%20%20%20%20%20value%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
 
 ```graphql
 {
-  node(id:"District:01002") {
-    ... on District {
-      rs
-      name
-      area
-    }
-  }
-}
-```
-
-Get available data for this district via relay connection:
-
-```graphql
-{
-  node(id: "District:01001") {
-    ... on District {
-      rs
-      name
-      stateName
+  node(id:"Data:01001") {
+    ... on Data {
       data {
-        edges {
-          node {
-            id
-          }
+        key
+        value
+        data {
+          key
+          value
         }
       }
-    }
-  }
-}
-```
-
-
-List all datasets:
-```graphql
-{
-  datasets {
-    id
-  }
-}
-```
-
-Get data for an individual dataset (via relay):
-
-```graphql
-{
-  node(id: "Dataset:21111") {
-    ... on Dataset {
-      tables
     }
   }
 }

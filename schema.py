@@ -1,21 +1,16 @@
 import graphene
 
-from stores.districts import DistrictStore
-from stores.datasets import DatasetStore
-from models import District, Dataset
+from database import DB
+from models import Data
 from relay import Node
 
 
 class Query(graphene.ObjectType):
     node = Node.Field()
-    districts = graphene.List(District)
-    datasets = graphene.List(Dataset)
-
-    def resolve_datasets(self, info):
-        return DatasetStore.all()
+    districts = graphene.List(Data)
 
     def resolve_districts(self, info):
-        return DistrictStore.all()
+        return [Data(id=k, key='rs', value=k) for k in DB]
 
 
 schema = graphene.Schema(query=Query)
