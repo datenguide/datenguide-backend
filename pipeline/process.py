@@ -39,8 +39,7 @@ def run():
             print('Loading table %s.csv ...' % name)
             with open(_fp('src', fname)) as f:
                 meta = yaml.load(f.read().strip())
-            meta['fpath'] = _fp('src', '%s.csv' % name)
-            df = csv_to_pandas(meta)
+            df = csv_to_pandas(_fp('src', '%s.csv' % name), meta)
             for id, data in df.iterrows():
                 date = data.get('date')
                 for key, value in data.items():

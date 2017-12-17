@@ -8,18 +8,18 @@ import pandas as pd
 import settings
 
 
-def csv_to_pandas(definition):
+def csv_to_pandas(fp, definition={}):
     """
     load raw csv file into `pandas.DataFrame`
 
     Parameters
     ----------
-    definition : dict
+    fp : str, required: Absolute or relative path to csv file
+
+    definition : dict, optional
         Information for computing `pandas.read_csv` arguments.
 
-        required:
-            - fpath: Absolute path to csv file
-        optional:
+        keys:
             - skip: value for skiprows
             - names: column names
             - index: column for use as `df.index`
@@ -36,7 +36,7 @@ def csv_to_pandas(definition):
     """
 
     df = pd.read_csv(
-        definition['fpath'],
+        fp,
         skiprows=definition.get('skip'),
         names=definition.get('names'),
         delimiter=definition.get('delimiter', settings.DELIMITER),
