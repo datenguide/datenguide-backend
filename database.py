@@ -4,9 +4,19 @@ single master path->value `pd.DataFrame`
 """
 
 
+from collections import defaultdict
 import pandas as pd
 
 import settings
+
+
+def _tree():
+    return defaultdict(_tree)
+
+
+def _add_path(t, path):
+    for p in path:
+        t = t[p]
 
 
 def _get_key(path, i=0):
@@ -32,7 +42,6 @@ class Database(object):
     def __init__(self, df, path=(), vertical=False):
         self.df = df
         self.path = path
-        self.id = ':'.join(path)
         # self.vertical = vertical
 
     def __getitem__(self, attr):
@@ -62,18 +71,19 @@ class Database(object):
 
     @property
     def data(self):
-        for k in self:
-            child = self[k]
-            yield {
-                'id': child.id,
-                'key': k,
-                'value': _cast(child.leaf),
-                'data': [] if child.leaf else '__follow__'
-            }
+        return {
+            k: self[k].leaf if self[k].leaf else self[k].data
+            for k in self
+        }
 
-    @property
-    def datadict(self):
-        return {d['key']: d['value'] for d in self.data}
+    def get_key_tree(self):
+        t = _tree()
+        for path in self.df['path'].map(lambda x: x[1:]).unique():
+            _add_path(t, path)
+        return t
+
+    def all(self):
+        return self.keys
 
 
 DB = Database(pd.read_pickle(settings.DATABASE))
