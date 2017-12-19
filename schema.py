@@ -16,7 +16,7 @@ def resolver(root, info):
     return root.get(info.field_name)
 
 
-def get_fields(field_dict, prefix='Data'):
+def get_fields(field_dict, prefix='District'):
     return {
         k: GraphQLField(GraphQLObjectType(
             '%s__%s' % (prefix, k),
