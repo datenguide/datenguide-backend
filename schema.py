@@ -10,8 +10,6 @@ from graphql.type import (GraphQLArgument,
                           GraphQLString)
 
 from database import DB
-from models import Data
-from relay import Node
 
 
 def resolver(root, info):
