@@ -34,7 +34,7 @@ def run():
     DB = pd.DataFrame(columns=('id', 'source', 'date', 'path', 'value'))
 
     for fname in os.listdir(_fp('src')):
-        if os.path.isfile(fname) and '.' in fname:
+        if os.path.isfile(_fp('src', fname)) and '.' in fname:
             name, ext = fname.split('.')
             if ext == 'yaml':
                 print('Loading table %s.csv ...' % name)
