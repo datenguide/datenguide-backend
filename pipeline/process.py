@@ -34,17 +34,18 @@ def run():
     DB = pd.DataFrame(columns=('id', 'source', 'date', 'path', 'value'))
 
     for fname in os.listdir(_fp('src')):
-        name, ext = fname.split('.')  # FIXME make more robust
-        if ext == 'yaml':
-            print('Loading table %s.csv ...' % name)
-            with open(_fp('src', fname)) as f:
-                meta = yaml.load(f.read().strip())
-            df = csv_to_pandas(_fp('src', '%s.csv' % name), meta)
-            for id, data in df.iterrows():
-                date = data.get('date')
-                for key, value in data.items():
-                    if key not in ('date', 'id'):
-                        DB.loc[uuid.uuid4()] = [id, name, date, tuple([id] + key.split('__')), value]
+        if os.path.isfile(fname) and '.' in fname:
+            name, ext = fname.split('.')
+            if ext == 'yaml':
+                print('Loading table %s.csv ...' % name)
+                with open(_fp('src', fname)) as f:
+                    meta = yaml.load(f.read().strip())
+                df = csv_to_pandas(_fp('src', '%s.csv' % name), meta)
+                for id, data in df.iterrows():
+                    date = data.get('date')
+                    for key, value in data.items():
+                        if key not in ('date', 'id'):
+                            DB.loc[uuid.uuid4()] = [id, name, date, tuple([id] + key.split('__')), value]
 
     print('Write DB to %s ...' % settings.DATABASE)
     DB = DB.drop_duplicates(subset=('date', 'path'))
