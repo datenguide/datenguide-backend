@@ -8,6 +8,19 @@ import pandas as pd
 import settings
 
 
+def pivot(df, colname):
+    """
+    pivot given `df` by `colname`, prepend values from `c`
+    """
+    dfs = []
+    for col in df.columns:
+        if col not in ('id', colname):
+            _df = df.pivot('id', colname, col)
+            _df = _df.rename(columns={c: '%s__%s' % (c, col) for c in _df.columns})
+            dfs.append(_df)
+    return pd.concat(dfs, axis=1)
+
+
 def csv_to_pandas(fp, definition={}):
     """
     load raw csv file into `pandas.DataFrame`
@@ -26,6 +39,7 @@ def csv_to_pandas(fp, definition={}):
             - index: column for use as `df.index`
             - subset: only include these columns in returned DataFrame
             - exclude: exclude these columns in returned DataFrame
+            - pivot: column to pivot by (see `pivot` above)
         defaults if not present:
             - delimiter
             - encoding
@@ -62,5 +76,8 @@ def csv_to_pandas(fp, definition={}):
             df[col] = df[col].str.strip()
 
     df = df.dropna(how='all')
+
+    if 'pivot' in definition:
+        df = pivot(df, definition['pivot'])
 
     return df
