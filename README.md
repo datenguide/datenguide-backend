@@ -36,21 +36,32 @@ Data is stored in nested key-value pairs.
 }
 ```
 
-[Get data for individual district:](http://127.0.0.1:5000/?query=%7B%0A%20%20district(id%3A%2201001%22)%20%7B%0A%20%20%20%20area%0A%20%20%20%20name%0A%20%20%20%20munis%0A%20%20%20%20pop%20%7B%0A%20%20%20%20%20%20t%0A%20%20%20%20%20%20m%0A%20%20%20%20%20%20w%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
+[Get data for individual district:](http://127.0.0.1:5000/?query=%7B%0A%20%20district(id%3A%20%2205911%22)%20%7B%0A%20%20%20%20area%0A%20%20%20%20munis%0A%20%20%20%20name%0A%20%20%20%20pop%20%7B%0A%20%20%20%20%20%20m%0A%20%20%20%20%20%20t%0A%20%20%20%20%20%20w%0A%20%20%20%20%7D%0A%20%20%20%20schulstatistik%20%7B%0A%20%20%20%20%20%20Gymnasien%20%7B%0A%20%20%20%20%20%20%20%20BIL003%20%7B%0A%20%20%20%20%20%20%20%20%20%20BILKL2%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20JGSTUFE11%0A%20%20%20%20%20%20%20%20%20%20%20%20JGSTUFE7%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
 
 ```graphql
 {
-  district(id:"01001") {
+  district(id: "05911") {
     area
-    name
     munis
+    name
     pop {
-      t
       m
+      t
       w
+    }
+    schulstatistik {
+      Gymnasien {
+        BIL003 {
+          BILKL2 {
+            JGSTUFE11
+            JGSTUFE7
+          }
+        }
+      }
     }
   }
 }
+
 ```
 
 should return:
@@ -58,13 +69,23 @@ should return:
 {
   "data": {
     "district": {
-      "area": "56,74",
+      "area": "145,66",
       "munis": "1.0",
-      "name": "Flensburg, Kreisfreie Stadt",
+      "name": "Bochum, Kreisfreie Stadt",
       "pop": {
-        "m": "42767.0",
-        "t": "85942.0",
-        "w": "43175.0"
+        "m": "177427.0",
+        "t": "364742.0",
+        "w": "187315.0"
+      },
+      "schulstatistik": {
+        "Gymnasien": {
+          "BIL003": {
+            "BILKL2": {
+              "JGSTUFE11": "1263.0",
+              "JGSTUFE7": "1110.0"
+            }
+          }
+        }
       }
     }
   }
