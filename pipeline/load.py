@@ -21,6 +21,7 @@ def csv_to_pandas(fp, definition={}):
 
         keys:
             - skip: value for skiprows
+            - skipfooter: value for skipfooter
             - names: column names
             - index: column for use as `df.index`
             - subset: only include these columns in returned DataFrame
@@ -38,6 +39,7 @@ def csv_to_pandas(fp, definition={}):
     df = pd.read_csv(
         fp,
         skiprows=definition.get('skip'),
+        skipfooter=definition.get('skipfooter'),
         names=definition.get('names'),
         delimiter=definition.get('delimiter', settings.DELIMITER),
         encoding=definition.get('encoding', settings.ENCODING),
@@ -58,5 +60,7 @@ def csv_to_pandas(fp, definition={}):
     for col, dtype in df.dtypes.items():
         if dtype.name == 'object':
             df[col] = df[col].str.strip()
+
+    df = df.dropna(how='all')
 
     return df
