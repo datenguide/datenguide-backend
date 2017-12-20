@@ -26,35 +26,15 @@ def _get_key(path, i=0):
         return None
 
 
-def _cast(value):
-    if value:
-        try:
-            float(value)
-            if float(value) == int(value):
-                return int(value)
-            return float(value)
-        except ValueError:
-            return value
-
-
 class Database(object):
 
-    def __init__(self, df, path=(), vertical=False):
+    def __init__(self, df):
         self.df = df
-        self.path = path
-        # self.vertical = vertical
 
     def __getitem__(self, attr):
-        # i = 0
-        # vertical = False
-        # if len(attr) == 2:
-        #     i, attr = attr
-        #     vertical = True
         df = self.df[self.df['path'].map(_get_key) == attr].copy()
-        # if not i:
-        #     df['path'] = df['path'].map(lambda x: x[1:])
         df['path'] = df['path'].map(lambda x: x[1:])
-        return self.__class__(df, self.path + (attr,))
+        return self.__class__(df)
 
     def __iter__(self):
         return (k for k in self.keys)
