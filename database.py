@@ -8,6 +8,7 @@ from collections import defaultdict
 import pandas as pd
 
 import settings
+from util import cached_property
 
 
 def _tree():
@@ -39,17 +40,17 @@ class Database(object):
     def __iter__(self):
         return (k for k in self.keys)
 
-    @property
+    @cached_property
     def keys(self):
         return self.df['path'].map(_get_key).dropna().unique()
 
-    @property
+    @cached_property
     def leaf(self):
         if self.df.shape[0] == 1:
             return self.df['value'][0]
         return None
 
-    @property
+    @cached_property
     def data(self):
         return {
             k: self[k].leaf if self[k].leaf else self[k].data
