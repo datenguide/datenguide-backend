@@ -36,6 +36,7 @@ def csv_to_pandas(fp, definition={}):
             - skip: value for skiprows
             - skipfooter: value for skipfooter
             - names: column names
+            - prefix: prefix to add to each column name
             - index: column for use as `df.index`
             - subset: only include these columns in returned DataFrame
             - exclude: exclude these columns in returned DataFrame
@@ -80,5 +81,9 @@ def csv_to_pandas(fp, definition={}):
 
     if 'pivot' in definition:
         df = pivot(df, definition['pivot'])
+
+    if 'prefix' in definition:
+        df = df.rename(columns={c: '%s__%s' % (definition['prefix'], c)
+                                for c in df.columns})
 
     return df
