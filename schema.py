@@ -8,21 +8,28 @@ from graphql.type import (GraphQLArgument,
                           GraphQLObjectType,
                           GraphQLSchema,
                           GraphQLString)
+from slugify import slugify_de
 
 from database import DB
 
 
+def slugify(val):
+    return slugify_de(val, separator='_')
+
+
 def resolver(root, info):
-    return root.get(info.field_name)
+    if hasattr(root, 'get'):
+        return root.get(info.field_name)
+    return root  # FIXME
 
 
 def get_fields(field_dict, prefix='District'):
     return {
-        k: GraphQLField(GraphQLObjectType(
-            '%s__%s' % (prefix, k),
+        slugify(k): GraphQLField(GraphQLObjectType(
+            '%s__%s' % (prefix, slugify(k)),
             get_fields(
                 field_dict[k],
-                prefix='%s__%s' % (prefix, k)
+                prefix='%s__%s' % (prefix, slugify(k))
             )),
             resolver=resolver
         )
