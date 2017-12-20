@@ -57,7 +57,8 @@ def csv_to_pandas(fp, definition={}):
         names=definition.get('names'),
         delimiter=definition.get('delimiter', settings.DELIMITER),
         encoding=definition.get('encoding', settings.ENCODING),
-        na_values=definition.get('na_values', settings.NA_VALUES)
+        na_values=definition.get('na_values', settings.NA_VALUES),
+        engine='python'
     )
 
     if 'index' in definition:
