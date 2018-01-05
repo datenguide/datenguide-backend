@@ -64,7 +64,7 @@ class Database(object):
         return t
 
     def all(self):
-        return self.keys
+        return [self[k].data for k in self]
 
 
 DB = Database(pd.read_pickle(settings.DATABASE))

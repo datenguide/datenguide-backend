@@ -59,7 +59,7 @@ query = GraphQLObjectType(
             },
             resolver=lambda root, info, **args: DB[args['id']].data
         ),
-        'districts': GraphQLField(GraphQLList(GraphQLString),
+        'districts': GraphQLField(GraphQLList(district),
             resolver=lambda *args: DB.all()
         )
     }
