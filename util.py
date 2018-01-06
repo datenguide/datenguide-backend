@@ -1,24 +1,18 @@
-class cached_property:
-    """
-    [borrowed from `django.utils.functional`]
+from slugify import slugify_de
 
-    Decorator that converts a method with a single self argument into a
-    property cached on the instance.
-    Optional ``name`` argument allows you to make cached properties of other
-    methods. (e.g.  url = cached_property(get_absolute_url, name='url') )
-    """
-    def __init__(self, func, name=None):
-        self.func = func
-        self.__doc__ = getattr(func, '__doc__')
-        self.name = name or func.__name__
+# import settings
 
-    def __get__(self, instance, cls=None):
-        """
-        Call the function and put the return value in instance.__dict__ so that
-        subsequent attribute access on the instance returns the cached value
-        instead of calling cached_property.__get__().
-        """
-        if instance is None:
-            return self
-        res = instance.__dict__[self.name] = self.func(instance)
-        return res
+
+def slugify(value, to_lower=True, separator='-'):
+    return slugify_de(value, to_lower=to_lower, separator=separator)
+
+
+# def flatten_column_names(rows, start=settings.COLNAMES_START, end=settings.COLNAMES_END):
+#     """
+#     return column names from multi-row naming
+
+#     rows: get from `open(csvfile).readlines()`
+#     """
+#     cells = [[cell.strip() for cell in row.split(';')] for row in rows[start:end]]
+#     return ['_'.join([slugify(cells[j][i]) for j in range(len(cells))])
+#             for i in range(len(cells[-1]))]

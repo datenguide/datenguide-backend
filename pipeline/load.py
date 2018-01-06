@@ -7,6 +7,8 @@ import pandas as pd
 
 import settings
 
+from util import slugify
+
 
 def pivot(df, colname):
     """
@@ -85,5 +87,8 @@ def csv_to_pandas(fp, definition={}):
     if 'prefix' in definition:
         df = df.rename(columns={c: '%s__%s' % (definition['prefix'], c)
                                 for c in df.columns})
+
+    if 'slugify' in definition:
+        df['slug'] = df[definition['slugify']].map(slugify)
 
     return df

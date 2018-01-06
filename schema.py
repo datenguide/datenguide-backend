@@ -8,13 +8,13 @@ from graphql.type import (GraphQLArgument,
                           GraphQLObjectType,
                           GraphQLSchema,
                           GraphQLString)
-from slugify import slugify_de
+from util import slugify as _slugify
 
 from database import DB, Districts, KEYS
 
 
-def slugify(val):
-    return slugify_de(val, separator='_')
+def slugify(value):
+    return _slugify(value, to_lower=False, separator='_')
 
 
 def resolver(root, info):
