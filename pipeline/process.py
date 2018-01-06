@@ -45,13 +45,13 @@ def _get_chunks(rows, n=CPUS):
 
 
 def _process_rows(rows, source):
-    db = pd.DataFrame(columns=('id', 'source', 'date', 'path', 'value'))
+    db = pd.DataFrame(columns=('_id', 'source', 'date', 'path', 'value'))
     for id, data in rows:
         date = data.get('date')
         for key, value in data.items():
-            if key not in ('date', 'id'):
+            if not key == 'date':
                 path = tuple([id] + key.split('__'))
-                db.loc[':'.join(path)] = [id, source, date, path, value]
+                db.loc['__'.join(path)] = [id, source, date, path, value]
     return db
 
 
