@@ -8,63 +8,35 @@ from collections import defaultdict
 import pandas as pd
 
 import settings
-from util import cached_property
 
 
 def _tree():
     return defaultdict(_tree)
 
 
-def _add_path(t, path):
-    for p in path:
-        t = t[p]
+def _add_path(t, path, value=None):
+    for i, p in enumerate(path):
+        if value and i+1 == len(path):
+            t[p] = value
+        else:
+            t = t[p]
 
 
-def _get_key(path, i=0):
-    try:
-        return path[i]
-    except IndexError:
-        return None
+def get_data_tree(df):
+    t = _tree()
+    for data in df[['path', 'value']].T.to_dict().values():
+        _add_path(t, data['path'], data['value'])
+    return t
 
 
-class Database(object):
-
-    def __init__(self, df):
-        self.df = df
-
-    def __getitem__(self, attr):
-        df = self.df[self.df['path'].map(_get_key) == attr].copy()
-        df['path'] = df['path'].map(lambda x: x[1:])
-        return self.__class__(df)
-
-    def __iter__(self):
-        return (k for k in self.keys)
-
-    @cached_property
-    def keys(self):
-        return self.df['path'].map(_get_key).dropna().unique()
-
-    @cached_property
-    def leaf(self):
-        if self.df.shape[0] == 1:
-            return self.df['value'][0]
-        return None
-
-    @cached_property
-    def data(self):
-        return {
-            k: self[k].leaf if self[k].leaf else self[k].data
-            for k in self
-        }
-
-    def get_key_tree(self):
-        t = _tree()
-        for path in self.df['path'].map(lambda x: x[1:]).unique():
-            _add_path(t, path)
-        return t
-
-    def all(self):
-        return [self[k].data for k in self]
+def get_key_tree(df):
+    t = _tree()
+    for path in df['path'].map(lambda x: x[1:]).unique():
+        _add_path(t, path)
+    return t
 
 
-DB = Database(pd.read_pickle(settings.DATABASE))
+df = pd.read_pickle(settings.DATABASE)
+DB = get_data_tree(df)
+Districts = [DB[k] for k in DB.keys()]
+KEYS = get_key_tree(df)

@@ -10,7 +10,7 @@ from graphql.type import (GraphQLArgument,
                           GraphQLString)
 from slugify import slugify_de
 
-from database import DB
+from database import DB, Districts, KEYS
 
 
 def slugify(val):
@@ -43,7 +43,7 @@ def get_fields(field_dict, prefix='District'):
 
 
 district = GraphQLObjectType(
-    'District', fields=lambda: get_fields(DB.get_key_tree())
+    'District', fields=lambda: get_fields(KEYS)
 )
 
 
@@ -57,10 +57,10 @@ query = GraphQLObjectType(
                     type=GraphQLNonNull(GraphQLString)
                 )
             },
-            resolver=lambda root, info, **args: DB[args['id']].data
+            resolver=lambda root, info, **args: DB[args['id']]
         ),
         'districts': GraphQLField(GraphQLList(district),
-            resolver=lambda *args: DB.all()
+            resolver=lambda *args: Districts
         )
     }
 )
