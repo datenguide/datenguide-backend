@@ -43,6 +43,7 @@ def csv_to_pandas(fp, definition={}):
             - subset: only include these columns in returned DataFrame
             - exclude: exclude these columns in returned DataFrame
             - pivot: column to pivot by (see `pivot` above)
+            - slugify: column that should be used to build an extra `slug`-column
         defaults if not present:
             - delimiter
             - encoding
