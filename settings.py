@@ -13,6 +13,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 NA_VALUES = ['x', '-', '.']
 ENCODING = 'latin1'
 DELIMITER = ';'
+DTYPE = 'str'
 
 # locations
 DATA_ROOT = os.path.join(BASE_DIR, 'data')

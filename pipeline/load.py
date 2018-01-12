@@ -48,6 +48,7 @@ def csv_to_pandas(fp, definition={}):
             - delimiter
             - encoding
             - na_values
+            - dtype
 
     Returns
     -------
@@ -62,6 +63,7 @@ def csv_to_pandas(fp, definition={}):
         delimiter=definition.get('delimiter', settings.DELIMITER),
         encoding=definition.get('encoding', settings.ENCODING),
         na_values=definition.get('na_values', settings.NA_VALUES),
+        dtype=definition.get('dtype', settings.DTYPE),
         engine='python'
     )
 
