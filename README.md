@@ -28,7 +28,7 @@ The data is modelled in a tree-ish nested structure and so is the querying via `
 
 Data is stored in nested key-value pairs.
 
-[Example Query for districts](http://127.0.0.1:5000/?query=%7B%0A%20%20districts%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20name_ext%0A%20%20%20%20slug%0A%20%20%20%20area%0A%20%20%20%20pop%20%7B%0A%20%20%20%20%20%20t%0A%20%20%20%20%7D%0A%20%20%20%20schulstatistik%20%7B%0A%20%20%20%20%20%20Gymnasien%20%7B%0A%20%20%20%20%20%20%20%20BIL003%20%7B%0A%20%20%20%20%20%20%20%20%20%20BILKL2%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20JGSTUFE11%0A%20%20%20%20%20%20%20%20%20%20%20%20JGSTUFE7%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
+[Example Query for districts](http://127.0.0.1:5000/?query=%7B%0A%20%20districts%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20name_ext%0A%20%20%20%20slug%0A%20%20%20%20area%0A%20%20%20%20pop%20%7B%0A%20%20%20%20%20%20t%0A%20%20%20%20%7D%0A%20%20%20%20Schulstatistik%20%7B%0A%20%20%20%20%20%20Gymnasien%20%7B%0A%20%20%20%20%20%20%20%20BIL003%20%7B%0A%20%20%20%20%20%20%20%20%20%20BILKL2%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20JGSTUFE11%0A%20%20%20%20%20%20%20%20%20%20%20%20JGSTUFE7%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
 
 ```graphql
 {
@@ -42,7 +42,7 @@ Data is stored in nested key-value pairs.
       m
       w
     }
-    schulstatistik {
+    Schulstatistik {
       Gymnasien {
         BIL003 {
           BILKL2 {
@@ -78,7 +78,7 @@ should return:
           "m": "42767",
           "w": "43175"
         },
-        "schulstatistik": {
+        "Schulstatistik": {
           "Gymnasien": {
             "BIL003": {
               "BILKL2": {
