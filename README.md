@@ -28,25 +28,18 @@ The data is modelled in a tree-ish nested structure and so is the querying via `
 
 Data is stored in nested key-value pairs.
 
-[Get list of ids for districts to query later on:](http://127.0.0.1:5000/?query=%7B%0A%20%20districts%0A%7D%0A)
+[Example Query for districts](http://127.0.0.1:5000/?query=%7B%0A%20%20districts%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20name_ext%0A%20%20%20%20slug%0A%20%20%20%20area%0A%20%20%20%20pop%20%7B%0A%20%20%20%20%20%20t%0A%20%20%20%20%7D%0A%20%20%20%20schulstatistik%20%7B%0A%20%20%20%20%20%20Gymnasien%20%7B%0A%20%20%20%20%20%20%20%20BIL003%20%7B%0A%20%20%20%20%20%20%20%20%20%20BILKL2%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20JGSTUFE11%0A%20%20%20%20%20%20%20%20%20%20%20%20JGSTUFE7%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
 
 ```graphql
 {
-  districts
-}
-```
-
-[Get data for individual district:](http://127.0.0.1:5000/?query=%7B%0A%20%20district(id%3A%20%2205911%22)%20%7B%0A%20%20%20%20area%0A%20%20%20%20munis%0A%20%20%20%20name%0A%20%20%20%20pop%20%7B%0A%20%20%20%20%20%20m%0A%20%20%20%20%20%20t%0A%20%20%20%20%20%20w%0A%20%20%20%20%7D%0A%20%20%20%20schulstatistik%20%7B%0A%20%20%20%20%20%20Gymnasien%20%7B%0A%20%20%20%20%20%20%20%20BIL003%20%7B%0A%20%20%20%20%20%20%20%20%20%20BILKL2%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20JGSTUFE11%0A%20%20%20%20%20%20%20%20%20%20%20%20JGSTUFE7%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
-
-```graphql
-{
-  district(id: "05911") {
-    area
-    munis
+  districts {
+    id
     name
+    name_ext
+    slug
+    area
     pop {
       m
-      t
       w
     }
     schulstatistik {
@@ -56,38 +49,55 @@ Data is stored in nested key-value pairs.
             JGSTUFE11
             JGSTUFE7
           }
+          GES {
+            I
+            M
+          }
+          NAT {
+            NATA
+          }
         }
       }
     }
   }
 }
-
 ```
 
 should return:
 ```json
 {
   "data": {
-    "district": {
-      "area": "145,66",
-      "munis": "1.0",
-      "name": "Bochum, Kreisfreie Stadt",
-      "pop": {
-        "m": "177427.0",
-        "t": "364742.0",
-        "w": "187315.0"
-      },
-      "schulstatistik": {
-        "Gymnasien": {
-          "BIL003": {
-            "BILKL2": {
-              "JGSTUFE11": "1263.0",
-              "JGSTUFE7": "1110.0"
+    "districts": [
+      {
+        "id": "01001",
+        "name": "Flensburg",
+        "name_ext": "Kreisfreie Stadt",
+        "slug": "flensburg",
+        "area": "56,74",
+        "pop": {
+          "m": "42767",
+          "w": "43175"
+        },
+        "schulstatistik": {
+          "Gymnasien": {
+            "BIL003": {
+              "BILKL2": {
+                "JGSTUFE11": "445",
+                "JGSTUFE7": "363"
+              },
+              "GES": {
+                "I": "3672",
+                "M": "1931"
+              },
+              "NAT": {
+                "NATA": "100"
+              }
             }
           }
         }
-      }
-    }
+      },
+      // more districts...
+    ]
   }
 }
 ```
