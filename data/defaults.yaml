@@ -1,0 +1,6 @@
+na_values: ['x', '-', '.']
+encoding: latin1
+delimiter: ';'
+dtype: str
+filter:
+  id: 'lambda x: len(x) == 5'

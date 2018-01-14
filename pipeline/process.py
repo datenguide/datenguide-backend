@@ -67,9 +67,12 @@ def run():
 
             if ext == 'yaml':
                 print('Loading table %s.csv ...' % name)
+                with open(_fp('defaults.yaml')) as f:
+                    defaults = yaml.load(f.read().strip())
                 with open(_fp('src', fname)) as f:
-                    meta = yaml.load(f.read().strip())
-                df = csv_to_pandas(_fp('src', '%s.csv' % name), meta)
+                    definition = yaml.load(f.read().strip())
+                defaults.update(definition)
+                df = csv_to_pandas(_fp('src', '%s.csv' % name), defaults)
 
                 with Pool(processes=CPUS) as P:
                     _dbs = P.starmap(
