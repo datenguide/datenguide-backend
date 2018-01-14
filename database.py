@@ -38,5 +38,5 @@ def get_key_tree(df):
 
 df = pd.read_pickle(settings.DATABASE)
 DB = get_data_tree(df)
-Districts = [DB[k] for k in DB.keys()]
+Districts = sorted([DB[k] for k in DB.keys()], key=lambda x: x.get('id'))
 KEYS = get_key_tree(df)
