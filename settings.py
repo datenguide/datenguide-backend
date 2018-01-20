@@ -12,3 +12,4 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # locations
 DATA_ROOT = os.path.join(BASE_DIR, 'data')
 DATABASE = os.path.join(DATA_ROOT, 'db.p')
+KEYS_DB = os.path.join(DATA_ROOT, 'keys.p')

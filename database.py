@@ -40,3 +40,15 @@ df = pd.read_pickle(settings.DATABASE)
 DB = get_data_tree(df)
 Districts = sorted([DB[k] for k in DB.keys()], key=lambda x: x.get('id'))
 KEYS = get_key_tree(df)
+
+keys_db = pd.read_pickle(settings.KEYS_DB)
+
+
+def get_key_info(key):
+    try:
+        return keys_db.loc[key].to_dict()
+    except KeyError:
+        d = {c: '' for c in keys_db.columns}
+        d['name'] = key.title()
+        d['key'] = key
+        return d

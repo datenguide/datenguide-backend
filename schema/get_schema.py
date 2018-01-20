@@ -10,7 +10,7 @@ from graphql.type import (GraphQLArgument,
                           GraphQLString)
 from util import slugify as _slugify
 
-from database import DB, Districts, KEYS
+from database import DB, Districts, KEYS, get_key_info
 
 
 def slugify(value):
@@ -31,6 +31,7 @@ def get_fields(field_dict, prefix='District'):
                 field_dict[k],
                 prefix='%s__%s' % (prefix, slugify(k))
             )),
+            description=get_key_info(k)['description'],
             resolver=resolver
         )
         if field_dict[k].keys()
@@ -67,3 +68,7 @@ query = GraphQLObjectType(
 
 
 schema = GraphQLSchema(query=query)
+# FIXME
+doc_schema = {k: v for k, v in schema.get_type_map().items()
+              if not k.startswith('__') and not k in
+              ('Query', 'String', 'Boolean')}
