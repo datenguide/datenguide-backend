@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, Response
 from flask_graphql import GraphQLView
 
@@ -6,6 +7,9 @@ from schema import schema, doc_content, query
 
 app = Flask(__name__)
 app.debug = True
+
+if os.getenv('DEBUG') == 'False':
+    app.debug = False
 
 
 if app.debug:
