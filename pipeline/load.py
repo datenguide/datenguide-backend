@@ -16,7 +16,7 @@ def pivot(df, colname):
     for col in df.columns:
         if col not in ('id', colname):
             _df = df.pivot('id', colname, col)
-            _df = _df.rename(columns={c: '%s__%s' % (c, col) for c in _df.columns})
+            _df = _df.rename(columns={c: '__'.join((colname, c, col)) for c in _df.columns})
             dfs.append(_df)
     return pd.concat(dfs, axis=1)
 
