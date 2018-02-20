@@ -63,7 +63,8 @@ def run():
     for fname in os.listdir(_fp('src')):
 
         if os.path.isfile(_fp('src', fname)) and '.' in fname:
-            name, ext = fname.split('.')
+            name_parts = fname.split('.')
+            name, ext = name_parts[0::len(name_parts)-1]
 
             if ext == 'yaml':
                 print('Loading table %s.csv ...' % name)
