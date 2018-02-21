@@ -5,8 +5,7 @@ build 1 single key->value database out of many tables
 key is a tuple of path items
 
 how to store source datasets:
-for each csv-file, put it into 'src'-subfolder of
-`settings.DATA_ROOT`
+for each csv-file, put it into `settings.DATA_SRC`
 
 each csv-file needs a metadata file with the same name
 (but .yaml-extension instead of .csv) where the info
@@ -30,6 +29,10 @@ CPUS = cpu_count()
 
 def _fp(*args):
     return os.path.join(settings.DATA_ROOT, *args)
+
+
+def _fpsrc(*args):
+    return os.path.join(settings.DATA_SRC, *args)
 
 
 def _get_chunks(rows, n=CPUS):
@@ -60,9 +63,9 @@ def run():
     print('Collecting tables from %s ...' % settings.DATA_ROOT)
 
     dbs = []
-    for fname in os.listdir(_fp('src')):
+    for fname in os.listdir(_fpsrc()):
 
-        if os.path.isfile(_fp('src', fname)) and '.' in fname:
+        if os.path.isfile(_fpsrc(fname)) and '.' in fname:
             name_parts = fname.split('.')
             name, ext = name_parts[0::len(name_parts)-1]
 
@@ -70,10 +73,10 @@ def run():
                 print('Loading table %s.csv ...' % name)
                 with open(_fp('defaults.yaml')) as f:
                     defaults = yaml.load(f.read().strip())
-                with open(_fp('src', fname)) as f:
+                with open(_fpsrc(fname)) as f:
                     definition = yaml.load(f.read().strip())
                 defaults.update(definition)
-                df = csv_to_pandas(_fp('src', '%s.csv' % name), defaults)
+                df = csv_to_pandas(_fpsrc('%s.csv' % name), defaults)
 
                 with Pool(processes=CPUS) as P:
                     _dbs = P.starmap(
