@@ -40,6 +40,7 @@ def csv_to_pandas(fp, definition={}):
             - pivot: column to pivot by (see `pivot` above)
             - slugify: column that should be used to build an extra `slug`-column
             - filter: dict for columns that should be filtered by a given lambda function
+            - replace: dict to replace cell values with (via df.applymap)
         options from `pandas.read_csv`
             - skip: skiprows shortcut
             - skipfooter
@@ -84,6 +85,9 @@ def csv_to_pandas(fp, definition={}):
     for col, dtype in df.dtypes.items():
         if dtype.name == 'object':
             df[col] = df[col].str.strip()
+
+    if 'replace' in definition:
+        df = df.applymap(lambda x: definition['replace'].get(x, x))
 
     df = df.dropna(how='all')
 
