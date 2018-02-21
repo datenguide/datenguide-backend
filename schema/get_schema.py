@@ -37,6 +37,7 @@ def get_fields(field_dict, prefix='District'):
         if field_dict[k].keys()
         else GraphQLField(
             GraphQLString,
+            description=get_key_info(k)['description'],
             resolver=resolver
         )
         for k in field_dict
@@ -51,7 +52,8 @@ district = GraphQLObjectType(
 query = GraphQLObjectType(
     'Query',
     fields=lambda: {
-        'district': GraphQLField(district,
+        'district': GraphQLField(
+            district,
             args={
                 'id': GraphQLArgument(
                     description='RS of the district',
@@ -60,7 +62,8 @@ query = GraphQLObjectType(
             },
             resolver=lambda root, info, **args: DB[args['id']]
         ),
-        'districts': GraphQLField(GraphQLList(district),
+        'districts': GraphQLField(
+            GraphQLList(district),
             resolver=lambda *args: Districts
         )
     }
@@ -70,5 +73,5 @@ query = GraphQLObjectType(
 schema = GraphQLSchema(query=query)
 # FIXME
 doc_schema = {k: v for k, v in schema.get_type_map().items()
-              if not k.startswith('__') and not k in
+              if not k.startswith('__') and k not in
               ('Query', 'String', 'Boolean')}
