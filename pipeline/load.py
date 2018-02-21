@@ -8,17 +8,30 @@ import pandas as pd
 from util import slugify
 
 
-def pivot(df, colname):
+def pivot(df, colname, split_by=None, exclude_cols=[]):
     """
     pivot given `df` by `colname`, prepend values from `c`
+
+    if `split_by`:
+        split `df` into seperate tables via unique values in `colname`
+        before pivoting via `pivot` to avoid duplicate index entries
     """
-    dfs = []
-    for col in df.columns:
-        if col not in ('id', colname):
-            _df = df.pivot('id', colname, col)
-            _df = _df.rename(columns={c: '__'.join((colname, c, col)) for c in _df.columns})
+
+    if split_by is None:
+        dfs = []
+        for col in df.columns:
+            if col not in ['id', colname] + exclude_cols:
+                _df = df.pivot('id', colname, col)
+                _df = _df.rename(columns={c: '__'.join((colname, c, col)) for c in _df.columns})
+                dfs.append(_df)
+        return pd.concat(dfs, axis=1)
+    else:
+        dfs = []
+        for value in df[split_by].unique():
+            _df = pivot(df[df[split_by] == value], colname, exclude_cols=[split_by])
+            _df[split_by] = value
             dfs.append(_df)
-    return pd.concat(dfs, axis=1)
+        return pd.concat(dfs, axis=1)
 
 
 def csv_to_pandas(fp, definition={}):
@@ -38,6 +51,8 @@ def csv_to_pandas(fp, definition={}):
             - subset: only include these columns in returned DataFrame
             - exclude: exclude these columns in returned DataFrame
             - pivot: column to pivot by (see `pivot` above)
+            - pivot_split: column on which unique values should the table be splitted
+                before pivoting to avoid duplicate index entries
             - slugify: column that should be used to build an extra `slug`-column
             - filter: dict for columns that should be filtered by a given lambda function
             - replace: dict to replace cell values with (via df.applymap)
@@ -52,7 +67,7 @@ def csv_to_pandas(fp, definition={}):
 
     Returns
     -------
-    df : `pandas.DataFrame`
+    dfs : list of `pandas.DataFrame`
     """
 
     df = pd.read_csv(
@@ -92,7 +107,7 @@ def csv_to_pandas(fp, definition={}):
     df = df.dropna(how='all')
 
     if 'pivot' in definition:
-        df = pivot(df, definition['pivot'])
+        df = pivot(df, definition['pivot'], definition.get('pivot_split', None))
 
     if 'prefix' in definition:
         df = df.rename(columns={c: '%s__%s' % (definition['prefix'], c)
