@@ -50,5 +50,5 @@ def get_key_info(key):
     except KeyError:
         d = {c: '' for c in keys_db.columns}
         d['name'] = key.title()
-        d['key'] = key
+        d['code'] = key
         return d

@@ -1,19 +1,19 @@
+import json
 import os
+import sys
 import pandas as pd
 
 import settings
 
 
 def run():
-    df = pd.DataFrame(columns=('key', 'name', 'description'))
-
+    sys.stdout.write('Building keys db ...\n')
+    data = []
     for fname in os.listdir(settings.KEYS_DIR):
-        if fname.endswith('.md'):
+        if fname.endswith('_de.json'):  # FIXME make multilangual
             with open(os.path.join(settings.KEYS_DIR, fname)) as f:
-                lines = f.readlines()
-            name = lines[0].lstrip('# ').strip()
-            key = fname.split('.md')[0]
-            description = '\n'.join(lines).strip()
-            df.loc[key] = (key.upper(), name, description)
-
+                data.append(json.load(f))
+    df = pd.DataFrame(data)
+    df.index = df['code']
     df.to_pickle(settings.KEYS_DB)
+    sys.stdout.write('Stored keys db in %s .\n' % settings.KEYS_DB)
