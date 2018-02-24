@@ -31,7 +31,7 @@ def pivot(df, colname, split_by=None, exclude_cols=[]):
             _df = pivot(df[df[split_by] == value], colname, exclude_cols=[split_by])
             _df[split_by] = value
             dfs.append(_df)
-        return pd.concat(dfs, axis=1)
+        return pd.concat(dfs)
 
 
 def csv_to_pandas(fp, definition={}):
@@ -111,7 +111,7 @@ def csv_to_pandas(fp, definition={}):
 
     if 'prefix' in definition:
         df = df.rename(columns={c: '%s__%s' % (definition['prefix'], c)
-                                for c in df.columns})
+                                for c in df.columns if not c == 'date'})
 
     if 'slugify' in definition:
         df['slug'] = df[definition['slugify']].map(slugify)

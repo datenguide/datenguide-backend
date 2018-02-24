@@ -48,23 +48,22 @@ def _get_chunks(rows, n=CPUS):
 
 
 def _process_rows(rows, source):
-    db = pd.DataFrame(columns=('_id', 'source', 'date', 'path', 'value'))
+    res = []
     for id, data in rows:
         date = data.get('date')
         for key, value in data.items():
             if not key == 'date':
                 path = tuple([id] + key.split('__'))
-                db.loc['__'.join(path)] = [id, source, date, path, value]
-    return db
+                res.append((id, source, date, path, value))
+    return res
 
 
 def run():
     print('detected %s cores ...' % CPUS)
     print('Collecting tables from %s ...' % settings.DATA_ROOT)
 
-    dbs = []
+    chunks = []
     for fname in os.listdir(_fpsrc()):
-
         if os.path.isfile(_fpsrc(fname)) and '.' in fname:
             name_parts = fname.split('.')
             name, ext = name_parts[0::len(name_parts)-1]
@@ -79,17 +78,18 @@ def run():
                 df = csv_to_pandas(_fpsrc('%s.csv' % name), defaults)
 
                 with Pool(processes=CPUS) as P:
-                    _dbs = P.starmap(
+                    chunks += P.starmap(
                         _process_rows,
                         zip(_get_chunks(list(df.iterrows())), [name]*CPUS)
                     )
 
-                dbs += _dbs
-
     print('Write DB to %s ...' % settings.DATABASE)
 
-    DB = pd.concat(dbs)
-    DB = DB.sort_values('path')
+    DB = pd.DataFrame(
+        [row for chunk in chunks for row in chunk],
+        columns=('id', 'source', 'date', 'path', 'value')
+    )
+    DB = DB.sort_values(['path', 'date'])
     DB = DB.drop_duplicates(subset=('date', 'path'))
     DB.to_pickle(settings.DATABASE)
 

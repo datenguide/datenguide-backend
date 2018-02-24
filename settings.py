@@ -13,7 +13,9 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_ROOT = os.path.join(BASE_DIR, 'data')
 DATA_SRC = os.path.join(DATA_ROOT, 'src')
 DATABASE = os.path.join(DATA_ROOT, 'db.p')
+DATA_TREE = os.path.join(DATA_ROOT, 'data.json')
 KEYS_DB = os.path.join(DATA_ROOT, 'keys.p')
+KEYS_TREE = os.path.join(DATA_ROOT, 'keys.json')
 KEYS_DIR = os.path.join(DATA_ROOT, 'keys')
 
 # genesis webservice
