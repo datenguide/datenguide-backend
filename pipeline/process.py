@@ -15,9 +15,10 @@ as a convention, filenames should map to the table id from Genesis.
 """
 
 
+import pandas as pd
 import os
 import yaml
-import pandas as pd
+
 from multiprocessing import Pool, cpu_count
 
 import settings
@@ -83,14 +84,17 @@ def run():
                         zip(_get_chunks(list(df.iterrows())), [name]*CPUS)
                     )
 
-    print('Write DB to %s ...' % settings.DATABASE)
-
     DB = pd.DataFrame(
         [row for chunk in chunks for row in chunk],
         columns=('id', 'source', 'date', 'path', 'value')
     )
     DB = DB.sort_values(['path', 'date'])
     DB = DB.drop_duplicates(subset=('date', 'path'))
+
+    print('Write DB to %s ...' % settings.DATABASE)
     DB.to_pickle(settings.DATABASE)
+
+    print('Write DB to %s as well...' % settings.DATABASE_CSV)
+    DB.to_csv(settings.DATABASE_CSV)
 
     print('Done.')
