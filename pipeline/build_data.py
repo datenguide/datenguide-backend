@@ -50,12 +50,15 @@ def _get_chunks(rows, n=CPUS):
 
 def _process_rows(rows, source):
     res = []
-    for id, data in rows:
-        date = data.get('date')
+    for id_, data in rows:
+        date = data.get('_date')
+        year = data.get('_year')
         for key, value in data.items():
-            if not key == 'date':
-                path = tuple([id] + key.split('__'))
-                res.append((id, source, date, path, value))
+            if not key.startswith('_'):
+                path = [id_] + key.split('__')
+                if year:
+                    path += [year]
+                res.append((id_, source, date, tuple(path), value))
     return res
 
 
@@ -84,17 +87,19 @@ def run():
                         zip(_get_chunks(list(df.iterrows())), [name]*CPUS)
                     )
 
-    DB = pd.DataFrame(
+    df = pd.DataFrame(
         [row for chunk in chunks for row in chunk],
         columns=('id', 'source', 'date', 'path', 'value')
     )
-    DB = DB.sort_values(['path', 'date'])
-    DB = DB.drop_duplicates(subset=('date', 'path'))
+    df = df.sort_values(['path', 'date'])
+    df = df.drop_duplicates(subset=('date', 'path'))
 
-    print('Write DB to %s ...' % settings.DATABASE)
-    DB.to_pickle(settings.DATABASE)
+    print('Wrangled %s properties.' % df.shape[0])
 
-    print('Write DB to %s as well...' % settings.DATABASE_CSV)
-    DB.to_csv(settings.DATABASE_CSV)
+    print('Write df to %s ...' % settings.DATABASE)
+    df.to_pickle(settings.DATABASE)
+
+    print('Write df to %s as well...' % settings.DATABASE_CSV)
+    df.to_csv(settings.DATABASE_CSV)
 
     print('Done.')

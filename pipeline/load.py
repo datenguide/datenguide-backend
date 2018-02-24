@@ -8,7 +8,7 @@ import pandas as pd
 from util import slugify
 
 
-def pivot(df, colname, split_by=None, exclude_cols=[]):
+def _pivot(df, colname, split_by=None, exclude_cols=[]):
     """
     pivot given `df` by `colname`, prepend values from `c`
 
@@ -20,18 +20,28 @@ def pivot(df, colname, split_by=None, exclude_cols=[]):
     if split_by is None:
         dfs = []
         for col in df.columns:
-            if col not in ['id', colname] + exclude_cols:
-                _df = df.pivot('id', colname, col)
+            if col not in ['_id', colname] + exclude_cols:
+                _df = df.pivot('_id', colname, col)
                 _df = _df.rename(columns={c: '__'.join((colname, c, col)) for c in _df.columns})
                 dfs.append(_df)
         return pd.concat(dfs, axis=1)
     else:
         dfs = []
         for value in df[split_by].unique():
-            _df = pivot(df[df[split_by] == value], colname, exclude_cols=[split_by])
+            _df = _pivot(df[df[split_by] == value], colname, exclude_cols=[split_by])
             _df[split_by] = value
             dfs.append(_df)
         return pd.concat(dfs)
+
+
+def _do_maps(df, definition):
+    """
+    apply maps on columns
+    """
+    for col, info in definition.items():
+        if col in df.columns:
+            df[info['target']] = df[col].map(eval(info['func']))
+    return df
 
 
 def csv_to_pandas(fp, definition={}):
@@ -55,7 +65,11 @@ def csv_to_pandas(fp, definition={}):
                 before pivoting to avoid duplicate index entries
             - slugify: column that should be used to build an extra `slug`-column
             - filter: dict for columns that should be filtered by a given lambda function
+            - maps: dict for columns that should be applied a given lambda function to
+            - post_maps: dict for columns that should be applied a given lambda function to
+                (will be executed at the end)
             - replace: dict to replace cell values with (via df.applymap)
+            - add_cols: dict to propagate additional columns with default values
         options from `pandas.read_csv`
             - skip: skiprows shortcut
             - skipfooter
@@ -84,12 +98,16 @@ def csv_to_pandas(fp, definition={}):
 
     if 'index' in definition:
         df.index = df[definition['index']]
-    elif 'id' in df.columns:
-        df.index = df['id']
+    elif '_id' in df.columns:
+        df.index = df['_id']
 
     if 'filter' in definition:
         for col, func in definition['filter'].items():
-            df = df[df[col].map(eval(func))]
+            if col in df.columns:
+                df = df[df[col].map(eval(func))]
+
+    if 'maps' in definition:
+        df = _do_maps(df, definition['maps'])
 
     if 'subset' in definition:
         df = df[definition['subset']]
@@ -107,13 +125,20 @@ def csv_to_pandas(fp, definition={}):
     df = df.dropna(how='all')
 
     if 'pivot' in definition:
-        df = pivot(df, definition['pivot'], definition.get('pivot_split', None))
+        df = _pivot(df, definition['pivot'], definition.get('pivot_split', None))
 
     if 'prefix' in definition:
         df = df.rename(columns={c: '%s__%s' % (definition['prefix'], c)
-                                for c in df.columns if not c == 'date'})
+                                for c in df.columns if not c.startswith('_')})
 
     if 'slugify' in definition:
         df['slug'] = df[definition['slugify']].map(slugify)
+
+    if 'add_cols' in definition:
+        for col, value in definition['add_cols'].items():
+            df[col] = value
+
+    if 'post_maps' in definition:
+        df = _do_maps(df, definition['post_maps'])
 
     return df
