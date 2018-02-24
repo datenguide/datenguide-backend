@@ -4,7 +4,7 @@ from schema.get_schema import KEYS, slugify
 
 
 def dictify(tree):
-    return {slugify(k): dictify(tree[k]) for k in tree}
+    return {slugify(k): dictify(tree[k]) for k in tree if ':' not in k}
 
 
 query = """{

@@ -26,11 +26,12 @@ def resolver(root, info, *args, **kwargs):
 
 def arg_resolver(root, info, *args, **kwargs):
     data = root.get(info.field_name)
-    try:
-        lookup = ':'.join(list(kwargs.items())[0])  # FIXME
-        return data.get(lookup)
-    except IndexError:  # return last value
-        return data.get(sorted(data.keys())[-1])
+    if data:
+        try:
+            lookup = ':'.join(list(kwargs.items())[0])  # FIXME
+            return data.get(lookup)
+        except IndexError:  # return last value
+            return data.get(sorted(data.keys())[-1])
 
 
 def get_queryable_field(data):
