@@ -57,14 +57,19 @@ def run():
     sys.stdout.write('Building trees ...\n')
 
     df = pd.read_pickle(settings.DATABASE)
-
-    chunks = [(id_, df[df['id'] == id_]) for id_ in df['id'].unique()]
+    ids = df['id'].unique()
+    chunks = [(id_, df[df['id'] == id_]) for id_ in ids]
 
     with Pool(processes=CPUS) as P:
         trees = P.map(get_data_tree, chunks)
 
     data_tree = {id_: t[id_] for id_, t in trees}
     keys_tree = get_key_tree(df)
+
+    # add ids FIXME
+    for id_ in ids:
+        data_tree[id_]['id'] = id_
+    keys_tree['id'] = {}
 
     with open(settings.DATA_TREE, 'w') as f:
         json.dump(data_tree, f)
