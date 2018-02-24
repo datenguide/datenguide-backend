@@ -2,10 +2,10 @@
 build data to provide via `flask.GraphQLView`
 """
 
-from pipeline import process, build_keys_db, build_tree
+from pipeline import build_data, build_keys_db, build_tree
 
 
 if __name__ == '__main__':
     build_keys_db.run()
-    process.run()
+    build_data.run()
     build_tree.run()

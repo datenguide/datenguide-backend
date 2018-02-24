@@ -17,7 +17,8 @@ def slugify(value):
     return _slugify(value, to_lower=False, separator='_')
 
 
-def resolver(root, info):
+def resolver(root, info, *args, **kwargs):
+    import ipdb; ipdb.set_trace()
     if hasattr(root, 'get'):
         return root.get(info.field_name)
     return root  # FIXME
