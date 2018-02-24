@@ -2,5 +2,9 @@ na_values: ['x', '-', '.']
 encoding: latin1
 delimiter: ';'
 dtype: str
-filter:
-  id: 'lambda x: len(x) == 5'
+# filter:
+#   _id: 'lambda x: len(x) == 5'
+post_maps:
+  _date:
+    target: _year
+    func: 'lambda x: "year:%s" % x[-4:] if x else x'
