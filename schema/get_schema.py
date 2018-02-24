@@ -1,5 +1,5 @@
 from graphql.type import (GraphQLArgument,
-                          GraphQLBoolean,
+                          # GraphQLBoolean,
                           # GraphQLEnumType,
                           # GraphQLEnumValue,
                           GraphQLField,
@@ -15,6 +15,8 @@ from database import DB, Districts, KEYS, get_key_info
 
 
 def slugify(value):
+    if '__' in value or value.startswith('_'):
+        return value
     return _slugify(value, to_lower=False, separator='_')
 
 
@@ -25,36 +27,23 @@ def resolver(root, info, *args, **kwargs):
 def arg_resolver(root, info, *args, **kwargs):
     data = root.get(info.field_name)
     try:
-        key, value = list(kwargs.items())[0]  # FIXME
+        lookup = ':'.join(list(kwargs.items())[0])  # FIXME
+        return data.get(lookup)
     except IndexError:  # return last value
         return data.get(sorted(data.keys())[-1])
-    lookup = '%s:%s' % (key, value)
-    if key.endswith('__in'):
-        return value
-    if key.endswith('__all'):
-        return data
-    return data.get(lookup)
 
 
 def get_queryable_field(data):
-    args = {}
-    for arg in set([k.split(':')[0] for k in data.keys()]):
-        args[arg] = GraphQLArgument(
-            description=arg.title(),
-            type=GraphQLString
-        )
-        args['%s__in' % arg] = GraphQLArgument(
-            description='%ss, as list' % arg.title(),
-            type=GraphQLList(GraphQLString)
-        )
-        args['%s__all' % arg] = GraphQLArgument(
-            description='All values for "%s"' % arg,
-            type=GraphQLBoolean
-        )
-
+    args = set([k.split(':')[0] for k in data.keys()])
     return GraphQLField(
         GraphQLString,
-        args=args,
+        args={
+            arg: GraphQLArgument(
+                description=arg.title(),
+                type=GraphQLString
+            )
+            for arg in args
+        },
         resolver=arg_resolver
     )
 
@@ -70,7 +59,7 @@ def get_leaf_field(k):
 def get_fields(field_dict, prefix='District'):
     return {
         slugify(k): get_queryable_field(field_dict[k])
-        if field_dict[k] and all(':' in k for k in field_dict[k].keys())
+        if field_dict[k].keys() and all(':' in k for k in field_dict[k].keys())
 
         else GraphQLField(GraphQLObjectType(
             '%s__%s' % (prefix, slugify(k)),

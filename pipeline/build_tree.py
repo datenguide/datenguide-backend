@@ -8,8 +8,12 @@ import pandas as pd
 import sys
 
 from collections import defaultdict
+from multiprocessing import Pool, cpu_count
 
 import settings
+
+
+CPUS = cpu_count()
 
 
 def _tree():
@@ -24,17 +28,28 @@ def _add_path(t, path, value=None):
             t = t[p]
 
 
-def get_data_tree(df):
+def _add_to_tree(t, path, value=None):
+    # FIXME reorganise code
+    _add_path(t, path, value)
+    if ':' in path[-1]:
+        leaf = path[-2]
+        field, query = path[-1].split(':')
+        query_path = path[:-2] + ('%s__%ss' % (leaf, field), '_' + query)
+        _add_path(t, query_path, value)
+
+
+def get_data_tree(chunk):
+    id_, df = chunk
     t = _tree()
-    for data in df[['path', 'value', 'date']].T.to_dict().values():
-        _add_path(t, data['path'], data['value'])
-    return t
+    for _, data in df.iterrows():
+        _add_to_tree(t, data['path'], data['value'])
+    return id_, t
 
 
 def get_key_tree(df):
     t = _tree()
     for path in df['path'].map(lambda x: x[1:]).unique():
-        _add_path(t, path)
+        _add_to_tree(t, path)
     return t
 
 
@@ -42,7 +57,13 @@ def run():
     sys.stdout.write('Building trees ...\n')
 
     df = pd.read_pickle(settings.DATABASE)
-    data_tree = get_data_tree(df)
+
+    chunks = [(id_, df[df['id'] == id_]) for id_ in df['id'].unique()]
+
+    with Pool(processes=CPUS) as P:
+        trees = P.map(get_data_tree, chunks)
+
+    data_tree = {id_: t[id_] for id_, t in trees}
     keys_tree = get_key_tree(df)
 
     with open(settings.DATA_TREE, 'w') as f:
