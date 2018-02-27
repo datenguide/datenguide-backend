@@ -1,0 +1,13 @@
+names:
+  - _id
+  - name
+  - name_ext
+  - geo__nuts__level
+  - geo__lat
+  - geo__lon
+  - slug
+  - state__id
+  - state__name
+  - state__slug
+delimiter: ","
+encoding: utf-8
