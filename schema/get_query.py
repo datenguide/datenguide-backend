@@ -8,7 +8,7 @@ def dictify(tree):
 
 
 query = """{
-  districts %s
+  regions %s
 }""" % json.dumps(dictify(KEYS), indent=2)\
     .replace(':', '').replace('{}', '')\
     .replace('"', '').replace(',', '')

@@ -18,7 +18,7 @@ with open(settings.DATA_TREE) as f:
 with open(settings.KEYS_TREE) as f:
     KEYS = json.load(f)
 
-Districts = [DB[k] for k in sorted(DB.keys())]
+Regions = [DB[k] for k in sorted(DB.keys())]
 
 keys_db = pd.read_pickle(settings.KEYS_DB)
 
