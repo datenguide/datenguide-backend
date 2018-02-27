@@ -1,5 +1,6 @@
 # data
 data/db.csv
+data/src
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
