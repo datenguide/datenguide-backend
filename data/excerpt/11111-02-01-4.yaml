@@ -1,0 +1,11 @@
+skip: 6
+skipfooter: 4
+names:
+  - _date
+  - _id
+  - name
+  - GEM001
+subset:
+  - _date
+  - _id
+  - GEM001

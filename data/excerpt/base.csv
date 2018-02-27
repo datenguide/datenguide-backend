@@ -1,0 +1,526 @@
+DG,Deutschland,Kreis,0,,,deutschland,DG,Deutschland,deutschland
+01,Schleswig-Holstein,Kreis,2,,,schleswig-holstein,01,Schleswig-Holstein,schleswig-holstein
+01001,Flensburg,Kreisfreie Stadt,3,54.783,9.433,flensburg,01,Schleswig-Holstein,schleswig-holstein
+01002,Kiel,Landeshauptstadt,3,54.322,10.137,kiel,01,Schleswig-Holstein,schleswig-holstein
+01003,Lübeck,Hansestadt,3,53.866,10.685,luebeck,01,Schleswig-Holstein,schleswig-holstein
+01004,Neumünster,Kreisfreie Stadt,3,54.072,9.987,neumuenster,01,Schleswig-Holstein,schleswig-holstein
+01051,Dithmarschen,Kreis,3,54.074,9.288,dithmarschen,01,Schleswig-Holstein,schleswig-holstein
+01053,Herzogtum Lauenburg,Kreis,3,53.608,10.511,herzogtum-lauenburg,01,Schleswig-Holstein,schleswig-holstein
+01054,Nordfriesland,Kreis,3,54.607,8.884,nordfriesland,01,Schleswig-Holstein,schleswig-holstein
+01055,Ostholstein,Kreis,3,54.177,10.848,ostholstein,01,Schleswig-Holstein,schleswig-holstein
+01056,Pinneberg,Kreis,3,53.662,9.797,pinneberg,01,Schleswig-Holstein,schleswig-holstein
+01057,Plön,Kreis,3,54.158,10.418,ploen,01,Schleswig-Holstein,schleswig-holstein
+01058,Rendsburg-Eckernförde,Kreis,3,54.328,9.72,rendsburg-eckernfoerde,01,Schleswig-Holstein,schleswig-holstein
+01059,Schleswig-Flensburg,Kreis,3,54.78,9.437,schleswig-flensburg,01,Schleswig-Holstein,schleswig-holstein
+01060,Segeberg,Kreis,3,53.923,10.161,segeberg,01,Schleswig-Holstein,schleswig-holstein
+01061,Steinburg,Kreis,3,53.941,9.516,steinburg,01,Schleswig-Holstein,schleswig-holstein
+01062,Stormarn,Kreis,3,53.722,10.359,stormarn,01,Schleswig-Holstein,schleswig-holstein
+02,Hamburg,Kreis,2,,,hamburg,02,Hamburg,hamburg
+03,Niedersachsen,Kreis,2,,,niedersachsen,03,Niedersachsen,niedersachsen
+031,Braunschweig,Stat. Region,,,,braunschweig-stat-region,03,Niedersachsen,niedersachsen
+03101,Braunschweig,Kreisfreie Stadt,3,52.264,10.525,braunschweig-kreisfreie-stadt,03,Niedersachsen,niedersachsen
+03102,Salzgitter,Kreisfreie Stadt,3,52.15,10.359,salzgitter,03,Niedersachsen,niedersachsen
+03103,Wolfsburg,Kreisfreie Stadt,3,52.421,10.786,wolfsburg,03,Niedersachsen,niedersachsen
+03151,Gifhorn,Kreis,3,52.483,10.545,gifhorn,03,Niedersachsen,niedersachsen
+03152,Göttingen,Kreis,3,51.533,9.935,goettingen,03,Niedersachsen,niedersachsen
+03153,Goslar,Kreis,3,51.906,10.427,goslar,03,Niedersachsen,niedersachsen
+03154,Helmstedt,Kreis,3,52.228,11.01,helmstedt,03,Niedersachsen,niedersachsen
+03155,Northeim,Kreis,3,51.705,9.997,northeim,03,Niedersachsen,niedersachsen
+03156,Osterode am Harz,Kreis,3,51.652,10.332,osterode-am-harz,03,Niedersachsen,niedersachsen
+03157,Peine,Kreis,3,52.322,10.235,peine,03,Niedersachsen,niedersachsen
+03158,Wolfenbüttel,Kreis,3,52.163,10.535,wolfenbuettel,03,Niedersachsen,niedersachsen
+03159,Göttingen,Kreis,3,51.533,9.935,goettingen,03,Niedersachsen,niedersachsen
+032,Hannover,Stat. Region,,,,hannover-stat-region,03,Niedersachsen,niedersachsen
+03241,Region Hannover,Kreis,3,52.38,9.727,region-hannover,03,Niedersachsen,niedersachsen
+03241001,Hannover,Landeshauptstadt,,,,hannover-landeshauptstadt,03,Niedersachsen,niedersachsen
+03251,Diepholz,Kreis,3,52.611,8.373,diepholz,03,Niedersachsen,niedersachsen
+03252,Hameln-Pyrmont,Kreis,3,52.09,9.388,hameln-pyrmont,03,Niedersachsen,niedersachsen
+03254,Hildesheim,Kreis,3,52.152,9.951,hildesheim,03,Niedersachsen,niedersachsen
+03255,Holzminden,Kreis,3,51.829,9.446,holzminden,03,Niedersachsen,niedersachsen
+03256,Nienburg (Weser),Kreis,3,52.641,9.218,nienburg-weser,03,Niedersachsen,niedersachsen
+03257,Schaumburg,Kreis,3,48.58,12.258,schaumburg,03,Niedersachsen,niedersachsen
+033,Lüneburg,Stat. Region,,,,lueneburg-stat-region,03,Niedersachsen,niedersachsen
+03351,Celle,Kreis,3,52.624,10.081,celle,03,Niedersachsen,niedersachsen
+03352,Cuxhaven,Kreis,3,53.869,8.698,cuxhaven,03,Niedersachsen,niedersachsen
+03353,Harburg,Kreis,3,53.454,9.989,harburg,03,Niedersachsen,niedersachsen
+03354,Lüchow-Dannenberg,Kreis,3,53.024,11.035,luechow-dannenberg,03,Niedersachsen,niedersachsen
+03355,Lüneburg,Kreis,3,53.249,10.408,lueneburg,03,Niedersachsen,niedersachsen
+03356,Osterholz,Kreis,3,53.056,8.951,osterholz,03,Niedersachsen,niedersachsen
+03357,Rotenburg (Wümme),Kreis,3,53.111,9.405,rotenburg-wuemme,03,Niedersachsen,niedersachsen
+03358,Heidekreis,Kreis,3,52.822,9.66,heidekreis,03,Niedersachsen,niedersachsen
+03359,Stade,Kreis,3,53.6,9.475,stade,03,Niedersachsen,niedersachsen
+03360,Uelzen,Kreis,3,52.967,10.559,uelzen,03,Niedersachsen,niedersachsen
+03361,Verden,Kreis,3,52.941,9.235,verden,03,Niedersachsen,niedersachsen
+034,Weser-Ems,Stat. Region,,,,weser-ems,03,Niedersachsen,niedersachsen
+03401,Delmenhorst,Kreisfreie Stadt,3,53.048,8.629,delmenhorst,03,Niedersachsen,niedersachsen
+03402,Emden,Kreisfreie Stadt,3,53.367,7.206,emden,03,Niedersachsen,niedersachsen
+03403,Oldenburg (Oldenburg),Kreisfreie Stadt,3,53.139,8.215,oldenburg-oldenburg,03,Niedersachsen,niedersachsen
+03404,Osnabrück,Kreisfreie Stadt,3,52.267,8.05,osnabrueck-kreisfreie-stadt,03,Niedersachsen,niedersachsen
+03405,Wilhelmshaven,Kreisfreie Stadt,3,53.528,8.106,wilhelmshaven,03,Niedersachsen,niedersachsen
+03451,Ammerland,Kreis,3,53.214,8.006,ammerland,03,Niedersachsen,niedersachsen
+03452,Aurich,Kreis,3,53.47,7.482,aurich,03,Niedersachsen,niedersachsen
+03453,Cloppenburg,Kreis,3,52.846,8.044,cloppenburg,03,Niedersachsen,niedersachsen
+03454,Emsland,Kreis,3,52.759,7.456,emsland,03,Niedersachsen,niedersachsen
+03455,Friesland,Kreis,3,53.468,8.022,friesland,03,Niedersachsen,niedersachsen
+03456,Grafschaft Bentheim,Kreis,3,52.465,7.01,grafschaft-bentheim,03,Niedersachsen,niedersachsen
+03457,Leer,Kreis,3,53.247,7.463,leer,03,Niedersachsen,niedersachsen
+03458,Oldenburg,Kreis,3,53.139,8.215,oldenburg,03,Niedersachsen,niedersachsen
+03459,Osnabrück,Kreis,3,52.267,8.05,osnabrueck,03,Niedersachsen,niedersachsen
+03460,Vechta,Kreis,3,52.731,8.287,vechta,03,Niedersachsen,niedersachsen
+03461,Wesermarsch,Kreis,3,53.337,8.432,wesermarsch,03,Niedersachsen,niedersachsen
+03462,Wittmund,Kreis,3,53.579,7.782,wittmund,03,Niedersachsen,niedersachsen
+04,Bremen,Kreis,2,,,bremen,04,Bremen,bremen
+04011,Bremen,Kreisfreie Stadt,3,53.076,8.807,bremen-kreisfreie-stadt,04,Bremen,bremen
+04012,Bremerhaven,Kreisfreie Stadt,3,53.552,8.587,bremerhaven,04,Bremen,bremen
+05,Nordrhein-Westfalen,Kreis,2,,,nordrhein-westfalen,05,Nordrhein-Westfalen,nordrhein-westfalen
+051,Düsseldorf,Regierungsbezirk,,,,duesseldorf-regierungsbezirk,05,Nordrhein-Westfalen,nordrhein-westfalen
+05111,Düsseldorf,Kreisfreie Stadt,3,51.225,6.776,duesseldorf-kreisfreie-stadt,05,Nordrhein-Westfalen,nordrhein-westfalen
+05112,Duisburg,Kreisfreie Stadt,3,51.435,6.76,duisburg,05,Nordrhein-Westfalen,nordrhein-westfalen
+05113,Essen,Kreisfreie Stadt,3,51.457,7.011,essen,05,Nordrhein-Westfalen,nordrhein-westfalen
+05114,Krefeld,Kreisfreie Stadt,3,51.333,6.562,krefeld,05,Nordrhein-Westfalen,nordrhein-westfalen
+05116,Mönchengladbach,Kreisfreie Stadt,3,51.195,6.435,moenchengladbach,05,Nordrhein-Westfalen,nordrhein-westfalen
+05117,Mülheim an der Ruhr,Kreisfreie Stadt,3,51.427,6.883,muelheim-an-der-ruhr,05,Nordrhein-Westfalen,nordrhein-westfalen
+05119,Oberhausen,Kreisfreie Stadt,3,51.514,6.849,oberhausen,05,Nordrhein-Westfalen,nordrhein-westfalen
+05120,Remscheid,Kreisfreie Stadt,3,51.18,7.194,remscheid,05,Nordrhein-Westfalen,nordrhein-westfalen
+05122,Solingen,Kreisfreie Stadt,3,51.171,7.084,solingen,05,Nordrhein-Westfalen,nordrhein-westfalen
+05124,Wuppertal,Kreisfreie Stadt,3,51.264,7.178,wuppertal,05,Nordrhein-Westfalen,nordrhein-westfalen
+05154,Kleve,Kreis,3,51.785,6.131,kleve,05,Nordrhein-Westfalen,nordrhein-westfalen
+05158,Mettmann,Kreis,3,51.253,6.978,mettmann,05,Nordrhein-Westfalen,nordrhein-westfalen
+05162,Rhein-Kreis Neuss,Kreis,3,51.152,6.635,rhein-kreis-neuss,05,Nordrhein-Westfalen,nordrhein-westfalen
+05166,Viersen,Kreis,3,51.256,6.39,viersen,05,Nordrhein-Westfalen,nordrhein-westfalen
+05170,Wesel,Kreis,3,51.658,6.617,wesel,05,Nordrhein-Westfalen,nordrhein-westfalen
+053,Köln,Regierungsbezirk,,,,koeln-regierungsbezirk,05,Nordrhein-Westfalen,nordrhein-westfalen
+05314,Bonn,Kreisfreie Stadt,3,50.736,7.101,bonn,05,Nordrhein-Westfalen,nordrhein-westfalen
+05315,Köln,Kreisfreie Stadt,3,50.938,6.96,koeln-kreisfreie-stadt,05,Nordrhein-Westfalen,nordrhein-westfalen
+05316,Leverkusen,Kreisfreie Stadt,3,51.032,6.988,leverkusen,05,Nordrhein-Westfalen,nordrhein-westfalen
+05334,Städteregion Aachen (einschl. Stadt Aachen),Kreis,3,,,staedteregion-aachen-einschl-stadt-aachen,05,Nordrhein-Westfalen,nordrhein-westfalen
+05334002,Aachen,krfr. Stadt,,,,aachen-krfr-stadt,05,Nordrhein-Westfalen,nordrhein-westfalen
+05354,Aachen,Kreis,3,50.776,6.084,aachen,05,Nordrhein-Westfalen,nordrhein-westfalen
+05358,Düren,Kreis,3,50.803,6.482,dueren,05,Nordrhein-Westfalen,nordrhein-westfalen
+05362,Rhein-Erft-Kreis,Kreis,3,50.903,6.763,rhein-erft-kreis,05,Nordrhein-Westfalen,nordrhein-westfalen
+05366,Euskirchen,Kreis,3,50.661,6.787,euskirchen,05,Nordrhein-Westfalen,nordrhein-westfalen
+05370,Heinsberg,Kreis,3,51.065,6.098,heinsberg,05,Nordrhein-Westfalen,nordrhein-westfalen
+05374,Oberbergischer Kreis,Kreis,3,51.013,7.518,oberbergischer-kreis,05,Nordrhein-Westfalen,nordrhein-westfalen
+05378,Rheinisch-Bergischer Kreis,Kreis,3,51.035,7.173,rheinisch-bergischer-kreis,05,Nordrhein-Westfalen,nordrhein-westfalen
+05382,Rhein-Sieg-Kreis,Kreis,3,50.753,7.381,rhein-sieg-kreis,05,Nordrhein-Westfalen,nordrhein-westfalen
+055,Münster,Regierungsbezirk,,,,muenster-regierungsbezirk,05,Nordrhein-Westfalen,nordrhein-westfalen
+05512,Bottrop,Kreisfreie Stadt,3,51.522,6.929,bottrop,05,Nordrhein-Westfalen,nordrhein-westfalen
+05513,Gelsenkirchen,Kreisfreie Stadt,3,51.511,7.096,gelsenkirchen,05,Nordrhein-Westfalen,nordrhein-westfalen
+05515,Münster,Kreisfreie Stadt,3,51.95,7.613,muenster-kreisfreie-stadt,05,Nordrhein-Westfalen,nordrhein-westfalen
+05554,Borken,Kreis,3,51.844,6.858,borken,05,Nordrhein-Westfalen,nordrhein-westfalen
+05558,Coesfeld,Kreis,3,51.945,7.168,coesfeld,05,Nordrhein-Westfalen,nordrhein-westfalen
+05562,Recklinghausen,Kreis,3,51.614,7.198,recklinghausen,05,Nordrhein-Westfalen,nordrhein-westfalen
+05566,Steinfurt,Kreis,3,52.129,7.39,steinfurt,05,Nordrhein-Westfalen,nordrhein-westfalen
+05570,Warendorf,Kreis,3,51.953,7.991,warendorf,05,Nordrhein-Westfalen,nordrhein-westfalen
+057,Detmold,Regierungsbezirk,,,,detmold,05,Nordrhein-Westfalen,nordrhein-westfalen
+05711,Bielefeld,Kreisfreie Stadt,3,52.011,8.541,bielefeld,05,Nordrhein-Westfalen,nordrhein-westfalen
+05754,Gütersloh,Kreis,3,51.906,8.378,guetersloh,05,Nordrhein-Westfalen,nordrhein-westfalen
+05758,Herford,Kreis,3,52.115,8.671,herford,05,Nordrhein-Westfalen,nordrhein-westfalen
+05762,Höxter,Kreis,3,51.775,9.382,hoexter,05,Nordrhein-Westfalen,nordrhein-westfalen
+05766,Lippe,Kreis,3,51.671,7.717,lippe,05,Nordrhein-Westfalen,nordrhein-westfalen
+05770,Minden-Lübbecke,Kreis,3,52.288,8.917,minden-luebbecke,05,Nordrhein-Westfalen,nordrhein-westfalen
+05774,Paderborn,Kreis,3,51.719,8.765,paderborn,05,Nordrhein-Westfalen,nordrhein-westfalen
+059,Arnsberg,Regierungsbezirk,,,,arnsberg,05,Nordrhein-Westfalen,nordrhein-westfalen
+05911,Bochum,Kreisfreie Stadt,3,51.482,7.22,bochum,05,Nordrhein-Westfalen,nordrhein-westfalen
+05913,Dortmund,Kreisfreie Stadt,3,51.514,7.465,dortmund,05,Nordrhein-Westfalen,nordrhein-westfalen
+05914,Hagen,Kreisfreie Stadt,3,51.358,7.473,hagen,05,Nordrhein-Westfalen,nordrhein-westfalen
+05915,Hamm,Kreisfreie Stadt,3,51.662,7.822,hamm,05,Nordrhein-Westfalen,nordrhein-westfalen
+05916,Herne,Kreisfreie Stadt,3,51.538,7.22,herne,05,Nordrhein-Westfalen,nordrhein-westfalen
+05954,Ennepe-Ruhr-Kreis,Kreis,3,51.348,7.335,ennepe-ruhr-kreis,05,Nordrhein-Westfalen,nordrhein-westfalen
+05958,Hochsauerlandkreis,Kreis,3,51.296,8.421,hochsauerlandkreis,05,Nordrhein-Westfalen,nordrhein-westfalen
+05962,Märkischer Kreis,Kreis,3,51.266,7.699,maerkischer-kreis,05,Nordrhein-Westfalen,nordrhein-westfalen
+05966,Olpe,Kreis,3,51.03,7.842,olpe,05,Nordrhein-Westfalen,nordrhein-westfalen
+05970,Siegen-Wittgenstein,Kreis,3,50.918,8.138,siegen-wittgenstein,05,Nordrhein-Westfalen,nordrhein-westfalen
+05974,Soest,Kreis,3,51.573,8.106,soest,05,Nordrhein-Westfalen,nordrhein-westfalen
+05978,Unna,Kreis,3,51.535,7.689,unna,05,Nordrhein-Westfalen,nordrhein-westfalen
+06,Hessen,Kreis,2,,,hessen,06,Hessen,hessen
+064,Darmstadt,Regierungsbezirk,,,,darmstadt-regierungsbezirk,06,Hessen,hessen
+06411,Darmstadt,Kreisfreie Stadt,3,49.873,8.651,darmstadt-kreisfreie-stadt,06,Hessen,hessen
+06412,Frankfurt am Main,Kreisfreie Stadt,3,50.216,8.692,frankfurt-am-main,06,Hessen,hessen
+06413,Offenbach am Main,Kreisfreie Stadt,3,50.089,8.766,offenbach-am-main,06,Hessen,hessen
+06414,Wiesbaden,Landeshauptstadt,3,50.083,8.25,wiesbaden,06,Hessen,hessen
+06431,Bergstraße,Kreis,3,49.641,8.637,bergstrasse,06,Hessen,hessen
+06432,Darmstadt-Dieburg,Kreis,3,49.883,8.848,darmstadt-dieburg,06,Hessen,hessen
+06433,Groß-Gerau,Kreis,3,49.919,8.485,gross-gerau,06,Hessen,hessen
+06434,Hochtaunuskreis,Kreis,3,50.243,8.509,hochtaunuskreis,06,Hessen,hessen
+06435,Main-Kinzig-Kreis,Kreis,3,50.212,9.152,main-kinzig-kreis,06,Hessen,hessen
+06436,Main-Taunus-Kreis,Kreis,3,50.1,8.471,main-taunus-kreis,06,Hessen,hessen
+06437,Odenwaldkreis,Kreis,3,49.684,8.973,odenwaldkreis,06,Hessen,hessen
+06438,Offenbach,Kreis,3,50.089,8.766,offenbach,06,Hessen,hessen
+06439,Rheingau-Taunus-Kreis,Kreis,3,50.124,8.091,rheingau-taunus-kreis,06,Hessen,hessen
+06440,Wetteraukreis,Kreis,3,50.345,8.892,wetteraukreis,06,Hessen,hessen
+065,Gießen,Regierungsbezirk,,,,giessen-regierungsbezirk,06,Hessen,hessen
+06531,Gießen,Kreis,3,50.586,8.674,giessen,06,Hessen,hessen
+06532,Lahn-Dill-Kreis,Kreis,3,50.604,8.392,lahn-dill-kreis,06,Hessen,hessen
+06533,Limburg-Weilburg,Kreis,3,50.441,8.158,limburg-weilburg,06,Hessen,hessen
+06534,Marburg-Biedenkopf,Kreis,3,50.833,8.733,marburg-biedenkopf,06,Hessen,hessen
+06535,Vogelsbergkreis,Kreis,3,50.641,9.259,vogelsbergkreis,06,Hessen,hessen
+066,Kassel,Regierungsbezirk,,,,kassel-regierungsbezirk,06,Hessen,hessen
+06611,Kassel,Kreisfreie Stadt,3,51.309,9.476,kassel-kreisfreie-stadt,06,Hessen,hessen
+06631,Fulda,Kreis,3,50.552,9.677,fulda,06,Hessen,hessen
+06632,Hersfeld-Rotenburg,Kreis,3,50.902,9.763,hersfeld-rotenburg,06,Hessen,hessen
+06633,Kassel,Kreis,3,51.309,9.476,kassel,06,Hessen,hessen
+06634,Schwalm-Eder-Kreis,Kreis,3,51.015,9.329,schwalm-eder-kreis,06,Hessen,hessen
+06635,Waldeck-Frankenberg,Kreis,3,51.279,8.935,waldeck-frankenberg,06,Hessen,hessen
+06636,Werra-Meißner-Kreis,Kreis,3,51.249,9.925,werra-meissner-kreis,06,Hessen,hessen
+07,Rheinland-Pfalz,Kreis,2,,,rheinland-pfalz,07,Rheinland-Pfalz,rheinland-pfalz
+071,Koblenz,Stat. Region,,,,koblenz-stat-region,07,Rheinland-Pfalz,rheinland-pfalz
+07111,Koblenz,Kreisfreie Stadt,3,50.353,7.594,koblenz-kreisfreie-stadt,07,Rheinland-Pfalz,rheinland-pfalz
+07131,Ahrweiler,Kreis,3,50.437,7.005,ahrweiler,07,Rheinland-Pfalz,rheinland-pfalz
+07132,Altenkirchen (Westerwald),Kreis,3,50.688,7.639,altenkirchen-westerwald,07,Rheinland-Pfalz,rheinland-pfalz
+07133,Bad Kreuznach,Kreis,3,49.849,7.863,bad-kreuznach,07,Rheinland-Pfalz,rheinland-pfalz
+07134,Birkenfeld,Kreis,3,49.649,7.165,birkenfeld,07,Rheinland-Pfalz,rheinland-pfalz
+07135,Cochem-Zell,Kreis,3,50.141,7.189,cochem-zell,07,Rheinland-Pfalz,rheinland-pfalz
+07137,Mayen-Koblenz,Kreis,3,50.302,7.374,mayen-koblenz,07,Rheinland-Pfalz,rheinland-pfalz
+07138,Neuwied,Kreis,3,50.43,7.466,neuwied,07,Rheinland-Pfalz,rheinland-pfalz
+07140,Rhein-Hunsrück-Kreis,Kreis,3,50.022,7.489,rhein-hunsrueck-kreis,07,Rheinland-Pfalz,rheinland-pfalz
+07141,Rhein-Lahn-Kreis,Kreis,3,50.265,7.861,rhein-lahn-kreis,07,Rheinland-Pfalz,rheinland-pfalz
+07143,Westerwaldkreis,Kreis,3,50.557,7.866,westerwaldkreis,07,Rheinland-Pfalz,rheinland-pfalz
+072,Trier,Stat. Region,,,,trier-stat-region,07,Rheinland-Pfalz,rheinland-pfalz
+07211,Trier,Kreisfreie Stadt,3,49.76,6.644,trier-kreisfreie-stadt,07,Rheinland-Pfalz,rheinland-pfalz
+07231,Bernkastel-Wittlich,Kreis,3,49.929,6.938,bernkastel-wittlich,07,Rheinland-Pfalz,rheinland-pfalz
+07232,Eifelkreis Bitburg-Prüm,Kreis,3,50.038,6.398,eifelkreis-bitburg-pruem,07,Rheinland-Pfalz,rheinland-pfalz
+07233,Vulkaneifel,Kreis,3,50.213,6.828,vulkaneifel,07,Rheinland-Pfalz,rheinland-pfalz
+07235,Trier-Saarburg,Kreis,3,49.608,6.548,trier-saarburg,07,Rheinland-Pfalz,rheinland-pfalz
+073,Rheinhessen-Pfalz,Stat. Region,,,,rheinhessen-pfalz,07,Rheinland-Pfalz,rheinland-pfalz
+07311,Frankenthal (Pfalz),Kreisfreie Stadt,3,49.545,8.354,frankenthal-pfalz,07,Rheinland-Pfalz,rheinland-pfalz
+07312,Kaiserslautern,Kreisfreie Stadt,3,49.443,7.769,kaiserslautern-kreisfreie-stadt,07,Rheinland-Pfalz,rheinland-pfalz
+07313,Landau in der Pfalz,Kreisfreie Stadt,3,49.207,8.113,landau-in-der-pfalz,07,Rheinland-Pfalz,rheinland-pfalz
+07314,Ludwigshafen am Rhein,Kreisfreie Stadt,3,49.487,8.39,ludwigshafen-am-rhein,07,Rheinland-Pfalz,rheinland-pfalz
+07315,Mainz,Kreisfreie Stadt,3,50.0,8.271,mainz,07,Rheinland-Pfalz,rheinland-pfalz
+07316,Neustadt an der Weinstraße,Kreisfreie Stadt,3,49.354,8.136,neustadt-an-der-weinstrasse,07,Rheinland-Pfalz,rheinland-pfalz
+07317,Pirmasens,Kreisfreie Stadt,3,49.2,7.609,pirmasens,07,Rheinland-Pfalz,rheinland-pfalz
+07318,Speyer,Kreisfreie Stadt,3,49.317,8.434,speyer,07,Rheinland-Pfalz,rheinland-pfalz
+07319,Worms,Kreisfreie Stadt,3,49.662,8.321,worms,07,Rheinland-Pfalz,rheinland-pfalz
+07320,Zweibrücken,Kreisfreie Stadt,3,49.249,7.364,zweibruecken,07,Rheinland-Pfalz,rheinland-pfalz
+07331,Alzey-Worms,Kreis,3,49.754,8.142,alzey-worms,07,Rheinland-Pfalz,rheinland-pfalz
+07332,Bad Dürkheim,Kreis,3,49.463,8.171,bad-duerkheim,07,Rheinland-Pfalz,rheinland-pfalz
+07333,Donnersbergkreis,Kreis,3,49.639,7.91,donnersbergkreis,07,Rheinland-Pfalz,rheinland-pfalz
+07334,Germersheim,Kreis,3,49.222,8.367,germersheim,07,Rheinland-Pfalz,rheinland-pfalz
+07335,Kaiserslautern,Kreis,3,49.443,7.769,kaiserslautern,07,Rheinland-Pfalz,rheinland-pfalz
+07336,Kusel,Kreis,3,49.54,7.401,kusel,07,Rheinland-Pfalz,rheinland-pfalz
+07337,Südliche Weinstraße,Kreis,3,49.185,8.063,suedliche-weinstrasse,07,Rheinland-Pfalz,rheinland-pfalz
+07338,Rhein-Pfalz-Kreis,Kreis,3,49.429,8.314,rhein-pfalz-kreis,07,Rheinland-Pfalz,rheinland-pfalz
+07339,Mainz-Bingen,Kreis,3,49.908,8.121,mainz-bingen,07,Rheinland-Pfalz,rheinland-pfalz
+07340,Südwestpfalz,Kreis,3,49.223,7.62,suedwestpfalz,07,Rheinland-Pfalz,rheinland-pfalz
+08,Baden-Württemberg,Land,2,,,baden-wuerttemberg,08,Baden-Württemberg,baden-wuerttemberg
+081,Stuttgart,Regierungsbezirk,,,,stuttgart-regierungsbezirk,08,Baden-Württemberg,baden-wuerttemberg
+08111,Stuttgart,Landeshauptstadt,3,48.778,9.18,stuttgart-landeshauptstadt,08,Baden-Württemberg,baden-wuerttemberg
+08115,Böblingen,Kreis,3,48.685,9.011,boeblingen,08,Baden-Württemberg,baden-wuerttemberg
+08116,Esslingen,Kreis,3,48.743,9.307,esslingen,08,Baden-Württemberg,baden-wuerttemberg
+08117,Göppingen,Kreis,3,48.703,9.654,goeppingen,08,Baden-Württemberg,baden-wuerttemberg
+08118,Ludwigsburg,Kreis,3,48.896,9.19,ludwigsburg,08,Baden-Württemberg,baden-wuerttemberg
+08119,Rems-Murr-Kreis,Kreis,3,48.893,9.467,rems-murr-kreis,08,Baden-Württemberg,baden-wuerttemberg
+08121,Heilbronn,Stadtkreis,3,49.142,9.219,heilbronn-stadtkreis,08,Baden-Württemberg,baden-wuerttemberg
+08125,Heilbronn,Kreis,3,49.142,9.219,heilbronn,08,Baden-Württemberg,baden-wuerttemberg
+08126,Hohenlohekreis,Kreis,3,49.273,9.606,hohenlohekreis,08,Baden-Württemberg,baden-wuerttemberg
+08127,Schwäbisch Hall,Kreis,3,49.112,9.737,schwaebisch-hall,08,Baden-Württemberg,baden-wuerttemberg
+08128,Main-Tauber-Kreis,Kreis,3,49.571,9.7,main-tauber-kreis,08,Baden-Württemberg,baden-wuerttemberg
+08135,Heidenheim,Kreis,3,48.677,10.153,heidenheim,08,Baden-Württemberg,baden-wuerttemberg
+08136,Ostalbkreis,Kreis,3,48.878,10.034,ostalbkreis,08,Baden-Württemberg,baden-wuerttemberg
+082,Karlsruhe,Regierungsbzirk,,,,karlsruhe-regierungsbzirk,08,Baden-Württemberg,baden-wuerttemberg
+08211,Baden-Baden,Stadtkreis,3,48.758,8.242,baden-baden,08,Baden-Württemberg,baden-wuerttemberg
+08212,Karlsruhe,Stadtkreis,3,49.014,8.404,karlsruhe-stadtkreis,08,Baden-Württemberg,baden-wuerttemberg
+08215,Karlsruhe,Kreis,3,49.014,8.404,karlsruhe,08,Baden-Württemberg,baden-wuerttemberg
+08216,Rastatt,Kreis,3,48.857,8.209,rastatt,08,Baden-Württemberg,baden-wuerttemberg
+08221,Heidelberg,Stadtkreis,3,49.409,8.695,heidelberg,08,Baden-Württemberg,baden-wuerttemberg
+08222,Mannheim,Stadtkreis,3,49.49,8.467,mannheim,08,Baden-Württemberg,baden-wuerttemberg
+08225,Neckar-Odenwald-Kreis,Kreis,3,49.468,9.271,neckar-odenwald-kreis,08,Baden-Württemberg,baden-wuerttemberg
+08226,Rhein-Neckar-Kreis,Kreis,3,49.368,8.735,rhein-neckar-kreis,08,Baden-Württemberg,baden-wuerttemberg
+08231,Pforzheim,Stadtkreis,3,48.891,8.703,pforzheim,08,Baden-Württemberg,baden-wuerttemberg
+08235,Calw,Kreis,3,48.715,8.738,calw,08,Baden-Württemberg,baden-wuerttemberg
+08236,Enzkreis,Kreis,3,48.91,8.74,enzkreis,08,Baden-Württemberg,baden-wuerttemberg
+08237,Freudenstadt,Kreis,3,48.464,8.411,freudenstadt,08,Baden-Württemberg,baden-wuerttemberg
+083,Freiburg,Regierungsbezirk,,,,freiburg,08,Baden-Württemberg,baden-wuerttemberg
+08311,Freiburg im Breisgau,Stadtkreis,3,48.002,7.824,freiburg-im-breisgau,08,Baden-Württemberg,baden-wuerttemberg
+08315,Breisgau-Hochschwarzwald,Kreis,3,47.941,7.847,breisgau-hochschwarzwald,08,Baden-Württemberg,baden-wuerttemberg
+08316,Emmendingen,Kreis,3,48.121,7.851,emmendingen,08,Baden-Württemberg,baden-wuerttemberg
+08317,Ortenaukreis,Kreis,3,48.411,8.006,ortenaukreis,08,Baden-Württemberg,baden-wuerttemberg
+08325,Rottweil,Kreis,3,48.166,8.625,rottweil,08,Baden-Württemberg,baden-wuerttemberg
+08326,Schwarzwald-Baar-Kreis,Kreis,3,48.048,8.397,schwarzwald-baar-kreis,08,Baden-Württemberg,baden-wuerttemberg
+08327,Tuttlingen,Kreis,3,47.984,8.819,tuttlingen,08,Baden-Württemberg,baden-wuerttemberg
+08335,Konstanz,Kreis,3,47.659,9.175,konstanz,08,Baden-Württemberg,baden-wuerttemberg
+08336,Lörrach,Kreis,3,47.612,7.661,loerrach,08,Baden-Württemberg,baden-wuerttemberg
+08337,Waldshut,Kreis,3,47.622,8.217,waldshut,08,Baden-Württemberg,baden-wuerttemberg
+084,Tübingen,Regierungsbezirk,,,,tuebingen-regierungsbezirk,08,Baden-Württemberg,baden-wuerttemberg
+08415,Reutlingen,Kreis,3,48.492,9.211,reutlingen,08,Baden-Württemberg,baden-wuerttemberg
+08416,Tübingen,Kreis,3,48.524,9.054,tuebingen,08,Baden-Württemberg,baden-wuerttemberg
+08417,Zollernalbkreis,Kreis,3,48.255,8.879,zollernalbkreis,08,Baden-Württemberg,baden-wuerttemberg
+08421,Ulm,Stadtkreis,3,48.397,9.993,ulm,08,Baden-Württemberg,baden-wuerttemberg
+08425,Alb-Donau-Kreis,Kreis,3,48.401,9.836,alb-donau-kreis,08,Baden-Württemberg,baden-wuerttemberg
+08426,Biberach,Kreis,3,48.61,8.236,biberach,08,Baden-Württemberg,baden-wuerttemberg
+08435,Bodenseekreis,Kreis,3,47.715,9.379,bodenseekreis,08,Baden-Württemberg,baden-wuerttemberg
+08436,Ravensburg,Kreis,3,47.781,9.612,ravensburg,08,Baden-Württemberg,baden-wuerttemberg
+08437,Sigmaringen,Kreis,3,48.086,9.218,sigmaringen,08,Baden-Württemberg,baden-wuerttemberg
+09,Bayern,Kreis,2,,,bayern,09,Bayern,bayern
+091,Oberbayern,Regierungsbezirk,,,,oberbayern,09,Bayern,bayern
+09161,Ingolstadt,Kreis,3,48.763,11.425,ingolstadt,09,Bayern,bayern
+09162,München,Landeshauptstadt,3,48.137,11.575,muenchen-landeshauptstadt,09,Bayern,bayern
+09163,Rosenheim,Kreis,3,47.854,12.127,rosenheim,09,Bayern,bayern
+09171,Altötting,Kreis,3,48.227,12.676,altoetting,09,Bayern,bayern
+09172,Berchtesgadener Land,Kreis,3,47.749,12.922,berchtesgadener-land,09,Bayern,bayern
+09173,Bad Tölz-Wolfratshausen,Kreis,3,47.783,11.487,bad-toelz-wolfratshausen,09,Bayern,bayern
+09174,Dachau,Kreis,3,48.259,11.435,dachau,09,Bayern,bayern
+09175,Ebersberg,Kreis,3,48.077,11.965,ebersberg,09,Bayern,bayern
+09176,Eichstätt,Kreis,3,48.893,11.184,eichstaett,09,Bayern,bayern
+09177,Erding,Kreis,3,48.306,11.908,erding,09,Bayern,bayern
+09178,Freising,Kreis,3,48.401,11.744,freising,09,Bayern,bayern
+09179,Fürstenfeldbruck,Kreis,3,48.181,11.238,fuerstenfeldbruck,09,Bayern,bayern
+09180,Garmisch-Partenkirchen,Kreis,3,47.494,11.104,garmisch-partenkirchen,09,Bayern,bayern
+09181,Landsberg am Lech,Kreis,3,48.051,10.874,landsberg-am-lech,09,Bayern,bayern
+09182,Miesbach,Kreis,3,47.79,11.834,miesbach,09,Bayern,bayern
+09183,Mühldorf a.Inn,Kreis,3,48.241,12.525,muehldorf-a-inn,09,Bayern,bayern
+09184,München,Kreis,3,48.137,11.575,muenchen,09,Bayern,bayern
+09185,Neuburg-Schrobenhausen,Kreis,3,48.654,11.225,neuburg-schrobenhausen,09,Bayern,bayern
+09186,Pfaffenhofen a.d.Ilm,Kreis,3,48.605,11.519,pfaffenhofen-a-d-ilm,09,Bayern,bayern
+09187,Rosenheim,Kreis,3,47.854,12.127,rosenheim,09,Bayern,bayern
+09188,Starnberg,Kreis,3,48.0,11.351,starnberg,09,Bayern,bayern
+09189,Traunstein,Kreis,3,47.87,12.642,traunstein,09,Bayern,bayern
+09190,Weilheim-Schongau,Kreis,3,47.791,11.063,weilheim-schongau,09,Bayern,bayern
+092,Niederbayern,Regierungsbezirk,,,,niederbayern,09,Bayern,bayern
+09261,Landshut,Kreis,3,48.536,12.152,landshut,09,Bayern,bayern
+09262,Passau,Kreis,3,48.574,13.461,passau,09,Bayern,bayern
+09263,Straubing,Kreis,3,48.882,12.57,straubing,09,Bayern,bayern
+09271,Deggendorf,Kreis,3,48.833,12.962,deggendorf,09,Bayern,bayern
+09272,Freyung-Grafenau,Kreis,3,48.817,13.481,freyung-grafenau,09,Bayern,bayern
+09273,Kelheim,Kreis,3,48.919,11.873,kelheim,09,Bayern,bayern
+09274,Landshut,Kreis,3,48.536,12.152,landshut,09,Bayern,bayern
+09275,Passau,Kreis,3,48.574,13.461,passau,09,Bayern,bayern
+09276,Regen,Kreis,3,48.97,13.126,regen,09,Bayern,bayern
+09277,Rottal-Inn,Kreis,3,48.412,12.846,rottal-inn,09,Bayern,bayern
+09278,Straubing-Bogen,Kreis,3,48.927,12.627,straubing-bogen,09,Bayern,bayern
+09279,Dingolfing-Landau,Kreis,3,48.637,12.588,dingolfing-landau,09,Bayern,bayern
+093,Oberpfalz,Regierungsbezirk,,,,oberpfalz,09,Bayern,bayern
+09361,Amberg,Kreis,3,49.445,11.859,amberg,09,Bayern,bayern
+09362,Regensburg,Kreis,3,49.02,12.097,regensburg,09,Bayern,bayern
+09363,Weiden i.d.OPf.,Kreis,3,49.675,12.163,weiden-i-d-opf,09,Bayern,bayern
+09371,Amberg-Sulzbach,Kreis,3,49.48,11.784,amberg-sulzbach,09,Bayern,bayern
+09372,Cham,Kreis,3,49.218,12.666,cham,09,Bayern,bayern
+09373,Neumarkt i.d.OPf.,Kreis,3,49.278,11.487,neumarkt-i-d-opf,09,Bayern,bayern
+09374,Neustadt a.d.Waldnaab,Kreis,3,49.731,12.173,neustadt-a-d-waldnaab,09,Bayern,bayern
+09375,Regensburg,Kreis,3,49.02,12.097,regensburg,09,Bayern,bayern
+09376,Schwandorf,Kreis,3,49.326,12.109,schwandorf,09,Bayern,bayern
+09377,Tirschenreuth,Kreis,3,49.878,12.337,tirschenreuth,09,Bayern,bayern
+094,Oberfranken,Regierungsbezirk,,,,oberfranken,09,Bayern,bayern
+09461,Bamberg,Kreis,3,49.893,10.888,bamberg,09,Bayern,bayern
+09462,Bayreuth,Kreis,3,49.943,11.576,bayreuth,09,Bayern,bayern
+09463,Coburg,Kreis,3,50.258,10.964,coburg,09,Bayern,bayern
+09464,Hof,Kreis,3,50.322,11.918,hof,09,Bayern,bayern
+09471,Bamberg,Kreis,3,49.893,10.888,bamberg,09,Bayern,bayern
+09472,Bayreuth,Kreis,3,49.943,11.576,bayreuth,09,Bayern,bayern
+09473,Coburg,Kreis,3,50.258,10.964,coburg,09,Bayern,bayern
+09474,Forchheim,Kreis,3,49.719,11.06,forchheim,09,Bayern,bayern
+09475,Hof,Kreis,3,50.322,11.918,hof,09,Bayern,bayern
+09476,Kronach,Kreis,3,50.24,11.328,kronach,09,Bayern,bayern
+09477,Kulmbach,Kreis,3,50.101,11.448,kulmbach,09,Bayern,bayern
+09478,Lichtenfels,Kreis,3,50.146,11.064,lichtenfels,09,Bayern,bayern
+09479,Wunsiedel i.Fichtelgebirge,Kreis,3,50.037,12.003,wunsiedel-i-fichtelgebirge,09,Bayern,bayern
+095,Mittelfranken,Regierungsbezirk,,,,mittelfranken,09,Bayern,bayern
+09561,Ansbach,Kreis,3,49.303,10.572,ansbach,09,Bayern,bayern
+09562,Erlangen,Kreis,3,49.598,11.004,erlangen,09,Bayern,bayern
+09563,Fürth,Kreis,3,49.477,10.99,fuerth,09,Bayern,bayern
+09564,Nürnberg,Kreis,3,49.366,11.114,nuernberg,09,Bayern,bayern
+09565,Schwabach,Kreis,3,49.33,11.02,schwabach,09,Bayern,bayern
+09571,Ansbach,Kreis,3,49.303,10.572,ansbach,09,Bayern,bayern
+09572,Erlangen-Höchstadt,Kreis,3,49.64,10.93,erlangen-hoechstadt,09,Bayern,bayern
+09573,Fürth,Kreis,3,49.477,10.99,fuerth,09,Bayern,bayern
+09574,Nürnberger Land,Kreis,3,49.509,11.357,nuernberger-land,09,Bayern,bayern
+09575,Neustadt a.d.Aisch-Bad Windsheim,Kreis,3,49.583,10.415,neustadt-a-d-aisch-bad-windsheim,09,Bayern,bayern
+09576,Roth,Kreis,3,49.246,11.091,roth,09,Bayern,bayern
+09577,Weißenburg-Gunzenhausen,Kreis,3,49.032,10.93,weissenburg-gunzenhausen,09,Bayern,bayern
+096,Unterfranken,Regierungsbezirk,,,,unterfranken,09,Bayern,bayern
+09661,Aschaffenburg,Kreis,3,49.974,9.149,aschaffenburg,09,Bayern,bayern
+09662,Schweinfurt,Kreis,3,50.05,10.233,schweinfurt,09,Bayern,bayern
+09663,Würzburg,Kreis,3,49.792,9.933,wuerzburg,09,Bayern,bayern
+09671,Aschaffenburg,Kreis,3,49.974,9.149,aschaffenburg,09,Bayern,bayern
+09672,Bad Kissingen,Kreis,3,50.2,10.078,bad-kissingen,09,Bayern,bayern
+09673,Rhön-Grabfeld,Kreis,3,50.469,10.095,rhoen-grabfeld,09,Bayern,bayern
+09674,Haßberge,Kreis,3,50.059,10.611,hassberge,09,Bayern,bayern
+09675,Kitzingen,Kreis,3,49.734,10.161,kitzingen,09,Bayern,bayern
+09676,Miltenberg,Kreis,3,49.703,9.251,miltenberg,09,Bayern,bayern
+09677,Main-Spessart,Kreis,3,49.969,9.64,main-spessart,09,Bayern,bayern
+09678,Schweinfurt,Kreis,3,50.05,10.233,schweinfurt,09,Bayern,bayern
+09679,Würzburg,Kreis,3,49.792,9.933,wuerzburg,09,Bayern,bayern
+097,Schwaben,Regierungsbezirk,,,,schwaben,09,Bayern,bayern
+09761,Augsburg,Kreis,3,48.367,10.899,augsburg,09,Bayern,bayern
+09762,Kaufbeuren,Kreis,3,47.88,10.622,kaufbeuren,09,Bayern,bayern
+09763,Kempten (Allgäu),Kreis,3,47.727,10.317,kempten-allgaeu,09,Bayern,bayern
+09764,Memmingen,Kreis,3,47.987,10.181,memmingen,09,Bayern,bayern
+09771,Aichach-Friedberg,Kreis,3,48.434,11.077,aichach-friedberg,09,Bayern,bayern
+09772,Augsburg,Kreis,3,48.367,10.899,augsburg,09,Bayern,bayern
+09773,Dillingen a.d.Donau,Kreis,3,48.581,10.495,dillingen-a-d-donau,09,Bayern,bayern
+09774,Günzburg,Kreis,3,48.454,10.279,guenzburg,09,Bayern,bayern
+09775,Neu-Ulm,Kreis,3,48.395,10.006,neu-ulm,09,Bayern,bayern
+09776,Lindau (Bodensee),Kreis,3,47.551,9.693,lindau-bodensee,09,Bayern,bayern
+09777,Ostallgäu,Kreis,3,47.803,10.626,ostallgaeu,09,Bayern,bayern
+09778,Unterallgäu,Kreis,3,48.034,10.35,unterallgaeu,09,Bayern,bayern
+09779,Donau-Ries,Kreis,3,48.815,10.697,donau-ries,09,Bayern,bayern
+09780,Oberallgäu,Kreis,3,47.613,10.271,oberallgaeu,09,Bayern,bayern
+10,Saarland,Kreis,2,,,saarland,10,Saarland,saarland
+10041,Saarbrücken,Regionalverband,3,49.234,6.996,saarbruecken-regionalverband,10,Saarland,saarland
+10041100,Saarbrücken,Landeshauptstadt,,,,saarbruecken-landeshauptstadt,10,Saarland,saarland
+10042,Merzig-Wadern,Kreis,3,49.443,6.637,merzig-wadern,10,Saarland,saarland
+10043,Neunkirchen,Kreis,3,49.346,7.184,neunkirchen,10,Saarland,saarland
+10044,Saarlouis,Kreis,3,49.316,6.75,saarlouis,10,Saarland,saarland
+10045,Saarpfalz-Kreis,Kreis,3,49.261,7.198,saarpfalz-kreis,10,Saarland,saarland
+10046,St. Wendel,Kreis,3,49.467,7.17,st-wendel,10,Saarland,saarland
+11,Berlin,Kreis,2,,,berlin,11,Berlin,berlin
+12,Brandenburg,Kreis,2,,,brandenburg,12,Brandenburg,brandenburg
+12051,Brandenburg an der Havel,Kreisfreie Stadt,3,52.411,12.55,brandenburg-an-der-havel,12,Brandenburg,brandenburg
+12052,Cottbus,Kreisfreie Stadt,3,51.757,14.336,cottbus,12,Brandenburg,brandenburg
+12053,Frankfurt (Oder),Kreisfreie Stadt,3,52.341,14.549,frankfurt-oder,12,Brandenburg,brandenburg
+12054,Potsdam,Kreisfreie Stadt,3,52.401,13.059,potsdam,12,Brandenburg,brandenburg
+12060,Barnim,Kreis,3,52.802,13.677,barnim,12,Brandenburg,brandenburg
+12061,Dahme-Spreewald,Kreis,3,52.228,13.766,dahme-spreewald,12,Brandenburg,brandenburg
+12062,Elbe-Elster,Kreis,3,51.627,13.481,elbe-elster,12,Brandenburg,brandenburg
+12063,Havelland,Kreis,3,52.728,13.382,havelland,12,Brandenburg,brandenburg
+12064,Märkisch-Oderland,Kreis,3,52.638,14.178,maerkisch-oderland,12,Brandenburg,brandenburg
+12065,Oberhavel,Kreis,3,52.579,13.212,oberhavel,12,Brandenburg,brandenburg
+12066,Oberspreewald-Lausitz,Kreis,3,51.631,14.034,oberspreewald-lausitz,12,Brandenburg,brandenburg
+12067,Oder-Spree,Kreis,3,52.25,14.268,oder-spree,12,Brandenburg,brandenburg
+12068,Ostprignitz-Ruppin,Kreis,3,53.002,12.703,ostprignitz-ruppin,12,Brandenburg,brandenburg
+12069,Potsdam-Mittelmark,Kreis,3,52.394,13.173,potsdam-mittelmark,12,Brandenburg,brandenburg
+12070,Prignitz,Kreis,3,52.999,11.757,prignitz,12,Brandenburg,brandenburg
+12071,Spree-Neiße,Kreis,3,51.845,14.131,spree-neisse,12,Brandenburg,brandenburg
+12072,Teltow-Fläming,Kreis,3,52.393,13.359,teltow-flaeming,12,Brandenburg,brandenburg
+12073,Uckermark,Kreis,3,53.245,13.915,uckermark,12,Brandenburg,brandenburg
+13,Mecklenburg-Vorpommern,Kreis,2,,,mecklenburg-vorpommern,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13001, Greifswald,Hansestadt,3,54.096,13.382,greifswald,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13002, Neubrandenburg,Stadt,3,53.557,13.26,neubrandenburg,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13003, Rostock,Hansestadt,3,54.092,12.129,rostock-hansestadt,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13004, Schwerin,Landeshauptstadt,3,53.629,11.415,schwerin,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13005, Stralsund,Hansestadt,3,54.316,13.09,stralsund,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13006, Wismar,Hansestadt,3,53.891,11.465,wismar,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13051, Bad Doberan,Kreis,3,54.106,11.903,bad-doberan,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13052, Demmin,Kreis,3,53.907,13.033,demmin,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13053, Güstrow,Kreis,3,53.794,12.176,guestrow,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13054, Ludwigslust,Kreis,3,53.33,11.499,ludwigslust,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13055, Mecklenburg-Strelitz,Kreis,3,53.487,13.321,mecklenburg-strelitz,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13056, Müritz,Kreis,3,54.264,12.268,mueritz,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13057, Nordvorpommern,Kreis,3,54.234,12.832,nordvorpommern,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13058, Nordwestmecklenburg,Kreis,3,53.81,11.233,nordwestmecklenburg,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13059, Ostvorpommern,Kreis,3,54.077,13.911,ostvorpommern,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13060, Parchim,Kreis,3,53.426,11.848,parchim,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13061, Rügen,Kreis,3,54.453,13.388,ruegen,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13062, Uecker-Randow,Kreis,3,53.551,14.073,uecker-randow,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13071, Mecklenburgische Seenplatte,Kreis,3,53.584,13.064,mecklenburgische-seenplatte,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13072, Rostock,Kreis,3,54.092,12.129,rostock,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13073, Vorpommern-Rügen,Kreis,3,54.229,12.813,vorpommern-ruegen,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13074, Nordwestmecklenburg,Kreis,3,53.81,11.233,nordwestmecklenburg,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13075, Vorpommern-Greifswald,Kreis,3,53.847,13.351,vorpommern-greifswald,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+13076, Ludwigslust-Parchim,Kreis,3,53.33,11.499,ludwigslust-parchim,13,Mecklenburg-Vorpommern,mecklenburg-vorpommern
+14,Sachsen,Kreis,2,,,sachsen,14,Sachsen,sachsen
+141,Chemnitz,Regierungsbezirk,,,,chemnitz-regierungsbezirk,14,Sachsen,sachsen
+14161,Chemnitz,Kreisfreie Stadt,3,50.832,12.925,chemnitz-kreisfreie-stadt,14,Sachsen,sachsen
+14166,Plauen,Kreisfreie Stadt,3,50.495,12.135,plauen,14,Sachsen,sachsen
+14167,Zwickau,Kreisfreie Stadt,3,50.719,12.494,zwickau-kreisfreie-stadt,14,Sachsen,sachsen
+14171,Annaberg,Kreis,3,50.581,13.002,annaberg,14,Sachsen,sachsen
+14173,Chemnitzer Land,Kreis,3,52.504,13.581,chemnitzer-land,14,Sachsen,sachsen
+14177,Freiberg,Kreis,3,50.917,13.343,freiberg,14,Sachsen,sachsen
+14178,Vogtlandkreis,Kreis,3,50.425,12.251,vogtlandkreis,14,Sachsen,sachsen
+14181,Mittlerer Erzgebirgskreis,Kreis,3,50.74,13.05,mittlerer-erzgebirgskreis,14,Sachsen,sachsen
+14182,Mittweida,Kreis,3,50.985,12.981,mittweida,14,Sachsen,sachsen
+14188,Stollberg,Kreis,3,49.876,10.427,stollberg,14,Sachsen,sachsen
+14191,Aue-Schwarzenberg,Kreis,3,47.832,12.745,aue-schwarzenberg,14,Sachsen,sachsen
+14193,Zwickauer Land,Kreis,3,52.423,13.484,zwickauer-land,14,Sachsen,sachsen
+142,Dresden,Regierungsbezirk,,,,dresden-regierungsbezirk,14,Sachsen,sachsen
+14262,Dresden,Kreisfreie Stadt,3,51.049,13.738,dresden-kreisfreie-stadt,14,Sachsen,sachsen
+14263,Görlitz,Kreisfreie Stadt,3,51.156,14.991,goerlitz-kreisfreie-stadt,14,Sachsen,sachsen
+14264,Hoyerswerda,Kreisfreie Stadt,3,51.424,14.216,hoyerswerda,14,Sachsen,sachsen
+14272,Bautzen,Kreis,3,51.184,14.427,bautzen,14,Sachsen,sachsen
+14280,Meißen,Kreis,3,51.163,13.47,meissen,14,Sachsen,sachsen
+14284,Niederschlesischer Oberlausitzkreis,Kreis,3,,,niederschlesischer-oberlausitzkreis,14,Sachsen,sachsen
+14285,Riesa-Großenhain,Kreis,3,51.292,13.533,riesa-grossenhain,14,Sachsen,sachsen
+14286,Löbau-Zittau,Kreis,3,51.01,14.732,loebau-zittau,14,Sachsen,sachsen
+14287,Sächsische Schweiz,Kreis,3,50.922,14.141,saechsische-schweiz,14,Sachsen,sachsen
+14290,Weißeritzkreis,Kreis,3,,,weisseritzkreis,14,Sachsen,sachsen
+14292,Kamenz,Kreis,3,51.283,14.126,kamenz,14,Sachsen,sachsen
+143,Leipzig,Regierungsbezirk,,,,leipzig-regierungsbezirk,14,Sachsen,sachsen
+14365,Leipzig,Kreisfreie Stadt,3,51.339,12.381,leipzig-kreisfreie-stadt,14,Sachsen,sachsen
+14374,Delitzsch,Kreis,3,51.526,12.343,delitzsch,14,Sachsen,sachsen
+14375,Döbeln,Kreis,3,51.117,13.117,doebeln,14,Sachsen,sachsen
+14379,Leipziger Land,Kreis,3,51.613,12.566,leipziger-land,14,Sachsen,sachsen
+14383,Muldentalkreis,Kreis,3,,,muldentalkreis,14,Sachsen,sachsen
+14389,Torgau-Oschatz,Kreis,3,51.56,12.967,torgau-oschatz,14,Sachsen,sachsen
+145,Chemnitz,NUTS 2-Region,,,,chemnitz-nuts-2-region,14,Sachsen,sachsen
+14511,Chemnitz,Stadt,3,50.832,12.925,chemnitz-stadt,14,Sachsen,sachsen
+14521,Erzgebirgskreis,Kreis,3,50.602,12.958,erzgebirgskreis,14,Sachsen,sachsen
+14522,Mittelsachsen,Kreis,3,50.935,13.043,mittelsachsen,14,Sachsen,sachsen
+14523,Vogtlandkreis,Kreis,3,50.425,12.251,vogtlandkreis,14,Sachsen,sachsen
+14524,Zwickau,Kreis,3,50.719,12.494,zwickau,14,Sachsen,sachsen
+146,Dresden,NUTS 2-Region,,,,dresden-nuts-2-region,14,Sachsen,sachsen
+14612,Dresden,Stadt,3,51.049,13.738,dresden-stadt,14,Sachsen,sachsen
+14625,Bautzen,Kreis,3,51.184,14.427,bautzen,14,Sachsen,sachsen
+14626,Görlitz,Kreis,3,51.156,14.991,goerlitz,14,Sachsen,sachsen
+14627,Meißen,Kreis,3,51.163,13.47,meissen,14,Sachsen,sachsen
+14628,Sächsische Schweiz-Osterzgebirge,Kreis,3,50.903,13.924,saechsische-schweiz-osterzgebirge,14,Sachsen,sachsen
+147,Leipzig,NUTS 2-Region,,,,leipzig-nuts-2-region,14,Sachsen,sachsen
+14713,Leipzig,Stadt,3,51.339,12.381,leipzig-stadt,14,Sachsen,sachsen
+14729,Leipzig,Kreis,3,51.339,12.381,leipzig,14,Sachsen,sachsen
+14730,Nordsachsen,Kreis,3,51.442,13.038,nordsachsen,14,Sachsen,sachsen
+15,Sachsen-Anhalt,Kreis,2,,,sachsen-anhalt,15,Sachsen-Anhalt,sachsen-anhalt
+15001,Dessau-Roßlau,Kreisfreie Stadt,3,51.852,12.222,dessau-rosslau,15,Sachsen-Anhalt,sachsen-anhalt
+15002,Halle (Saale),Kreisfreie Stadt,3,51.483,11.971,halle-saale-kreisfreie-stadt,15,Sachsen-Anhalt,sachsen-anhalt
+15003,Magdeburg,Kreisfreie Stadt,3,52.132,11.64,magdeburg-kreisfreie-stadt,15,Sachsen-Anhalt,sachsen-anhalt
+15081,Altmarkkreis Salzwedel,Kreis,3,52.691,11.23,altmarkkreis-salzwedel,15,Sachsen-Anhalt,sachsen-anhalt
+15082,Anhalt-Bitterfeld,Kreis,3,51.546,12.194,anhalt-bitterfeld,15,Sachsen-Anhalt,sachsen-anhalt
+15083,Börde,Kreis,3,52.183,11.453,boerde,15,Sachsen-Anhalt,sachsen-anhalt
+15084,Burgenlandkreis,Kreis,3,51.129,11.852,burgenlandkreis,15,Sachsen-Anhalt,sachsen-anhalt
+15085,Harz,Kreis,3,51.725,10.695,harz,15,Sachsen-Anhalt,sachsen-anhalt
+15086,Jerichower Land,Kreis,3,52.26,11.989,jerichower-land,15,Sachsen-Anhalt,sachsen-anhalt
+15087,Mansfeld-Südharz,Kreis,3,51.593,11.452,mansfeld-suedharz,15,Sachsen-Anhalt,sachsen-anhalt
+15088,Saalekreis,Kreis,3,51.455,11.85,saalekreis,15,Sachsen-Anhalt,sachsen-anhalt
+15089,Salzlandkreis,Kreis,3,51.851,11.6,salzlandkreis,15,Sachsen-Anhalt,sachsen-anhalt
+15090,Stendal,Kreis,3,52.605,11.859,stendal,15,Sachsen-Anhalt,sachsen-anhalt
+15091,Wittenberg,Kreis,3,51.867,12.647,wittenberg,15,Sachsen-Anhalt,sachsen-anhalt
+151,Dessau,Stat. Region,,,,dessau-stat-region,15,Sachsen-Anhalt,sachsen-anhalt
+15101,Dessau,Kreisfreie Stadt,3,51.831,12.243,dessau-kreisfreie-stadt,15,Sachsen-Anhalt,sachsen-anhalt
+15151,Anhalt-Zerbst,Kreis,3,51.964,12.086,anhalt-zerbst,15,Sachsen-Anhalt,sachsen-anhalt
+15153,Bernburg,Kreis,3,51.793,11.739,bernburg,15,Sachsen-Anhalt,sachsen-anhalt
+15154,Bitterfeld,Kreis,3,51.624,12.33,bitterfeld,15,Sachsen-Anhalt,sachsen-anhalt
+15159,Köthen,Kreis,3,51.736,11.932,koethen,15,Sachsen-Anhalt,sachsen-anhalt
+15171,Wittenberg,Kreis,3,51.867,12.647,wittenberg,15,Sachsen-Anhalt,sachsen-anhalt
+152,Halle,Stat. Region,,,,halle,15,Sachsen-Anhalt,sachsen-anhalt
+15202,Halle (Saale),Kreisfreie Stadt,3,51.483,11.971,halle-saale-kreisfreie-stadt,15,Sachsen-Anhalt,sachsen-anhalt
+15256,Burgenlandkreis,Kreis,3,51.129,11.852,burgenlandkreis,15,Sachsen-Anhalt,sachsen-anhalt
+15260,Mansfelder Land,Kreis,3,51.578,11.514,mansfelder-land,15,Sachsen-Anhalt,sachsen-anhalt
+15261,Merseburg-Querfurt,Kreis,3,51.346,11.885,merseburg-querfurt,15,Sachsen-Anhalt,sachsen-anhalt
+15265,Saalkreis,Kreis,3,51.489,12.078,saalkreis,15,Sachsen-Anhalt,sachsen-anhalt
+15266,Sangerhausen,Kreis,3,51.473,11.298,sangerhausen,15,Sachsen-Anhalt,sachsen-anhalt
+15268,Weißenfels,Kreis,3,51.2,11.967,weissenfels,15,Sachsen-Anhalt,sachsen-anhalt
+153,Magdeburg,Stat. Region,,,,magdeburg-stat-region,15,Sachsen-Anhalt,sachsen-anhalt
+15303,Magdeburg,Kreisfreie Stadt,3,52.132,11.64,magdeburg-kreisfreie-stadt,15,Sachsen-Anhalt,sachsen-anhalt
+15352,Aschersleben-Staßfurt,Kreis,3,51.853,11.592,aschersleben-stassfurt,15,Sachsen-Anhalt,sachsen-anhalt
+15355,Bördekreis,Kreis,3,52.293,11.415,boerdekreis,15,Sachsen-Anhalt,sachsen-anhalt
+15357,Halberstadt,Kreis,3,51.893,11.055,halberstadt,15,Sachsen-Anhalt,sachsen-anhalt
+15358,Jerichower Land,Kreis,3,52.26,11.989,jerichower-land,15,Sachsen-Anhalt,sachsen-anhalt
+15362,Ohrekreis,Kreis,3,,,ohrekreis,15,Sachsen-Anhalt,sachsen-anhalt
+15363,Stendal,Kreis,3,52.605,11.859,stendal,15,Sachsen-Anhalt,sachsen-anhalt
+15364,Quedlinburg,Kreis,3,51.786,11.152,quedlinburg,15,Sachsen-Anhalt,sachsen-anhalt
+15367,Schönebeck,Kreis,3,52.021,11.738,schoenebeck,15,Sachsen-Anhalt,sachsen-anhalt
+15369,Wernigerode,Kreis,3,51.834,10.786,wernigerode,15,Sachsen-Anhalt,sachsen-anhalt
+15370,Altmarkkreis Salzwedel,Kreis,3,52.691,11.23,altmarkkreis-salzwedel,15,Sachsen-Anhalt,sachsen-anhalt
+16,Thüringen,Kreis,2,,,thueringen,16,Thüringen,thueringen
+16051,Erfurt,krsfr. Stadt,3,50.978,11.029,erfurt,16,Thüringen,thueringen
+16052,Gera,krsfr. Stadt,3,50.877,12.08,gera,16,Thüringen,thueringen
+16053,Jena,krsfr. Stadt,3,50.928,11.588,jena,16,Thüringen,thueringen
+16054,Suhl,krsfr. Stadt,3,50.609,10.693,suhl,16,Thüringen,thueringen
+16055,Weimar,krsfr. Stadt,3,50.98,11.329,weimar,16,Thüringen,thueringen
+16056,Eisenach,krsfr. Stadt,3,50.983,10.317,eisenach,16,Thüringen,thueringen
+16061,Eichsfeld,Kreis,3,51.475,7.488,eichsfeld,16,Thüringen,thueringen
+16062,Nordhausen,Kreis,3,51.505,10.793,nordhausen,16,Thüringen,thueringen
+16063,Wartburgkreis,Kreis,3,50.885,10.238,wartburgkreis,16,Thüringen,thueringen
+16064,Unstrut-Hainich-Kreis,Kreis,3,51.188,10.574,unstrut-hainich-kreis,16,Thüringen,thueringen
+16065,Kyffhäuserkreis,Kreis,3,51.315,10.838,kyffhaeuserkreis,16,Thüringen,thueringen
+16066,Schmalkalden-Meiningen,Kreis,3,50.721,10.451,schmalkalden-meiningen,16,Thüringen,thueringen
+16067,Gotha,Kreis,3,50.946,10.695,gotha,16,Thüringen,thueringen
+16068,Sömmerda,Kreis,3,51.162,11.118,soemmerda,16,Thüringen,thueringen
+16069,Hildburghausen,Kreis,3,50.427,10.73,hildburghausen,16,Thüringen,thueringen
+16070,Ilm-Kreis,Kreis,3,50.731,10.931,ilm-kreis,16,Thüringen,thueringen
+16071,Weimarer Land,Kreis,3,50.957,11.205,weimarer-land,16,Thüringen,thueringen
+16072,Sonneberg,Kreis,3,50.358,11.169,sonneberg,16,Thüringen,thueringen
+16073,Saalfeld-Rudolstadt,Kreis,3,50.648,11.362,saalfeld-rudolstadt,16,Thüringen,thueringen
+16074,Saale-Holzland-Kreis,Kreis,3,50.917,11.81,saale-holzland-kreis,16,Thüringen,thueringen
+16075,Saale-Orla-Kreis,Kreis,3,50.586,11.776,saale-orla-kreis,16,Thüringen,thueringen
+16076,Greiz,Kreis,3,50.656,12.201,greiz,16,Thüringen,thueringen
+16077,Altenburger Land,Kreis,3,50.957,12.308,altenburger-land,16,Thüringen,thueringen

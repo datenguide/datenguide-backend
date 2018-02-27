@@ -1,0 +1,548 @@
+GENESIS-Tabelle: 11111-02-01-4
+Feststellung des Gebietsstandes: Zahl der Gemeinden;;;
+- Stichtag 31.12. - regionale Tiefe: Kreise und krfr. Städte;;;
+Feststellung des Gebietsstandes;;;
+;;;Zahl der Gemeinden
+;;;Anzahl
+31.12.2015;DG;Deutschland;11092
+31.12.2015;01;  Schleswig-Holstein;1110
+31.12.2015;01001;      Flensburg, Kreisfreie Stadt;1
+31.12.2015;01002;      Kiel, Landeshauptstadt, Kreisfreie Stadt;1
+31.12.2015;01003;      Lübeck, Hansestadt, Kreisfreie Stadt;1
+31.12.2015;01004;      Neumünster, Kreisfreie Stadt;1
+31.12.2015;01051;      Dithmarschen, Landkreis;116
+31.12.2015;01053;      Herzogtum Lauenburg, Landkreis;132
+31.12.2015;01054;      Nordfriesland, Landkreis;133
+31.12.2015;01055;      Ostholstein, Landkreis;35
+31.12.2015;01056;      Pinneberg, Landkreis;49
+31.12.2015;01057;      Plön, Landkreis;86
+31.12.2015;01058;      Rendsburg-Eckernförde, Landkreis;165
+31.12.2015;01059;      Schleswig-Flensburg, Landkreis;129
+31.12.2015;01060;      Segeberg, Landkreis;95
+31.12.2015;01061;      Steinburg, Landkreis;111
+31.12.2015;01062;      Stormarn, Landkreis;55
+31.12.2015;02;  Hamburg;1
+31.12.2015;03;  Niedersachsen;973
+31.12.2015;031;    Braunschweig, Stat. Region;172
+31.12.2015;03101;      Braunschweig, Kreisfreie Stadt;1
+31.12.2015;03102;      Salzgitter, Kreisfreie Stadt;1
+31.12.2015;03103;      Wolfsburg, Kreisfreie Stadt;1
+31.12.2015;03151;      Gifhorn, Landkreis;41
+31.12.2015;03152;      Göttingen, Landkreis;29
+31.12.2015;03153;      Goslar, Landkreis;10
+31.12.2015;03154;      Helmstedt, Landkreis;26
+31.12.2015;03155;      Northeim, Landkreis;11
+31.12.2015;03156;      Osterode am Harz, Landkreis;12
+31.12.2015;03157;      Peine, Landkreis;7
+31.12.2015;03158;      Wolfenbüttel, Landkreis;33
+31.12.2015;03159;      Göttingen, Landkreis;-
+31.12.2015;032;    Hannover, Stat. Region;221
+31.12.2015;03241;      Region Hannover, Landkreis;21
+31.12.2015;03241001;      Hannover, Landeshauptstadt;1
+31.12.2015;03251;      Diepholz, Landkreis;46
+31.12.2015;03252;      Hameln-Pyrmont, Landkreis;8
+31.12.2015;03254;      Hildesheim, Landkreis;40
+31.12.2015;03255;      Holzminden, Landkreis;32
+31.12.2015;03256;      Nienburg (Weser), Landkreis;36
+31.12.2015;03257;      Schaumburg, Landkreis;38
+31.12.2015;033;    Lüneburg, Stat. Region;333
+31.12.2015;03351;      Celle, Landkreis;21
+31.12.2015;03352;      Cuxhaven, Landkreis;30
+31.12.2015;03353;      Harburg, Landkreis;42
+31.12.2015;03354;      Lüchow-Dannenberg, Landkreis;27
+31.12.2015;03355;      Lüneburg, Landkreis;43
+31.12.2015;03356;      Osterholz, Landkreis;11
+31.12.2015;03357;      Rotenburg (Wümme), Landkreis;57
+31.12.2015;03358;      Heidekreis, Landkreis;24
+31.12.2015;03359;      Stade, Landkreis;40
+31.12.2015;03360;      Uelzen, Landkreis;27
+31.12.2015;03361;      Verden, Landkreis;11
+31.12.2015;034;    Weser-Ems, Stat. Region;247
+31.12.2015;03401;      Delmenhorst, Kreisfreie Stadt;1
+31.12.2015;03402;      Emden, Kreisfreie Stadt;1
+31.12.2015;03403;      Oldenburg (Oldenburg), Kreisfreie Stadt;1
+31.12.2015;03404;      Osnabrück, Kreisfreie Stadt;1
+31.12.2015;03405;      Wilhelmshaven, Kreisfreie Stadt;1
+31.12.2015;03451;      Ammerland, Landkreis;6
+31.12.2015;03452;      Aurich, Landkreis;24
+31.12.2015;03453;      Cloppenburg, Landkreis;13
+31.12.2015;03454;      Emsland, Landkreis;60
+31.12.2015;03455;      Friesland, Landkreis;8
+31.12.2015;03456;      Grafschaft Bentheim, Landkreis;25
+31.12.2015;03457;      Leer, Landkreis;19
+31.12.2015;03458;      Oldenburg, Landkreis;15
+31.12.2015;03459;      Osnabrück, Landkreis;34
+31.12.2015;03460;      Vechta, Landkreis;10
+31.12.2015;03461;      Wesermarsch, Landkreis;9
+31.12.2015;03462;      Wittmund, Landkreis;19
+31.12.2015;04;  Bremen;2
+31.12.2015;04011;      Bremen, Kreisfreie Stadt;1
+31.12.2015;04012;      Bremerhaven, Kreisfreie Stadt;1
+31.12.2015;05;  Nordrhein-Westfalen;396
+31.12.2015;051;    Düsseldorf, Regierungsbezirk;66
+31.12.2015;05111;      Düsseldorf, Kreisfreie Stadt;1
+31.12.2015;05112;      Duisburg, Kreisfreie Stadt;1
+31.12.2015;05113;      Essen, Kreisfreie Stadt;1
+31.12.2015;05114;      Krefeld, Kreisfreie Stadt;1
+31.12.2015;05116;      Mönchengladbach, Kreisfreie Stadt;1
+31.12.2015;05117;      Mülheim an der Ruhr, Kreisfreie Stadt;1
+31.12.2015;05119;      Oberhausen, Kreisfreie Stadt;1
+31.12.2015;05120;      Remscheid, Kreisfreie Stadt;1
+31.12.2015;05122;      Solingen, Kreisfreie Stadt;1
+31.12.2015;05124;      Wuppertal, Kreisfreie Stadt;1
+31.12.2015;05154;      Kleve, Kreis;16
+31.12.2015;05158;      Mettmann, Kreis;10
+31.12.2015;05162;      Rhein-Kreis Neuss;8
+31.12.2015;05166;      Viersen, Kreis;9
+31.12.2015;05170;      Wesel, Kreis;13
+31.12.2015;053;    Köln, Regierungsbezirk;99
+31.12.2015;05314;      Bonn, Kreisfreie Stadt;1
+31.12.2015;05315;      Köln, Kreisfreie Stadt;1
+31.12.2015;05316;      Leverkusen, Kreisfreie Stadt;1
+31.12.2015;05334;      Städteregion Aachen (einschl. Stadt Aachen);10
+31.12.2015;05334002;      Aachen, krfr. Stadt;1
+31.12.2015;05354;      Aachen, Kreis;-
+31.12.2015;05358;      Düren, Kreis;15
+31.12.2015;05362;      Rhein-Erft-Kreis;10
+31.12.2015;05366;      Euskirchen, Kreis;11
+31.12.2015;05370;      Heinsberg, Kreis;10
+31.12.2015;05374;      Oberbergischer Kreis;13
+31.12.2015;05378;      Rheinisch-Bergischer Kreis;8
+31.12.2015;05382;      Rhein-Sieg-Kreis;19
+31.12.2015;055;    Münster, Regierungsbezirk;78
+31.12.2015;05512;      Bottrop, Kreisfreie Stadt;1
+31.12.2015;05513;      Gelsenkirchen, Kreisfreie Stadt;1
+31.12.2015;05515;      Münster, Kreisfreie Stadt;1
+31.12.2015;05554;      Borken, Kreis;17
+31.12.2015;05558;      Coesfeld, Kreis;11
+31.12.2015;05562;      Recklinghausen, Kreis;10
+31.12.2015;05566;      Steinfurt, Kreis;24
+31.12.2015;05570;      Warendorf, Kreis;13
+31.12.2015;057;    Detmold, Regierungsbezirk;70
+31.12.2015;05711;      Bielefeld, Kreisfreie Stadt;1
+31.12.2015;05754;      Gütersloh, Kreis;13
+31.12.2015;05758;      Herford, Kreis;9
+31.12.2015;05762;      Höxter, Kreis;10
+31.12.2015;05766;      Lippe, Kreis;16
+31.12.2015;05770;      Minden-Lübbecke, Kreis;11
+31.12.2015;05774;      Paderborn, Kreis;10
+31.12.2015;059;    Arnsberg, Regierungsbezirk;83
+31.12.2015;05911;      Bochum, Kreisfreie Stadt;1
+31.12.2015;05913;      Dortmund, Kreisfreie Stadt;1
+31.12.2015;05914;      Hagen, Kreisfreie Stadt;1
+31.12.2015;05915;      Hamm, Kreisfreie Stadt;1
+31.12.2015;05916;      Herne, Kreisfreie Stadt;1
+31.12.2015;05954;      Ennepe-Ruhr-Kreis;9
+31.12.2015;05958;      Hochsauerlandkreis;12
+31.12.2015;05962;      Märkischer Kreis;15
+31.12.2015;05966;      Olpe, Kreis;7
+31.12.2015;05970;      Siegen-Wittgenstein, Kreis;11
+31.12.2015;05974;      Soest, Kreis;14
+31.12.2015;05978;      Unna, Kreis;10
+31.12.2015;06;  Hessen;426
+31.12.2015;064;    Darmstadt, Regierungsbezirk;187
+31.12.2015;06411;      Darmstadt, Kreisfreie Stadt;1
+31.12.2015;06412;      Frankfurt am Main, Kreisfreie Stadt;1
+31.12.2015;06413;      Offenbach am Main, Kreisfreie Stadt;1
+31.12.2015;06414;      Wiesbaden, Landeshauptstadt, Kreisfreie Stadt;1
+31.12.2015;06431;      Bergstraße, Landkreis;22
+31.12.2015;06432;      Darmstadt-Dieburg, Landkreis;23
+31.12.2015;06433;      Groß-Gerau, Landkreis;14
+31.12.2015;06434;      Hochtaunuskreis;13
+31.12.2015;06435;      Main-Kinzig-Kreis;29
+31.12.2015;06436;      Main-Taunus-Kreis;12
+31.12.2015;06437;      Odenwaldkreis;15
+31.12.2015;06438;      Offenbach, Landkreis;13
+31.12.2015;06439;      Rheingau-Taunus-Kreis;17
+31.12.2015;06440;      Wetteraukreis;25
+31.12.2015;065;    Gießen, Regierungsbezirk;101
+31.12.2015;06531;      Gießen, Landkreis;18
+31.12.2015;06532;      Lahn-Dill-Kreis;23
+31.12.2015;06533;      Limburg-Weilburg, Landkreis;19
+31.12.2015;06534;      Marburg-Biedenkopf, Landkreis;22
+31.12.2015;06535;      Vogelsbergkreis;19
+31.12.2015;066;    Kassel, Regierungsbezirk;138
+31.12.2015;06611;      Kassel, Kreisfreie Stadt;1
+31.12.2015;06631;      Fulda, Landkreis;23
+31.12.2015;06632;      Hersfeld-Rotenburg, Landkreis;20
+31.12.2015;06633;      Kassel, Landkreis;29
+31.12.2015;06634;      Schwalm-Eder-Kreis;27
+31.12.2015;06635;      Waldeck-Frankenberg, Landkreis;22
+31.12.2015;06636;      Werra-Meißner-Kreis;16
+31.12.2015;07;  Rheinland-Pfalz;2305
+31.12.2015;071;    Koblenz, Stat. Region;1112
+31.12.2015;07111;      Koblenz, Kreisfreie Stadt;1
+31.12.2015;07131;      Ahrweiler, Landkreis;74
+31.12.2015;07132;      Altenkirchen (Westerwald), Landkreis;119
+31.12.2015;07133;      Bad Kreuznach, Landkreis;118
+31.12.2015;07134;      Birkenfeld, Landkreis;96
+31.12.2015;07135;      Cochem-Zell, Landkreis;89
+31.12.2015;07137;      Mayen-Koblenz, Landkreis;87
+31.12.2015;07138;      Neuwied, Landkreis;62
+31.12.2015;07140;      Rhein-Hunsrück-Kreis;137
+31.12.2015;07141;      Rhein-Lahn-Kreis;137
+31.12.2015;07143;      Westerwaldkreis;192
+31.12.2015;072;    Trier, Stat. Region;556
+31.12.2015;07211;      Trier, Kreisfreie Stadt;1
+31.12.2015;07231;      Bernkastel-Wittlich, Landkreis;107
+31.12.2015;07232;      Eifelkreis Bitburg-Prüm;235
+31.12.2015;07233;      Vulkaneifel, Landkreis;109
+31.12.2015;07235;      Trier-Saarburg, Landkreis;104
+31.12.2015;073;    Rheinhessen-Pfalz, Stat. Region;637
+31.12.2015;07311;      Frankenthal (Pfalz), Kreisfreie Stadt;1
+31.12.2015;07312;      Kaiserslautern, Kreisfreie Stadt;1
+31.12.2015;07313;      Landau in der Pfalz, Kreisfreie Stadt;1
+31.12.2015;07314;      Ludwigshafen am Rhein, Kreisfreie Stadt;1
+31.12.2015;07315;      Mainz, Kreisfreie Stadt;1
+31.12.2015;07316;      Neustadt an der Weinstraße, Kreisfreie Stadt;1
+31.12.2015;07317;      Pirmasens, Kreisfreie Stadt;1
+31.12.2015;07318;      Speyer, Kreisfreie Stadt;1
+31.12.2015;07319;      Worms, Kreisfreie Stadt;1
+31.12.2015;07320;      Zweibrücken, Kreisfreie Stadt;1
+31.12.2015;07331;      Alzey-Worms, Landkreis;69
+31.12.2015;07332;      Bad Dürkheim, Landkreis;48
+31.12.2015;07333;      Donnersbergkreis;81
+31.12.2015;07334;      Germersheim, Landkreis;31
+31.12.2015;07335;      Kaiserslautern, Landkreis;50
+31.12.2015;07336;      Kusel, Landkreis;98
+31.12.2015;07337;      Südliche Weinstraße, Landkreis;75
+31.12.2015;07338;      Rhein-Pfalz-Kreis;25
+31.12.2015;07339;      Mainz-Bingen, Landkreis;66
+31.12.2015;07340;      Südwestpfalz, Landkreis;84
+31.12.2015;08;  Baden-Württemberg, Land;1101
+31.12.2015;081;    Stuttgart, Regierungsbezirk;343
+31.12.2015;08111;      Stuttgart, Landeshauptstadt, Stadtkreis;1
+31.12.2015;08115;      Böblingen, Landkreis;26
+31.12.2015;08116;      Esslingen, Landkreis;44
+31.12.2015;08117;      Göppingen, Landkreis;38
+31.12.2015;08118;      Ludwigsburg, Landkreis;39
+31.12.2015;08119;      Rems-Murr-Kreis, Landkreis;31
+31.12.2015;08121;      Heilbronn, Stadtkreis;1
+31.12.2015;08125;      Heilbronn, Landkreis;46
+31.12.2015;08126;      Hohenlohekreis, Landkreis;16
+31.12.2015;08127;      Schwäbisch Hall, Landkreis;30
+31.12.2015;08128;      Main-Tauber-Kreis, Landkreis;18
+31.12.2015;08135;      Heidenheim, Landkreis;11
+31.12.2015;08136;      Ostalbkreis, Landkreis;42
+31.12.2015;082;    Karlsruhe, Regierungsbzirk;210
+31.12.2015;08211;      Baden-Baden, Stadtkreis;1
+31.12.2015;08212;      Karlsruhe, Stadtkreis;1
+31.12.2015;08215;      Karlsruhe, Landkreis;32
+31.12.2015;08216;      Rastatt, Landkreis;23
+31.12.2015;08221;      Heidelberg, Stadtkreis;1
+31.12.2015;08222;      Mannheim, Stadtkreis;1
+31.12.2015;08225;      Neckar-Odenwald-Kreis, Landkreis;27
+31.12.2015;08226;      Rhein-Neckar-Kreis, Landkreis;54
+31.12.2015;08231;      Pforzheim, Stadtkreis;1
+31.12.2015;08235;      Calw, Landkreis;25
+31.12.2015;08236;      Enzkreis, Landkreis;28
+31.12.2015;08237;      Freudenstadt, Landkreis;16
+31.12.2015;083;    Freiburg, Regierungsbezirk;294
+31.12.2015;08311;      Freiburg im Breisgau, Stadtkreis;1
+31.12.2015;08315;      Breisgau-Hochschwarzwald, Landkreis;50
+31.12.2015;08316;      Emmendingen, Landkreis;24
+31.12.2015;08317;      Ortenaukreis, Landkreis;51
+31.12.2015;08325;      Rottweil, Landkreis;21
+31.12.2015;08326;      Schwarzwald-Baar-Kreis, Landkreis;20
+31.12.2015;08327;      Tuttlingen, Landkreis;35
+31.12.2015;08335;      Konstanz, Landkreis;25
+31.12.2015;08336;      Lörrach, Landkreis;35
+31.12.2015;08337;      Waldshut, Landkreis;32
+31.12.2015;084;    Tübingen, Regierungsbezirk;254
+31.12.2015;08415;      Reutlingen, Landkreis;26
+31.12.2015;08416;      Tübingen, Landkreis;15
+31.12.2015;08417;      Zollernalbkreis, Landkreis;25
+31.12.2015;08421;      Ulm, Stadtkreis;1
+31.12.2015;08425;      Alb-Donau-Kreis, Landkreis;55
+31.12.2015;08426;      Biberach, Landkreis;45
+31.12.2015;08435;      Bodenseekreis, Landkreis;23
+31.12.2015;08436;      Ravensburg, Landkreis;39
+31.12.2015;08437;      Sigmaringen, Landkreis;25
+31.12.2015;09;  Bayern;2056
+31.12.2015;091;    Oberbayern, Regierungsbezirk;500
+31.12.2015;09161;      Ingolstadt;1
+31.12.2015;09162;      München, Landeshauptstadt;1
+31.12.2015;09163;      Rosenheim;1
+31.12.2015;09171;      Altötting, Landkreis;24
+31.12.2015;09172;      Berchtesgadener Land, Landkreis;15
+31.12.2015;09173;      Bad Tölz-Wolfratshausen, Landkreis;21
+31.12.2015;09174;      Dachau, Landkreis;17
+31.12.2015;09175;      Ebersberg, Landkreis;21
+31.12.2015;09176;      Eichstätt, Landkreis;30
+31.12.2015;09177;      Erding, Landkreis;26
+31.12.2015;09178;      Freising, Landkreis;24
+31.12.2015;09179;      Fürstenfeldbruck, Landkreis;23
+31.12.2015;09180;      Garmisch-Partenkirchen, Landkreis;22
+31.12.2015;09181;      Landsberg am Lech, Landkreis;31
+31.12.2015;09182;      Miesbach, Landkreis;17
+31.12.2015;09183;      Mühldorf a.Inn, Landkreis;31
+31.12.2015;09184;      München, Landkreis;29
+31.12.2015;09185;      Neuburg-Schrobenhausen, Landkreis;18
+31.12.2015;09186;      Pfaffenhofen a.d.Ilm, Landkreis;19
+31.12.2015;09187;      Rosenheim, Landkreis;46
+31.12.2015;09188;      Starnberg, Landkreis;14
+31.12.2015;09189;      Traunstein, Landkreis;35
+31.12.2015;09190;      Weilheim-Schongau, Landkreis;34
+31.12.2015;092;    Niederbayern, Regierungsbezirk;258
+31.12.2015;09261;      Landshut;1
+31.12.2015;09262;      Passau;1
+31.12.2015;09263;      Straubing;1
+31.12.2015;09271;      Deggendorf, Landkreis;26
+31.12.2015;09272;      Freyung-Grafenau, Landkreis;25
+31.12.2015;09273;      Kelheim, Landkreis;24
+31.12.2015;09274;      Landshut, Landkreis;35
+31.12.2015;09275;      Passau, Landkreis;38
+31.12.2015;09276;      Regen, Landkreis;24
+31.12.2015;09277;      Rottal-Inn, Landkreis;31
+31.12.2015;09278;      Straubing-Bogen, Landkreis;37
+31.12.2015;09279;      Dingolfing-Landau, Landkreis;15
+31.12.2015;093;    Oberpfalz, Regierungsbezirk;226
+31.12.2015;09361;      Amberg;1
+31.12.2015;09362;      Regensburg;1
+31.12.2015;09363;      Weiden i.d.OPf.;1
+31.12.2015;09371;      Amberg-Sulzbach, Landkreis;27
+31.12.2015;09372;      Cham, Landkreis;39
+31.12.2015;09373;      Neumarkt i.d.OPf., Landkreis;19
+31.12.2015;09374;      Neustadt a.d.Waldnaab, Landkreis;38
+31.12.2015;09375;      Regensburg, Landkreis;41
+31.12.2015;09376;      Schwandorf, Landkreis;33
+31.12.2015;09377;      Tirschenreuth, Landkreis;26
+31.12.2015;094;    Oberfranken, Regierungsbezirk;214
+31.12.2015;09461;      Bamberg;1
+31.12.2015;09462;      Bayreuth;1
+31.12.2015;09463;      Coburg;1
+31.12.2015;09464;      Hof;1
+31.12.2015;09471;      Bamberg, Landkreis;36
+31.12.2015;09472;      Bayreuth, Landkreis;33
+31.12.2015;09473;      Coburg, Landkreis;17
+31.12.2015;09474;      Forchheim, Landkreis;29
+31.12.2015;09475;      Hof, Landkreis;27
+31.12.2015;09476;      Kronach, Landkreis;18
+31.12.2015;09477;      Kulmbach, Landkreis;22
+31.12.2015;09478;      Lichtenfels, Landkreis;11
+31.12.2015;09479;      Wunsiedel i.Fichtelgebirge, Landkreis;17
+31.12.2015;095;    Mittelfranken, Regierungsbezirk;210
+31.12.2015;09561;      Ansbach;1
+31.12.2015;09562;      Erlangen;1
+31.12.2015;09563;      Fürth;1
+31.12.2015;09564;      Nürnberg;1
+31.12.2015;09565;      Schwabach;1
+31.12.2015;09571;      Ansbach, Landkreis;58
+31.12.2015;09572;      Erlangen-Höchstadt, Landkreis;25
+31.12.2015;09573;      Fürth, Landkreis;14
+31.12.2015;09574;      Nürnberger Land, Landkreis;27
+31.12.2015;09575;      Neustadt a.d.Aisch-Bad Windsheim, Landkreis;38
+31.12.2015;09576;      Roth, Landkreis;16
+31.12.2015;09577;      Weißenburg-Gunzenhausen, Landkreis;27
+31.12.2015;096;    Unterfranken, Regierungsbezirk;308
+31.12.2015;09661;      Aschaffenburg;1
+31.12.2015;09662;      Schweinfurt;1
+31.12.2015;09663;      Würzburg;1
+31.12.2015;09671;      Aschaffenburg, Landkreis;32
+31.12.2015;09672;      Bad Kissingen, Landkreis;26
+31.12.2015;09673;      Rhön-Grabfeld, Landkreis;37
+31.12.2015;09674;      Haßberge, Landkreis;26
+31.12.2015;09675;      Kitzingen, Landkreis;31
+31.12.2015;09676;      Miltenberg, Landkreis;32
+31.12.2015;09677;      Main-Spessart, Landkreis;40
+31.12.2015;09678;      Schweinfurt, Landkreis;29
+31.12.2015;09679;      Würzburg, Landkreis;52
+31.12.2015;097;    Schwaben, Regierungsbezirk;340
+31.12.2015;09761;      Augsburg;1
+31.12.2015;09762;      Kaufbeuren;1
+31.12.2015;09763;      Kempten (Allgäu);1
+31.12.2015;09764;      Memmingen;1
+31.12.2015;09771;      Aichach-Friedberg, Landkreis;24
+31.12.2015;09772;      Augsburg, Landkreis;46
+31.12.2015;09773;      Dillingen a.d.Donau, Landkreis;27
+31.12.2015;09774;      Günzburg, Landkreis;34
+31.12.2015;09775;      Neu-Ulm, Landkreis;17
+31.12.2015;09776;      Lindau (Bodensee), Landkreis;19
+31.12.2015;09777;      Ostallgäu, Landkreis;45
+31.12.2015;09778;      Unterallgäu, Landkreis;52
+31.12.2015;09779;      Donau-Ries, Landkreis;44
+31.12.2015;09780;      Oberallgäu, Landkreis;28
+31.12.2015;10;  Saarland;52
+31.12.2015;10041;      Saarbrücken, Regionalverband;10
+31.12.2015;10041100;      Saarbrücken, Landeshauptstadt;1
+31.12.2015;10042;      Merzig-Wadern, Landkreis;7
+31.12.2015;10043;      Neunkirchen, Landkreis;7
+31.12.2015;10044;      Saarlouis, Landkreis;13
+31.12.2015;10045;      Saarpfalz-Kreis;7
+31.12.2015;10046;      St. Wendel, Landkreis;8
+31.12.2015;11;  Berlin;12
+31.12.2015;12;  Brandenburg;418
+31.12.2015;12051;      Brandenburg an der Havel, Kreisfreie Stadt;1
+31.12.2015;12052;      Cottbus, Kreisfreie Stadt;1
+31.12.2015;12053;      Frankfurt (Oder), Kreisfreie Stadt;1
+31.12.2015;12054;      Potsdam, Kreisfreie Stadt;1
+31.12.2015;12060;      Barnim, Landkreis;25
+31.12.2015;12061;      Dahme-Spreewald, Landkreis;37
+31.12.2015;12062;      Elbe-Elster, Landkreis;33
+31.12.2015;12063;      Havelland, Landkreis;26
+31.12.2015;12064;      Märkisch-Oderland, Landkreis;45
+31.12.2015;12065;      Oberhavel, Landkreis;19
+31.12.2015;12066;      Oberspreewald-Lausitz, Landkreis;25
+31.12.2015;12067;      Oder-Spree, Landkreis;37
+31.12.2015;12068;      Ostprignitz-Ruppin, Landkreis;23
+31.12.2015;12069;      Potsdam-Mittelmark, Landkreis;38
+31.12.2015;12070;      Prignitz, Landkreis;26
+31.12.2015;12071;      Spree-Neiße, Landkreis;30
+31.12.2015;12072;      Teltow-Fläming, Landkreis;16
+31.12.2015;12073;      Uckermark, Landkreis;34
+31.12.2015;13;  Mecklenburg-Vorpommern;755
+31.12.2015;13001;      Kreisfreie Stadt Greifswald, Hansestadt;-
+31.12.2015;13002;      Kreisfreie Stadt Neubrandenburg, Stadt;-
+31.12.2015;13003;      Kreisfreie Stadt Rostock, Hansestadt;1
+31.12.2015;13004;      Kreisfreie Stadt Schwerin, Landeshauptstadt;1
+31.12.2015;13005;      Kreisfreie Stadt Stralsund, Hansestadt;-
+31.12.2015;13006;      Kreisfreie Stadt Wismar, Hansestadt;-
+31.12.2015;13051;      Landkreis Bad Doberan;-
+31.12.2015;13052;      Landkreis Demmin;-
+31.12.2015;13053;      Landkreis Güstrow;-
+31.12.2015;13054;      Landkreis Ludwigslust;-
+31.12.2015;13055;      Landkreis Mecklenburg-Strelitz;-
+31.12.2015;13056;      Landkreis Müritz;-
+31.12.2015;13057;      Landkreis Nordvorpommern;-
+31.12.2015;13058;      Landkreis Nordwestmecklenburg;-
+31.12.2015;13059;      Landkreis Ostvorpommern;-
+31.12.2015;13060;      Landkreis Parchim;-
+31.12.2015;13061;      Landkreis Rügen;-
+31.12.2015;13062;      Landkreis Uecker-Randow;-
+31.12.2015;13071;      Landkreis Mecklenburgische Seenplatte;156
+31.12.2015;13072;      Landkreis Rostock;117
+31.12.2015;13073;      Landkreis Vorpommern-Rügen;105
+31.12.2015;13074;      Landkreis Nordwestmecklenburg;86
+31.12.2015;13075;      Landkreis Vorpommern-Greifswald;140
+31.12.2015;13076;      Landkreis Ludwigslust-Parchim;149
+31.12.2015;14;  Sachsen;429
+31.12.2015;141;    Chemnitz, Regierungsbezirk;-
+31.12.2015;14161;      Chemnitz, Kreisfreie Stadt;-
+31.12.2015;14166;      Plauen, Kreisfreie Stadt;-
+31.12.2015;14167;      Zwickau, Kreisfreie Stadt;-
+31.12.2015;14171;      Annaberg, Landkreis;-
+31.12.2015;14173;      Chemnitzer Land, Landkreis;-
+31.12.2015;14177;      Freiberg, Landkreis;-
+31.12.2015;14178;      Vogtlandkreis;-
+31.12.2015;14181;      Mittlerer Erzgebirgskreis;-
+31.12.2015;14182;      Mittweida, Landkreis;-
+31.12.2015;14188;      Stollberg, Landkreis;-
+31.12.2015;14191;      Aue-Schwarzenberg, Landkreis;-
+31.12.2015;14193;      Zwickauer Land, Landkreis;-
+31.12.2015;142;    Dresden, Regierungsbezirk;-
+31.12.2015;14262;      Dresden, Kreisfreie Stadt;-
+31.12.2015;14263;      Görlitz, Kreisfreie Stadt;-
+31.12.2015;14264;      Hoyerswerda, Kreisfreie Stadt;-
+31.12.2015;14272;      Bautzen, Landkreis;-
+31.12.2015;14280;      Meißen, Landkreis;-
+31.12.2015;14284;      Niederschlesischer Oberlausitzkreis;-
+31.12.2015;14285;      Riesa-Großenhain, Landkreis;-
+31.12.2015;14286;      Löbau-Zittau, Landkreis;-
+31.12.2015;14287;      Sächsische Schweiz, Landkreis;-
+31.12.2015;14290;      Weißeritzkreis;-
+31.12.2015;14292;      Kamenz, Landkreis;-
+31.12.2015;143;    Leipzig, Regierungsbezirk;-
+31.12.2015;14365;      Leipzig, Kreisfreie Stadt;-
+31.12.2015;14374;      Delitzsch, Landkreis;-
+31.12.2015;14375;      Döbeln, Landkreis;-
+31.12.2015;14379;      Leipziger Land, Landkreis;-
+31.12.2015;14383;      Muldentalkreis;-
+31.12.2015;14389;      Torgau-Oschatz, Landkreis;-
+31.12.2015;145;    Chemnitz, NUTS 2-Region;188
+31.12.2015;14511;      Chemnitz, Stadt;1
+31.12.2015;14521;      Erzgebirgskreis;61
+31.12.2015;14522;      Mittelsachsen, Landkreis;54
+31.12.2015;14523;      Vogtlandkreis;39
+31.12.2015;14524;      Zwickau, Landkreis;33
+31.12.2015;146;    Dresden, NUTS 2-Region;178
+31.12.2015;14612;      Dresden, Stadt;1
+31.12.2015;14625;      Bautzen, Landkreis;59
+31.12.2015;14626;      Görlitz, Landkreis;53
+31.12.2015;14627;      Meißen, Landkreis;29
+31.12.2015;14628;      Sächsische Schweiz-Osterzgebirge, Landkreis;36
+31.12.2015;147;    Leipzig, NUTS 2-Region;63
+31.12.2015;14713;      Leipzig, Stadt;1
+31.12.2015;14729;      Leipzig, Landkreis;32
+31.12.2015;14730;      Nordsachsen, Landkreis;30
+31.12.2015;15;  Sachsen-Anhalt;218
+31.12.2015;15001;      Dessau-Roßlau, Kreisfreie Stadt;1
+31.12.2015;15002;      Halle (Saale), Kreisfreie Stadt;1
+31.12.2015;15003;      Magdeburg, Kreisfreie Stadt;1
+31.12.2015;15081;      Altmarkkreis Salzwedel;13
+31.12.2015;15082;      Anhalt-Bitterfeld, Landkreis;10
+31.12.2015;15083;      Börde, Landkreis;34
+31.12.2015;15084;      Burgenlandkreis;33
+31.12.2015;15085;      Harz, Landkreis;20
+31.12.2015;15086;      Jerichower Land, Landkreis;8
+31.12.2015;15087;      Mansfeld-Südharz, Landkreis;22
+31.12.2015;15088;      Saalekreis;20
+31.12.2015;15089;      Salzlandkreis;21
+31.12.2015;15090;      Stendal, Landkreis;25
+31.12.2015;15091;      Wittenberg, Landkreis;9
+31.12.2015;151;    Dessau, Stat. Region;-
+31.12.2015;15101;      Dessau, Kreisfreie Stadt;-
+31.12.2015;15151;      Anhalt-Zerbst, Kreis;-
+31.12.2015;15153;      Bernburg, Kreis;-
+31.12.2015;15154;      Bitterfeld, Kreis;-
+31.12.2015;15159;      Köthen, Kreis;-
+31.12.2015;15171;      Wittenberg, Kreis;-
+31.12.2015;152;    Halle, Stat. Region;-
+31.12.2015;15202;      Halle (Saale), Kreisfreie Stadt;-
+31.12.2015;15256;      Burgenlandkreis;-
+31.12.2015;15260;      Mansfelder Land, Kreis;-
+31.12.2015;15261;      Merseburg-Querfurt, Kreis;-
+31.12.2015;15265;      Saalkreis;-
+31.12.2015;15266;      Sangerhausen, Kreis;-
+31.12.2015;15268;      Weißenfels, Kreis;-
+31.12.2015;153;    Magdeburg, Stat. Region;-
+31.12.2015;15303;      Magdeburg, Kreisfreie Stadt;-
+31.12.2015;15352;      Aschersleben-Staßfurt, Kreis;-
+31.12.2015;15355;      Bördekreis;-
+31.12.2015;15357;      Halberstadt, Kreis;-
+31.12.2015;15358;      Jerichower Land, Kreis;-
+31.12.2015;15362;      Ohrekreis;-
+31.12.2015;15363;      Stendal, Kreis;-
+31.12.2015;15364;      Quedlinburg, Kreis;-
+31.12.2015;15367;      Schönebeck, Kreis;-
+31.12.2015;15369;      Wernigerode, Kreis;-
+31.12.2015;15370;      Altmarkkreis Salzwedel, Kreis;-
+31.12.2015;16;  Thüringen;849
+31.12.2015;16051;      Erfurt, krsfr. Stadt;1
+31.12.2015;16052;      Gera, krsfr. Stadt;1
+31.12.2015;16053;      Jena, krsfr. Stadt;1
+31.12.2015;16054;      Suhl, krsfr. Stadt;1
+31.12.2015;16055;      Weimar, krsfr. Stadt;1
+31.12.2015;16056;      Eisenach, krsfr. Stadt;1
+31.12.2015;16061;      Eichsfeld, Kreis;79
+31.12.2015;16062;      Nordhausen, Kreis;27
+31.12.2015;16063;      Wartburgkreis;50
+31.12.2015;16064;      Unstrut-Hainich-Kreis;42
+31.12.2015;16065;      Kyffhäuserkreis;43
+31.12.2015;16066;      Schmalkalden-Meiningen, Kreis;62
+31.12.2015;16067;      Gotha, Kreis;47
+31.12.2015;16068;      Sömmerda, Kreis;54
+31.12.2015;16069;      Hildburghausen, Kreis;37
+31.12.2015;16070;      Ilm-Kreis;42
+31.12.2015;16071;      Weimarer Land, Kreis;62
+31.12.2015;16072;      Sonneberg, Kreis;11
+31.12.2015;16073;      Saalfeld-Rudolstadt, Kreis;38
+31.12.2015;16074;      Saale-Holzland-Kreis;93
+31.12.2015;16075;      Saale-Orla-Kreis;72
+31.12.2015;16076;      Greiz, Kreis;46
+31.12.2015;16077;      Altenburger Land, Kreis;38
+__________
+"zu ""Zahl der Gemeinden"":
+Baden-Württemberg: 1995-2005:Gebietsstand 01.01.1979;
+2006+2007: Gebietsstand 01.01.2007;
+Baden-Württemberg: einschließlich eines bewohnten
+gemeindefreien Gebiets
+2008-2010: Gebietsstand 01.01.2009; 2011: Gebietsstand
+01.01.2011
+Berlin: Zahl der Bezirke; (1995 bis 2000): bezogen auf den
+Gebietsstand 01.01.2001
+Sachsen-Anhalt: 2010: Gebietsstand 01.01.2011;
+Sachsen-Anhalt: 2013: Gebietsstand 01.01.2014;"
+"© Statistische Ämter des Bundes und der Länder, Deutschland, 2017.
+Dieses Werk ist lizensiert unter der Datenlizenz Deutschland
+- Namensnennung - Version 2.0."
+Stand: 14.12.2017 / 15:42:54

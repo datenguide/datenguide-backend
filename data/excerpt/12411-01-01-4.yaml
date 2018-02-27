@@ -1,0 +1,13 @@
+skip: 8
+skipfooter: 4
+names:
+  - _id
+  - name
+  - BEVSTD__GEST
+  - BEVSTD__GESM
+  - BEVSTD__GESW
+subset:
+  - _id
+  - BEVSTD__GEST
+  - BEVSTD__GESM
+  - BEVSTD__GESW

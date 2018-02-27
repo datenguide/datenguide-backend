@@ -1,0 +1,34 @@
+skip: 7
+skipfooter: 4
+names:
+  - _date
+  - _id
+  - name
+  - ALTX20
+  - GEST
+  - GESM
+  - GESW
+prefix: BEVSTD
+pivot: ALTX20
+pivot_split: _date
+exclude:
+  - name
+replace:
+  "unter 3 Jahre": ALT000B03
+  "3 bis unter 6 Jahre": ALT003B06
+  "6 bis unter 10 Jahre": ALT006B10
+  "10 bis unter 15 Jahre": ALT010B15
+  "15 bis unter 18 Jahre": ALT015B18
+  "18 bis unter 20 Jahre": ALT018B20
+  "20 bis unter 25 Jahre": ALT020B25
+  "25 bis unter 30 Jahre": ALT025B30
+  "30 bis unter 35 Jahre": ALT030B35
+  "35 bis unter 40 Jahre": ALT035B40
+  "40 bis unter 45 Jahre": ALT040B45
+  "45 bis unter 50 Jahre": ALT045B50
+  "50 bis unter 55 Jahre": ALT050B55
+  "55 bis unter 60 Jahre": ALT055B60
+  "60 bis unter 65 Jahre": ALT060B65
+  "65 bis unter 75 Jahre": ALT065B75
+  "75 Jahre und mehr": ALT075UM
+  "Insgesamt": INSGESAMT
