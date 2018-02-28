@@ -57,7 +57,7 @@ def get_leaf_field(k):
     )
 
 
-def get_fields(field_dict, prefix='District'):
+def get_fields(field_dict, prefix='Region'):
     return {
         slugify(k): get_queryable_field(field_dict[k])
         if field_dict[k].keys() and all(':' in k for k in field_dict[k].keys())
