@@ -80,6 +80,7 @@ def run():
                     definition = yaml.load(f.read().strip())
                 defaults.update(definition)
                 df = csv_to_pandas(_fpsrc('%s.csv' % name), defaults)
+                df.to_csv(_fpsrc('%s_cleaned.csv' % name))
 
                 with Pool(processes=CPUS) as P:
                     chunks += P.starmap(
