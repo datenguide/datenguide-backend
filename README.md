@@ -4,6 +4,14 @@ Backend for datenguide application.
 
 Collects datasets and prepares data for `GraphQL`-api.
 
+## Live running instance
+
+You could find this app running live at https://api.datengui.de
+
+[See below](#how-to-query-data) how to use this `GraphQL`-api.
+
+And [see here](#how-to-load-data-in) how to load data in.
+
 ## Setup
 
 requires Python 3
@@ -15,87 +23,147 @@ requires Python 3
 
     python build.py
 
+This could take some time, depending on how many data you want to load in.
 
-## Run server
+## Run server locally
 
-    python app.py
+Create a `local_settings.py` with setting at least this content:
+```python
+DEBUG = True
+```
 
-## Query using GraphQL
+then run the app locally like this:
 
-Visit interactive `GraphiQL` at [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
+    FLASK_APP=app.py flask run
+
+In debug mode, the endpoint `/query/` is available to obtain the full query syntax for all available fields: http://127.0.0.1:5000/query/
+
+For deployment, set the `DEBUG`-variable to `False`, obviously.
+
+## How to query data
+
+Visit interactive `GraphiQL` at [api.datengui.de](https://api.datengui.de/)
 
 The data is modelled in a tree-ish nested structure and so is the querying via `GraphQL`.
 
 Data is stored in nested key-value pairs.
 
-[You can find the full query with all possible fields as a string here](http://127.0.0.1:5000/query/) `/query/`
+### Interactive examples
 
-[Example Query for districts](http://127.0.0.1:5000/?query=%7B%0A%20%20districts%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20name_ext%0A%20%20%20%20slug%0A%20%20%20%20geo%20%7B%0A%20%20%20%20%20%20bbox%0A%20%20%20%20%20%20lat%0A%20%20%20%20%20%20lon%0A%20%20%20%20%7D%0A%20%20%20%20flc006%0A%20%20%20%20bevstd%20%7B%0A%20%20%20%20%20%20gesm%0A%20%20%20%20%20%20gesw%0A%20%20%20%20%20%20t%0A%20%20%20%20%7D%0A%20%20%20%20Schulstatistik%20%7B%0A%20%20%20%20%20%20Gymnasien%20%7B%0A%20%20%20%20%20%20%20%20BIL003%20%7B%0A%20%20%20%20%20%20%20%20%20%20BILKL2%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20JGSTUFE11%0A%20%20%20%20%20%20%20%20%20%20%20%20JGSTUFE7%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
+#### list endpoint
+
+[List all regions (currently german states and districts)](https://api.datengui.de/?query=%7B%0A%20%20regions%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%7D%0A%7D%0A)
 
 ```graphql
 {
-  districts {
+  regions {
     id
     name
-    name_ext
-    slug
-    geo {
-      lat
-      lon
+  }
+}
+```
+
+#### detail endpoint
+
+[Query a specific city and show recent numbers for inhabitants](https://api.datengui.de/?query=%7B%0A%20%20region(id%3A%2205911%22)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20BEVSTD%20%7B%0A%20%20%20%20%20%20GESM%0A%20%20%20%20%20%20GEST%0A%20%20%20%20%20%20GESW%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
+
+```graphql
+{
+  region(id:"05911") {
+    id
+    name
+    BEVSTD {
+      GESM
+      GEST
+      GESW
     }
-    flc006
-    bevstd {
-      gesm
-      gesw
-      t
-    }
-    Schulstatistik {
-      Gymnasien {
-        BIL003 {
-          BILKL2 {
-            JGSTUFE11
-            JGSTUFE7
-          }
-        }
+  }
+}
+```
+
+As you see with the example above, the original attributes ("Merkmal") from the GENESIS-Databases are used.
+
+#### field arguments
+
+[Show the number of female baby cows in Schleswig Holstein for the year 2009](https://api.datengui.de/?query=%7B%0A%20%20region(id%3A%20%2201%22)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20TIE003%20%7B%0A%20%20%20%20%20%20TIEA05%20%7B%0A%20%20%20%20%20%20%20%20TIERART204141RW(year%3A%222009%22)%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
+
+```graphql
+{
+  region(id: "01") {
+    id
+    name
+    TIE003 {
+      TIEA05 {
+        TIERART204141RW(year: "2009")
       }
     }
   }
 }
 ```
 
-should return:
-```json
+[You can query for more than one year by using aliases:](https://api.datengui.de/?query=%7B%0A%20%20region(id%3A%20%2201%22)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20TIE003%20%7B%0A%20%20%20%20%20%20TIEA05%20%7B%0A%20%20%20%20%20%20%20%20cows_2009%3A%20TIERART204141RW(year%3A%20%222009%22)%0A%20%20%20%20%20%20%20%20cows_2010%3A%20TIERART204141RW(year%3A%20%222010%22)%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
+
+```graphql
 {
-  "data": {
-    "districts": [
-      {
-       "id": "01001",
-        "name": "Flensburg",
-        "name_ext": "Kreisfreie Stadt",
-        "slug": "flensburg",
-        "geo": {
-          "lat": "54.783",
-          "lon": "9.433",
-        },
-        "flc006": "56,74",
-        "bevstd": {
-          "gesm": "42767",
-          "gesw": "43175",
-          "t": "85942"
-        },
-        "Schulstatistik": {
-          "Gymnasien": {
-            "BIL003": {
-              "BILKL2": {
-                "JGSTUFE11": "445",
-                "JGSTUFE7": "363"
-              }
-            }
-          }
+  region(id: "01") {
+    id
+    name
+    TIE003 {
+      TIEA05 {
+        cows_2009: TIERART204141RW(year: "2009")
+        cows_2010: TIERART204141RW(year: "2010")
+      }
+    }
+  }
+}
+```
+
+[And of course you can query this for all regions via the **list endpoint** as well:](https://api.datengui.de/?query=%7B%0A%20%20regions%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20TIE003%20%7B%0A%20%20%20%20%20%20TIEA05%20%7B%0A%20%20%20%20%20%20%20%20cows_2009%3A%20TIERART204141RW(year%3A%20%222009%22)%0A%20%20%20%20%20%20%20%20cows_2010%3A%20TIERART204141RW(year%3A%20%222010%22)%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
+
+```graphql
+{
+  regions {
+    id
+    name
+    TIE003 {
+      TIEA05 {
+        cows_2009: TIERART204141RW(year: "2009")
+        cows_2010: TIERART204141RW(year: "2010")
+      }
+    }
+  }
+}
+```
+
+For fields that contain time-based data for years, you could query all data for this field by appending the `__years`-suffix to the field name you want to look up:
+
+[Show the number of people naturalized (in total and with origin from african continent) from 2011-2016](https://api.datengui.de/?query=%7B%0A%20%20regions%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20BEV008%20%7B%0A%20%20%20%20%20%20STAKNW%20%7B%0A%20%20%20%20%20%20%20%20INSGESAMT__years%20%7B%0A%20%20%20%20%20%20%20%20%20%20_2016%0A%20%20%20%20%20%20%20%20%20%20_2015%0A%20%20%20%20%20%20%20%20%20%20_2014%0A%20%20%20%20%20%20%20%20%20%20_2013%0A%20%20%20%20%20%20%20%20%20%20_2012%0A%20%20%20%20%20%20%20%20%20%20_2011%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20ST1__years%20%7B%0A%20%20%20%20%20%20%20%20%20%20_2016%0A%20%20%20%20%20%20%20%20%20%20_2015%0A%20%20%20%20%20%20%20%20%20%20_2014%0A%20%20%20%20%20%20%20%20%20%20_2013%0A%20%20%20%20%20%20%20%20%20%20_2012%0A%20%20%20%20%20%20%20%20%20%20_2011%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
+
+```graphql
+{
+  regions {
+    id
+    name
+    BEV008 {
+      STAKNW {
+        INSGESAMT__years {
+          _2016
+          _2015
+          _2014
+          _2013
+          _2012
+          _2011
         }
-      },
-      // more districts...
-    ]
+        ST1__years {
+          _2016
+          _2015
+          _2014
+          _2013
+          _2012
+          _2011
+        }
+      }
+    }
   }
 }
 ```
