@@ -80,7 +80,7 @@ def run():
                     definition = yaml.load(f.read().strip())
                 defaults.update(definition)
                 df = csv_to_pandas(_fpsrc('%s.csv' % name), defaults)
-                df.to_csv(_fpsrc('%s_cleaned.csv' % name))
+                df.to_csv(_fpsrc('%s_cleaned.csv' % name), index=False)
 
                 with Pool(processes=CPUS) as P:
                     chunks += P.starmap(
@@ -101,6 +101,7 @@ def run():
     df.to_pickle(settings.DATABASE)
 
     print('Write df to %s as well...' % settings.DATABASE_CSV)
-    df.to_csv(settings.DATABASE_CSV)
+    df['path'] = df['path'].map(lambda x: '.'.join(x))
+    df.to_csv(settings.DATABASE_CSV, index=False)
 
     print('Done.')

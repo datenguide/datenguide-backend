@@ -78,6 +78,7 @@ def csv_to_pandas(fp, definition={}):
             - encoding
             - na_values
             - dtype
+            - decimal
 
     Returns
     -------
@@ -93,6 +94,7 @@ def csv_to_pandas(fp, definition={}):
         encoding=definition.get('encoding'),
         na_values=definition.get('na_values'),
         dtype=definition.get('dtype'),
+        decimal=definition.get('decimal'),
         engine='python'
     )
 
