@@ -64,7 +64,7 @@ def _process_rows(rows, source):
 
 def run():
     print('detected %s cores ...' % CPUS)
-    print('Collecting tables from %s ...' % settings.DATA_ROOT)
+    print('Collecting tables from %s ...' % settings.DATA_SRC)
 
     chunks = []
     for fname in os.listdir(_fpsrc()):
@@ -73,20 +73,23 @@ def run():
             name, ext = name_parts[0::len(name_parts)-1]
 
             if ext == 'yaml':
-                print('Loading table %s.csv ...' % name)
-                with open(_fp('defaults.yaml')) as f:
-                    defaults = yaml.load(f.read().strip())
-                with open(_fpsrc(fname)) as f:
-                    definition = yaml.load(f.read().strip())
-                defaults.update(definition)
-                df = csv_to_pandas(_fpsrc('%s.csv' % name), defaults)
-                df.to_csv(_fpsrc('%s_cleaned.csv' % name), index=False)
+                if os.path.isfile(_fpsrc('%s_cleaned.csv' % name)):
+                    print('skipping table %s.csv ...' % name)
+                else:
+                    print('Loading table %s.csv ...' % name)
+                    with open(_fp('defaults.yaml')) as f:
+                        defaults = yaml.load(f.read().strip())
+                    with open(_fpsrc(fname)) as f:
+                        definition = yaml.load(f.read().strip())
+                    defaults.update(definition)
+                    df = csv_to_pandas(_fpsrc('%s.csv' % name), defaults)
+                    df.to_csv(_fpsrc('%s_cleaned.csv' % name), index=False)
 
-                with Pool(processes=CPUS) as P:
-                    chunks += P.starmap(
-                        _process_rows,
-                        zip(_get_chunks(list(df.iterrows())), [name]*CPUS)
-                    )
+                    with Pool(processes=CPUS) as P:
+                        chunks += P.starmap(
+                            _process_rows,
+                            zip(_get_chunks(list(df.iterrows())), [name]*CPUS)
+                        )
 
     df = pd.DataFrame(
         [row for chunk in chunks for row in chunk],
