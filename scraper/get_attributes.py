@@ -13,7 +13,7 @@ def _fp(code, lang):
 
 
 def get_attribute_keys():
-    for a in string.ascii_uppercase[18:]:
+    for a in string.ascii_uppercase:
         sys.stdout.write('Retrieving keys starting with "%s" ...\n' % a)
         res = ResearchClient.service.MerkmalsKatalog(
             kennung=settings.GENESIS_USERNAME,

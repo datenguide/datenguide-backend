@@ -20,11 +20,9 @@ KEYS_TREE = os.path.join(DATA_ROOT, 'keys.json')
 KEYS_DIR = os.path.join(DATA_ROOT, 'keys')
 
 # genesis webservice
-GENESIS_USERNAME = 'GK106723'
-GENESIS_PASSWORD = 'secret'
 GENESIS_SERVICES = {
-    'research': 'https://www-genesis.destatis.de/genesisWS/services/RechercheService_2010?wsdl',
-    'export': 'https://www-genesis.destatis.de/genesisWS/services/ExportService_2010?wsdl',
+    'research': 'https://www.regionalstatistik.de/genesisws/services/RechercheService_2010?wsdl',
+    'export': 'https://www.regionalstatistik.de/genesisws/services/ExportService_2010?wsdl',
 }
 
 
