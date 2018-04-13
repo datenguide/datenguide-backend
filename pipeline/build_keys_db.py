@@ -16,4 +16,5 @@ def run():
     df = pd.DataFrame(data)
     df.index = df['code']
     df.to_pickle(settings.KEYS_DB)
+    df.to_csv(settings.KEYS_DB_CSV)
     sys.stdout.write('Stored keys db in %s .\n' % settings.KEYS_DB)
