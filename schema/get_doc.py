@@ -15,17 +15,17 @@ def make_doc_dict(source=to_dict(KEYS), target={}):
     return target
 
 
-def render(items, html):
-    for key, info in items:
-        html += '<section class="doc-item">'
-        html += '<h1 class="doc-item__title">%s</h1>' % info['meta']['name']
-        html += '<code class="doc-item__key">%s</code>' % key
-        html += '<p class="doc-item__description">%s</p>' % info['meta']['description']
-        # FIXME how to render nested keys
-        # if info['children'].items():
-        #     render(info['children'].items(), html)
-        html += '</section>'
-    return html
+def render_key(key):
+    return """
+        <section class="doc-item">
+        <h1 class="doc-item__title">{name}</h1>
+        <code class="doc-item__key">{code}</code>
+        <p class="doc-item__description">{description}</p>
+        {children}
+        </section>
+    """.format(**key['meta'],
+               children=''.join([render_key(k) for code, k in key['children'].items()
+                                 if 'year' not in code]))
 
 
-doc_content = render(make_doc_dict().items(), '')
+doc_content = ''.join([render_key(k) for k in make_doc_dict().values()])
