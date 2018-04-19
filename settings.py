@@ -15,9 +15,8 @@ DATA_SRC = os.path.join(DATA_ROOT, 'src')
 DATABASE = os.path.join(DATA_ROOT, 'db.p')
 DATABASE_CSV = os.path.join(DATA_ROOT, 'db.csv')
 DATA_TREE = os.path.join(DATA_ROOT, 'db.json')
-KEYS_DB = os.path.join(DATA_ROOT, 'keys.p')
-KEYS_DB_CSV = os.path.join(DATA_ROOT, 'keys.csv')
 KEYS_TREE = os.path.join(DATA_ROOT, 'keys.json')
+KEYS_INFO = os.path.join(DATA_ROOT, 'keys_info.json')
 KEYS_DIR = os.path.join(DATA_ROOT, 'keys')
 
 # genesis webservice

@@ -13,8 +13,7 @@ def run():
         if fname.endswith('_de.json'):  # FIXME make multilangual
             with open(os.path.join(settings.KEYS_DIR, fname)) as f:
                 data.append(json.load(f))
-    df = pd.DataFrame(data)
-    df.index = df['code']
-    df.to_pickle(settings.KEYS_DB)
-    df.to_csv(settings.KEYS_DB_CSV)
-    sys.stdout.write('Stored keys db in %s .\n' % settings.KEYS_DB)
+    df = pd.DataFrame(data).rename(columns={'code': 'id'})
+    df.index = df['id']
+    json.dump(df.T.to_dict(), open(settings.KEYS_INFO, 'w'))
+    sys.stdout.write('Stored keys info in %s .\n' % settings.KEYS_INFO)

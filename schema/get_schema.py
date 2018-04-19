@@ -11,7 +11,19 @@ from graphql.type import (GraphQLArgument,
                           GraphQLString)
 from util import slugify as _slugify
 
-from database import DB, Regions, KEYS, get_key_info
+from database import DB, DB_KEYS, KEYS
+
+
+def _get_key_info(key):
+    return KEYS.get(key, {
+        'id': key,
+        'name': key.title(),
+        'description': ''
+    })
+
+
+Regions = [DB[k] for k in sorted(DB.keys())]
+Keys = [KEYS[k] for k in sorted(KEYS.keys())]
 
 
 def slugify(value):
@@ -52,14 +64,16 @@ def get_queryable_field(data):
 def get_leaf_field(k):
     return GraphQLField(
         GraphQLString,
-        description=get_key_info(k)['description'],
+        description=_get_key_info(k)['description'],
         resolver=resolver
     )
 
 
 def get_fields(field_dict, prefix='Region'):
     return {
-        slugify(k): get_queryable_field(field_dict[k])
+        slugify(k):
+
+        get_queryable_field(field_dict[k])
         if field_dict[k].keys() and all(':' in k for k in field_dict[k].keys())
 
         else GraphQLField(GraphQLObjectType(
@@ -68,7 +82,7 @@ def get_fields(field_dict, prefix='Region'):
                 field_dict[k],
                 prefix='%s__%s' % (prefix, slugify(k))
             )),
-            description=get_key_info(k)['description'],
+            description=_get_key_info(k)['description'],
             resolver=resolver
         )
         if field_dict[k].keys()
@@ -80,7 +94,15 @@ def get_fields(field_dict, prefix='Region'):
 
 
 region = GraphQLObjectType(
-    'Region', fields=lambda: get_fields(KEYS)
+    'Region', fields=lambda: get_fields(DB_KEYS)
+)
+
+key = GraphQLObjectType(
+    'Key', fields={
+        'id': GraphQLField(GraphQLString, resolver=resolver),
+        'name': GraphQLField(GraphQLString, resolver=resolver),
+        'description': GraphQLField(GraphQLString, resolver=resolver)
+    }
 )
 
 
@@ -100,13 +122,23 @@ query = GraphQLObjectType(
         'regions': GraphQLField(
             GraphQLList(region),
             resolver=lambda *args: Regions
+        ),
+        'key': GraphQLField(
+            key,
+            args={
+                'id': GraphQLArgument(
+                    description='ID of the key',
+                    type=GraphQLNonNull(GraphQLString)
+                )
+            },
+            resolver=lambda root, info, **args: KEYS[args['id']]
+        ),
+        'keys': GraphQLField(
+            GraphQLList(key),
+            resolver=lambda *args: Keys
         )
     }
 )
 
 
 schema = GraphQLSchema(query=query)
-# FIXME
-doc_schema = {k: v for k, v in schema.get_type_map().items()
-              if not k.startswith('__') and k not in
-              ('Query', 'String', 'Boolean')}

@@ -1,6 +1,6 @@
 import json
 
-from schema.get_schema import KEYS, slugify
+from schema.get_schema import DB_KEYS, slugify
 
 
 def dictify(tree):
@@ -9,6 +9,6 @@ def dictify(tree):
 
 query = """{
   regions %s
-}""" % json.dumps(dictify(KEYS), indent=2)\
+}""" % json.dumps(dictify(DB_KEYS), indent=2)\
     .replace(':', '').replace('{}', '')\
     .replace('"', '').replace(',', '')
