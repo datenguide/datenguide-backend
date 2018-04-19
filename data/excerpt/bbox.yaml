@@ -1,5 +1,0 @@
-names:
-  - _id
-  - geo__bbox
-delimiter: ","
-encoding: utf-8

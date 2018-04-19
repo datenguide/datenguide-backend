@@ -10,7 +10,7 @@ You could find this app running live at https://api.datengui.de
 
 [See below](#how-to-query-data) how to use this `GraphQL`-api.
 
-And [see here](#how-to-load-data-in) how to load data in.
+And [see here](#how-to-query-keys-info) how to query infos about the keys.
 
 ## Setup
 
@@ -27,16 +27,12 @@ This could take some time, depending on how many data you want to load in.
 
 ## Run server locally
 
-Create a `local_settings.py` with setting at least this content:
-```python
-DEBUG = True
-```
+for debug mode, run the app locally like this:
 
-then run the app locally like this:
+    FLASK_DEBUG=1 FLASK_APP=app.py flask run
 
-    FLASK_APP=app.py flask run
-
-In debug mode, the endpoint `/query/` is available to obtain the full query syntax for all available fields: http://127.0.0.1:5000/query/
+In debug mode, the endpoint `/query/` is available to obtain the full query
+syntax for all available fields: http://127.0.0.1:5000/query/
 
 For deployment, set the `DEBUG`-variable to `False`, obviously.
 
@@ -44,7 +40,8 @@ For deployment, set the `DEBUG`-variable to `False`, obviously.
 
 Visit interactive `GraphiQL` at [api.datengui.de](https://api.datengui.de/)
 
-The data is modelled in a tree-ish nested structure and so is the querying via `GraphQL`.
+The data is modelled in a tree-ish nested structure and so is the querying via
+`GraphQL`.
 
 Data is stored in nested key-value pairs.
 
@@ -81,7 +78,8 @@ Data is stored in nested key-value pairs.
 }
 ```
 
-As you see with the example above, the original attributes ("Merkmal") from the GENESIS-Databases are used.
+As you see with the example above, the original attributes ("Merkmal") from the
+GENESIS-Databases are used.
 
 #### field arguments
 
@@ -135,7 +133,9 @@ As you see with the example above, the original attributes ("Merkmal") from the 
 }
 ```
 
-For fields that contain time-based data for years, you could query all data for this field by appending the `__years`-suffix to the field name you want to look up:
+For fields that contain time-based data for years, you could query all data for
+this field by appending the `__years`-suffix to the field name you want to look
+up:
 
 [Show the number of people naturalized (in total and with origin from african continent) from 2011-2016](https://api.datengui.de/?query=%7B%0A%20%20regions%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20BEV008%20%7B%0A%20%20%20%20%20%20STAKNW%20%7B%0A%20%20%20%20%20%20%20%20INSGESAMT__years%20%7B%0A%20%20%20%20%20%20%20%20%20%20_2016%0A%20%20%20%20%20%20%20%20%20%20_2015%0A%20%20%20%20%20%20%20%20%20%20_2014%0A%20%20%20%20%20%20%20%20%20%20_2013%0A%20%20%20%20%20%20%20%20%20%20_2012%0A%20%20%20%20%20%20%20%20%20%20_2011%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20ST1__years%20%7B%0A%20%20%20%20%20%20%20%20%20%20_2016%0A%20%20%20%20%20%20%20%20%20%20_2015%0A%20%20%20%20%20%20%20%20%20%20_2014%0A%20%20%20%20%20%20%20%20%20%20_2013%0A%20%20%20%20%20%20%20%20%20%20_2012%0A%20%20%20%20%20%20%20%20%20%20_2011%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
 
@@ -164,6 +164,37 @@ For fields that contain time-based data for years, you could query all data for 
         }
       }
     }
+  }
+}
+```
+
+## How to query keys info
+
+To obtain human-readable information about the used keys, use the `key` or
+`keys` endpoints. They provide the following properties:
+- `id`
+- `name`
+- `description`
+
+[all keys](https://api.datengui.de/?query=%7B%0A%20%20keys%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%7D%0A%7D)
+
+```graphql
+{
+  keys {
+    id
+    name
+  }
+}
+```
+
+[the key about number of beds in hospitals](https://api.datengui.de/?query=%7B%0A%20%20key(id%3A%22GES017%22)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20description%0A%20%20%7D%0A%7D)
+
+```graphql
+{
+  key(id:"GES017") {
+    id
+    name
+    description
   }
 }
 ```
