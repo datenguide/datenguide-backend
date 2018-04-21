@@ -25,6 +25,8 @@ def _get_key_info(key):
 
 
 def _get_field_type(key_path):
+    if '__years___' in key_path:  # FIXME?
+        return GraphQLFloat
     if key_path.startswith('Region__'):
         key_path = key_path[8:]
     if 'float' in DTYPES.get(key_path, ''):
