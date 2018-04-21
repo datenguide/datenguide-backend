@@ -3,6 +3,7 @@ from graphql.type import (GraphQLArgument,
                           # GraphQLEnumType,
                           # GraphQLEnumValue,
                           GraphQLField,
+                          GraphQLFloat,
                           # GraphQLInterfaceType,
                           GraphQLList,
                           GraphQLNonNull,
@@ -11,7 +12,7 @@ from graphql.type import (GraphQLArgument,
                           GraphQLString)
 from util import slugify as _slugify
 
-from database import DB, DB_KEYS, KEYS
+from database import DB, DB_KEYS, KEYS, DTYPES
 
 
 def _get_key_info(key):
@@ -20,6 +21,14 @@ def _get_key_info(key):
         'name': key.title(),
         'description': ''
     })
+
+
+def _get_field_type(key_path):
+    if key_path.startswith('Region__'):
+        key_path = key_path[8:]
+    if 'float' in DTYPES.get(key_path, ''):
+        return GraphQLFloat
+    return GraphQLString
 
 
 Regions = [DB[k] for k in sorted(DB.keys())]
@@ -46,10 +55,10 @@ def arg_resolver(root, info, *args, **kwargs):
             return data.get(sorted(data.keys())[-1])
 
 
-def get_queryable_field(data):
+def get_queryable_field(data, key, prefix):
     args = set([k.split(':')[0] for k in data.keys()])
     return GraphQLField(
-        GraphQLString,
+        _get_field_type('%s__%s' % (prefix, key)),
         args={
             arg: GraphQLArgument(
                 description=arg.title(),
@@ -57,13 +66,14 @@ def get_queryable_field(data):
             )
             for arg in args
         },
+        description=_get_key_info(key)['description'],
         resolver=arg_resolver
     )
 
 
-def get_leaf_field(k):
+def get_leaf_field(k, prefix):
     return GraphQLField(
-        GraphQLString,
+        _get_field_type('%s__%s' % (prefix, k)),
         description=_get_key_info(k)['description'],
         resolver=resolver
     )
@@ -73,7 +83,7 @@ def get_fields(field_dict, prefix='Region'):
     return {
         slugify(k):
 
-        get_queryable_field(field_dict[k])
+        get_queryable_field(field_dict[k], k, prefix)
         if field_dict[k].keys() and all(':' in k for k in field_dict[k].keys())
 
         else GraphQLField(GraphQLObjectType(
@@ -87,7 +97,7 @@ def get_fields(field_dict, prefix='Region'):
         )
         if field_dict[k].keys()
 
-        else get_leaf_field(k)
+        else get_leaf_field(k, prefix)
 
         for k in field_dict
     }
@@ -131,7 +141,7 @@ query = GraphQLObjectType(
                     type=GraphQLNonNull(GraphQLString)
                 )
             },
-            resolver=lambda root, info, **args: KEYS[args['id']]
+            resolver=lambda root, info, **args: _get_key_info(args['id'])
         ),
         'keys': GraphQLField(
             GraphQLList(key),

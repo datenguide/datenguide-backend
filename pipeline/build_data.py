@@ -15,6 +15,7 @@ as a convention, filenames should map to the table id from Genesis.
 """
 
 
+import json
 import pandas as pd
 import os
 import yaml
@@ -67,6 +68,7 @@ def run():
     print('Collecting tables from %s ...' % settings.DATA_SRC)
 
     chunks = []
+    dtypes = {}
     for fname in os.listdir(_fpsrc()):
         if os.path.isfile(_fpsrc(fname)) and '.' in fname:
             name_parts = fname.split('.')
@@ -81,6 +83,7 @@ def run():
                 defaults.update(definition)
 
                 df = csv_to_pandas(_fpsrc('%s.csv' % name), defaults)
+                dtypes.update(df.dtypes.map(str).T.to_dict())
 
                 with Pool(processes=CPUS) as P:
                     chunks += P.starmap(
@@ -103,5 +106,9 @@ def run():
     print('Write df to %s as well...' % settings.DATABASE_CSV)
     df['path'] = df['path'].map(lambda x: '.'.join(x))
     df.to_csv(settings.DATABASE_CSV, index=False)
+
+    print('Write keys dtypes to %s ...' % settings.KEYS_DTYPES)
+    with open(settings.KEYS_DTYPES, 'w') as f:
+        json.dump(dtypes, f)
 
     print('Done.')

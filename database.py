@@ -16,3 +16,6 @@ with open(settings.KEYS_TREE) as f:
 
 with open(settings.KEYS_INFO) as f:
     KEYS = json.load(f)
+
+with open(settings.KEYS_DTYPES) as f:
+    DTYPES = json.load(f)
