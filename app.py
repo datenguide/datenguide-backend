@@ -1,18 +1,10 @@
-from flask import Flask, Response
+from flask import Flask
 from flask_graphql import GraphQLView
 
-from settings import DEBUG
-from schema import schema, query
+from schema import schema
 
 
 app = Flask(__name__)
-app.debug = DEBUG
-
-
-if app.debug:
-    @app.route('/query/')
-    def full_query():
-        return Response(query)
 
 
 app.add_url_rule('/', view_func=GraphQLView.as_view(
