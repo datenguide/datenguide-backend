@@ -4,6 +4,7 @@ from graphql.type import (GraphQLArgument,
                           # GraphQLEnumValue,
                           GraphQLField,
                           GraphQLFloat,
+                          GraphQLInt,
                           # GraphQLInterfaceType,
                           GraphQLList,
                           GraphQLNonNull,
@@ -53,6 +54,19 @@ def arg_resolver(root, info, *args, **kwargs):
             return data.get(lookup)
         except IndexError:  # return last value
             return data.get(sorted(data.keys())[-1])
+
+
+_region_lookups = {
+    'nuts': lambda r, x: r.get('geo', {}).get('nuts', {}).get('level', None) == x,
+    'parent': lambda r, x: r['id'][:len(x)] == x
+}
+
+
+def regions_resolver(*args, **kwargs):
+    regions = Regions
+    for key, value in kwargs.items():
+        regions = [r for r in regions if _region_lookups[key](r, value)]
+    return regions
 
 
 def get_queryable_field(data, key, prefix):
@@ -131,7 +145,17 @@ query = GraphQLObjectType(
         ),
         'regions': GraphQLField(
             GraphQLList(region),
-            resolver=lambda *args: Regions
+            args={
+                'nuts': GraphQLArgument(
+                    description='NUTS level to filter Regions for',
+                    type=GraphQLInt
+                ),
+                'parent': GraphQLArgument(
+                    description='Parent region by ID',
+                    type=GraphQLString
+                )
+            },
+            resolver=regions_resolver
         ),
         'key': GraphQLField(
             key,

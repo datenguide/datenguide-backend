@@ -45,9 +45,7 @@ The data is modelled in a tree-ish nested structure and so is the querying via
 
 Data is stored in nested key-value pairs.
 
-### Interactive examples
-
-#### list endpoint
+### list endpoint
 
 [List all regions (currently german states and districts)](https://api.datengui.de/?query=%7B%0A%20%20regions%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%7D%0A%7D%0A)
 
@@ -60,7 +58,36 @@ Data is stored in nested key-value pairs.
 }
 ```
 
-#### detail endpoint
+#### arguments
+
+To filter this list of regions, currently 2 filter arguments are implemented:
+- nuts: filter by [nuts level](https://en.wikipedia.org/wiki/Nomenclature_of_Territorial_Units_for_Statistics)
+- parent: filter by regions from this parent id
+
+[List all german states](https://api.datengui.de/?query=%7B%0A%20%20regions(nuts%3A%202)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%7D%0A%7D%0A)
+
+```graphql
+{
+  regions(nuts: 2) {
+    id
+    name
+  }
+}
+```
+
+[List all districts in North-Rhine Westphalia](https://api.datengui.de/?query=%7B%0A%20%20regions(parent%3A%20%2205%22%2C%20nuts%3A%203)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%7D%0A%7D%0A)
+
+```graphql
+{
+  regions(parent: "05", nuts: 3) {
+    id
+    name
+  }
+}
+```
+
+
+### detail endpoint
 
 [Query a specific city and show recent numbers for inhabitants](https://api.datengui.de/?query=%7B%0A%20%20region(id%3A%2205911%22)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20BEVSTD%20%7B%0A%20%20%20%20%20%20GESM%0A%20%20%20%20%20%20GEST%0A%20%20%20%20%20%20GESW%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
 
@@ -81,7 +108,9 @@ Data is stored in nested key-value pairs.
 As you see with the example above, the original attributes ("Merkmal") from the
 GENESIS-Databases are used.
 
-#### field arguments
+#### arguments
+
+To get a specific region by `id` (Regionalschlüssel), use the `id`-argument:
 
 [Show the number of female baby cows in Schleswig Holstein for the year 2009](https://api.datengui.de/?query=%7B%0A%20%20region(id%3A%20%2201%22)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20TIE003%20%7B%0A%20%20%20%20%20%20TIEA05%20%7B%0A%20%20%20%20%20%20%20%20TIERART204141RW(year%3A%222009%22)%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
 
@@ -133,9 +162,13 @@ GENESIS-Databases are used.
 }
 ```
 
-For fields that contain time-based data for years, you could query all data for
-this field by appending the `__years`-suffix to the field name you want to look
-up:
+### time based data
+
+For fields that contain time-based data for years, you could query for this
+field by appending the `__years`-suffix to the field name you want to look up:
+
+If you don't append the `__years`-suffix, the most recent value will be
+returned.
 
 [Show the number of people naturalized (in total and with origin from african continent) from 2011-2016](https://api.datengui.de/?query=%7B%0A%20%20regions%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20BEV008%20%7B%0A%20%20%20%20%20%20STAKNW%20%7B%0A%20%20%20%20%20%20%20%20INSGESAMT__years%20%7B%0A%20%20%20%20%20%20%20%20%20%20_2016%0A%20%20%20%20%20%20%20%20%20%20_2015%0A%20%20%20%20%20%20%20%20%20%20_2014%0A%20%20%20%20%20%20%20%20%20%20_2013%0A%20%20%20%20%20%20%20%20%20%20_2012%0A%20%20%20%20%20%20%20%20%20%20_2011%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20ST1__years%20%7B%0A%20%20%20%20%20%20%20%20%20%20_2016%0A%20%20%20%20%20%20%20%20%20%20_2015%0A%20%20%20%20%20%20%20%20%20%20_2014%0A%20%20%20%20%20%20%20%20%20%20_2013%0A%20%20%20%20%20%20%20%20%20%20_2012%0A%20%20%20%20%20%20%20%20%20%20_2011%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
 
