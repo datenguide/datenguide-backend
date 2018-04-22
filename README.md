@@ -71,7 +71,7 @@ To filter this list of regions, currently 4 filter arguments are implemented:
 
 ```graphql
 {
-  regions(nuts: 2) {
+  regions(nuts: 1) {
     id
     name
   }

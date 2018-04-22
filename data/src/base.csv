@@ -1,5 +1,5 @@
 DG,Deutschland,False,Staat,0,deutschland
-01,Schleswig-Holstein,False,Bundesland,2,schleswig-holstein
+01,Schleswig-Holstein,False,Bundesland,1,schleswig-holstein
 01001,Flensburg,False,Kreisfreie Stadt,3,flensburg
 01002,Kiel,False,Landeshauptstadt,3,kiel
 01003,Lübeck,False,Hansestadt,3,luebeck
@@ -15,9 +15,9 @@ DG,Deutschland,False,Staat,0,deutschland
 01060,Segeberg,False,Kreis,3,segeberg
 01061,Steinburg,False,Kreis,3,steinburg
 01062,Stormarn,False,Kreis,3,stormarn
-02,Hamburg,False,Bundesland,2,hamburg
-03,Niedersachsen,False,Bundesland,2,niedersachsen
-031,Braunschweig,False,Stat. Region,,braunschweig-stat-region
+02,Hamburg,False,Bundesland,1,hamburg
+03,Niedersachsen,False,Bundesland,1,niedersachsen
+031,Braunschweig,False,Stat. Region,2,braunschweig-stat-region
 03101,Braunschweig,False,Kreisfreie Stadt,3,braunschweig-kreisfreie-stadt
 03102,Salzgitter,False,Kreisfreie Stadt,3,salzgitter
 03103,Wolfsburg,False,Kreisfreie Stadt,3,wolfsburg
@@ -30,16 +30,16 @@ DG,Deutschland,False,Staat,0,deutschland
 03157,Peine,False,Kreis,3,peine
 03158,Wolfenbüttel,False,Kreis,3,wolfenbuettel
 03159,Göttingen,True,Kreis,3,goettingen-kreis--deprecated
-032,Hannover,False,Stat. Region,,hannover-stat-region
+032,Hannover,False,Stat. Region,2,hannover-stat-region
 03241,Region Hannover,False,Kreis,3,region-hannover
-03241001,Hannover,False,Landeshauptstadt,,hannover-landeshauptstadt
+03241001,Hannover,False,Landeshauptstadt,2,hannover-landeshauptstadt
 03251,Diepholz,False,Kreis,3,diepholz
 03252,Hameln-Pyrmont,False,Kreis,3,hameln-pyrmont
 03254,Hildesheim,False,Kreis,3,hildesheim
 03255,Holzminden,False,Kreis,3,holzminden
 03256,Nienburg (Weser),False,Kreis,3,nienburg-weser
 03257,Schaumburg,False,Kreis,3,schaumburg
-033,Lüneburg,False,Stat. Region,,lueneburg-stat-region
+033,Lüneburg,False,Stat. Region,2,lueneburg-stat-region
 03351,Celle,False,Kreis,3,celle
 03352,Cuxhaven,False,Kreis,3,cuxhaven
 03353,Harburg,False,Kreis,3,harburg
@@ -51,7 +51,7 @@ DG,Deutschland,False,Staat,0,deutschland
 03359,Stade,False,Kreis,3,stade
 03360,Uelzen,False,Kreis,3,uelzen
 03361,Verden,False,Kreis,3,verden
-034,Weser-Ems,False,Stat. Region,,weser-ems
+034,Weser-Ems,False,Stat. Region,2,weser-ems
 03401,Delmenhorst,False,Kreisfreie Stadt,3,delmenhorst
 03402,Emden,False,Kreisfreie Stadt,3,emden
 03403,Oldenburg (Oldenburg),False,Kreisfreie Stadt,3,oldenburg-oldenburg
@@ -69,11 +69,11 @@ DG,Deutschland,False,Staat,0,deutschland
 03460,Vechta,False,Kreis,3,vechta
 03461,Wesermarsch,False,Kreis,3,wesermarsch
 03462,Wittmund,False,Kreis,3,wittmund
-04,Bremen,False,Bundesland,2,bremen-bundesland
+04,Bremen,False,Bundesland,1,bremen-bundesland
 04011,Bremen,False,Kreisfreie Stadt,3,bremen-kreisfreie-stadt
 04012,Bremerhaven,False,Kreisfreie Stadt,3,bremerhaven
-05,Nordrhein-Westfalen,False,Bundesland,2,nordrhein-westfalen
-051,Düsseldorf,False,Regierungsbezirk,,duesseldorf-regierungsbezirk
+05,Nordrhein-Westfalen,False,Bundesland,1,nordrhein-westfalen
+051,Düsseldorf,False,Regierungsbezirk,2,duesseldorf-regierungsbezirk
 05111,Düsseldorf,False,Kreisfreie Stadt,3,duesseldorf-kreisfreie-stadt
 05112,Duisburg,False,Kreisfreie Stadt,3,duisburg
 05113,Essen,False,Kreisfreie Stadt,3,essen
@@ -89,12 +89,12 @@ DG,Deutschland,False,Staat,0,deutschland
 05162,Rhein-Kreis Neuss,False,Kreis,3,rhein-kreis-neuss
 05166,Viersen,False,Kreis,3,viersen
 05170,Wesel,False,Kreis,3,wesel
-053,Köln,False,Regierungsbezirk,,koeln-regierungsbezirk
+053,Köln,False,Regierungsbezirk,2,koeln-regierungsbezirk
 05314,Bonn,False,Kreisfreie Stadt,3,bonn
 05315,Köln,False,Kreisfreie Stadt,3,koeln-kreisfreie-stadt
 05316,Leverkusen,False,Kreisfreie Stadt,3,leverkusen
 05334,Städteregion Aachen (einschl. Stadt Aachen),False,Kreis,3,staedteregion-aachen-einschl-stadt-aachen
-05334002,Aachen,False,krfr. Stadt,,aachen-krfr-stadt
+05334002,Aachen,False,krfr. Stadt,2,aachen-krfr-stadt
 05354,Aachen,True,Kreis,3,aachen-kreis--deprecated
 05358,Düren,False,Kreis,3,dueren
 05362,Rhein-Erft-Kreis,False,Kreis,3,rhein-erft-kreis
@@ -103,7 +103,7 @@ DG,Deutschland,False,Staat,0,deutschland
 05374,Oberbergischer Kreis,False,Kreis,3,oberbergischer-kreis
 05378,Rheinisch-Bergischer Kreis,False,Kreis,3,rheinisch-bergischer-kreis
 05382,Rhein-Sieg-Kreis,False,Kreis,3,rhein-sieg-kreis
-055,Münster,False,Regierungsbezirk,,muenster-regierungsbezirk
+055,Münster,False,Regierungsbezirk,2,muenster-regierungsbezirk
 05512,Bottrop,False,Kreisfreie Stadt,3,bottrop
 05513,Gelsenkirchen,False,Kreisfreie Stadt,3,gelsenkirchen
 05515,Münster,False,Kreisfreie Stadt,3,muenster-kreisfreie-stadt
@@ -112,7 +112,7 @@ DG,Deutschland,False,Staat,0,deutschland
 05562,Recklinghausen,False,Kreis,3,recklinghausen
 05566,Steinfurt,False,Kreis,3,steinfurt
 05570,Warendorf,False,Kreis,3,warendorf
-057,Detmold,False,Regierungsbezirk,,detmold
+057,Detmold,False,Regierungsbezirk,2,detmold
 05711,Bielefeld,False,Kreisfreie Stadt,3,bielefeld
 05754,Gütersloh,False,Kreis,3,guetersloh
 05758,Herford,False,Kreis,3,herford
@@ -120,7 +120,7 @@ DG,Deutschland,False,Staat,0,deutschland
 05766,Lippe,False,Kreis,3,lippe
 05770,Minden-Lübbecke,False,Kreis,3,minden-luebbecke
 05774,Paderborn,False,Kreis,3,paderborn
-059,Arnsberg,False,Regierungsbezirk,,arnsberg
+059,Arnsberg,False,Regierungsbezirk,2,arnsberg
 05911,Bochum,False,Kreisfreie Stadt,3,bochum
 05913,Dortmund,False,Kreisfreie Stadt,3,dortmund
 05914,Hagen,False,Kreisfreie Stadt,3,hagen
@@ -133,8 +133,8 @@ DG,Deutschland,False,Staat,0,deutschland
 05970,Siegen-Wittgenstein,False,Kreis,3,siegen-wittgenstein
 05974,Soest,False,Kreis,3,soest
 05978,Unna,False,Kreis,3,unna
-06,Hessen,False,Bundesland,2,hessen
-064,Darmstadt,False,Regierungsbezirk,,darmstadt-regierungsbezirk
+06,Hessen,False,Bundesland,1,hessen
+064,Darmstadt,False,Regierungsbezirk,2,darmstadt-regierungsbezirk
 06411,Darmstadt,False,Kreisfreie Stadt,3,darmstadt-kreisfreie-stadt
 06412,Frankfurt am Main,False,Kreisfreie Stadt,3,frankfurt-am-main
 06413,Offenbach am Main,False,Kreisfreie Stadt,3,offenbach-am-main
@@ -149,13 +149,13 @@ DG,Deutschland,False,Staat,0,deutschland
 06438,Offenbach,False,Kreis,3,offenbach
 06439,Rheingau-Taunus-Kreis,False,Kreis,3,rheingau-taunus-kreis
 06440,Wetteraukreis,False,Kreis,3,wetteraukreis
-065,Gießen,False,Regierungsbezirk,,giessen-regierungsbezirk
+065,Gießen,False,Regierungsbezirk,2,giessen-regierungsbezirk
 06531,Gießen,False,Kreis,3,giessen-kreis
 06532,Lahn-Dill-Kreis,False,Kreis,3,lahn-dill-kreis
 06533,Limburg-Weilburg,False,Kreis,3,limburg-weilburg
 06534,Marburg-Biedenkopf,False,Kreis,3,marburg-biedenkopf
 06535,Vogelsbergkreis,False,Kreis,3,vogelsbergkreis
-066,Kassel,False,Regierungsbezirk,,kassel-regierungsbezirk
+066,Kassel,False,Regierungsbezirk,2,kassel-regierungsbezirk
 06611,Kassel,False,Kreisfreie Stadt,3,kassel-kreisfreie-stadt
 06631,Fulda,False,Kreis,3,fulda
 06632,Hersfeld-Rotenburg,False,Kreis,3,hersfeld-rotenburg
@@ -163,8 +163,8 @@ DG,Deutschland,False,Staat,0,deutschland
 06634,Schwalm-Eder-Kreis,False,Kreis,3,schwalm-eder-kreis
 06635,Waldeck-Frankenberg,False,Kreis,3,waldeck-frankenberg
 06636,Werra-Meißner-Kreis,False,Kreis,3,werra-meissner-kreis
-07,Rheinland-Pfalz,False,Bundesland,2,rheinland-pfalz
-071,Koblenz,False,Stat. Region,,koblenz-stat-region
+07,Rheinland-Pfalz,False,Bundesland,1,rheinland-pfalz
+071,Koblenz,False,Stat. Region,2,koblenz-stat-region
 07111,Koblenz,False,Kreisfreie Stadt,3,koblenz-kreisfreie-stadt
 07131,Ahrweiler,False,Kreis,3,ahrweiler
 07132,Altenkirchen (Westerwald),False,Kreis,3,altenkirchen-westerwald
@@ -176,13 +176,13 @@ DG,Deutschland,False,Staat,0,deutschland
 07140,Rhein-Hunsrück-Kreis,False,Kreis,3,rhein-hunsrueck-kreis
 07141,Rhein-Lahn-Kreis,False,Kreis,3,rhein-lahn-kreis
 07143,Westerwaldkreis,False,Kreis,3,westerwaldkreis
-072,Trier,False,Stat. Region,,trier-stat-region
+072,Trier,False,Stat. Region,2,trier-stat-region
 07211,Trier,False,Kreisfreie Stadt,3,trier-kreisfreie-stadt
 07231,Bernkastel-Wittlich,False,Kreis,3,bernkastel-wittlich
 07232,Eifelkreis Bitburg-Prüm,False,Kreis,3,eifelkreis-bitburg-pruem
 07233,Vulkaneifel,False,Kreis,3,vulkaneifel
 07235,Trier-Saarburg,False,Kreis,3,trier-saarburg
-073,Rheinhessen-Pfalz,False,Stat. Region,,rheinhessen-pfalz
+073,Rheinhessen-Pfalz,False,Stat. Region,2,rheinhessen-pfalz
 07311,Frankenthal (Pfalz),False,Kreisfreie Stadt,3,frankenthal-pfalz
 07312,Kaiserslautern,False,Kreisfreie Stadt,3,kaiserslautern-kreisfreie-stadt
 07313,Landau in der Pfalz,False,Kreisfreie Stadt,3,landau-in-der-pfalz
@@ -203,8 +203,8 @@ DG,Deutschland,False,Staat,0,deutschland
 07338,Rhein-Pfalz-Kreis,False,Kreis,3,rhein-pfalz-kreis
 07339,Mainz-Bingen,False,Kreis,3,mainz-bingen
 07340,Südwestpfalz,False,Kreis,3,suedwestpfalz
-08,Baden-Württemberg,False,Bundesland,2,baden-wuerttemberg
-081,Stuttgart,False,Regierungsbezirk,,stuttgart-regierungsbezirk
+08,Baden-Württemberg,False,Bundesland,1,baden-wuerttemberg
+081,Stuttgart,False,Regierungsbezirk,2,stuttgart-regierungsbezirk
 08111,Stuttgart,False,Landeshauptstadt,3,stuttgart-landeshauptstadt
 08115,Böblingen,False,Kreis,3,boeblingen
 08116,Esslingen,False,Kreis,3,esslingen
@@ -218,7 +218,7 @@ DG,Deutschland,False,Staat,0,deutschland
 08128,Main-Tauber-Kreis,False,Kreis,3,main-tauber-kreis
 08135,Heidenheim,False,Kreis,3,heidenheim
 08136,Ostalbkreis,False,Kreis,3,ostalbkreis
-082,Karlsruhe,False,Regierungsbzirk,,karlsruhe-regierungsbzirk
+082,Karlsruhe,False,Regierungsbzirk,2,karlsruhe-regierungsbzirk
 08211,Baden-Baden,False,Stadtkreis,3,baden-baden
 08212,Karlsruhe,False,Stadtkreis,3,karlsruhe-stadtkreis
 08215,Karlsruhe,False,Kreis,3,karlsruhe-kreis
@@ -231,7 +231,7 @@ DG,Deutschland,False,Staat,0,deutschland
 08235,Calw,False,Kreis,3,calw
 08236,Enzkreis,False,Kreis,3,enzkreis
 08237,Freudenstadt,False,Kreis,3,freudenstadt
-083,Freiburg,False,Regierungsbezirk,,freiburg
+083,Freiburg,False,Regierungsbezirk,2,freiburg
 08311,Freiburg im Breisgau,False,Stadtkreis,3,freiburg-im-breisgau
 08315,Breisgau-Hochschwarzwald,False,Kreis,3,breisgau-hochschwarzwald
 08316,Emmendingen,False,Kreis,3,emmendingen
@@ -242,7 +242,7 @@ DG,Deutschland,False,Staat,0,deutschland
 08335,Konstanz,False,Kreis,3,konstanz
 08336,Lörrach,False,Kreis,3,loerrach
 08337,Waldshut,False,Kreis,3,waldshut
-084,Tübingen,False,Regierungsbezirk,,tuebingen-regierungsbezirk
+084,Tübingen,False,Regierungsbezirk,2,tuebingen-regierungsbezirk
 08415,Reutlingen,False,Kreis,3,reutlingen
 08416,Tübingen,False,Kreis,3,tuebingen-kreis
 08417,Zollernalbkreis,False,Kreis,3,zollernalbkreis
@@ -252,8 +252,8 @@ DG,Deutschland,False,Staat,0,deutschland
 08435,Bodenseekreis,False,Kreis,3,bodenseekreis
 08436,Ravensburg,False,Kreis,3,ravensburg
 08437,Sigmaringen,False,Kreis,3,sigmaringen
-09,Bayern,False,Bundesland,2,bayern
-091,Oberbayern,False,Regierungsbezirk,,oberbayern
+09,Bayern,False,Bundesland,1,bayern
+091,Oberbayern,False,Regierungsbezirk,2,oberbayern
 09161,Ingolstadt,False,Kreis,3,ingolstadt
 09162,München,False,Landeshauptstadt,3,muenchen-landeshauptstadt
 09163,Rosenheim,False,Stadt,3,rosenheim-stadt
@@ -277,7 +277,7 @@ DG,Deutschland,False,Staat,0,deutschland
 09188,Starnberg,False,Kreis,3,starnberg
 09189,Traunstein,False,Kreis,3,traunstein
 09190,Weilheim-Schongau,False,Kreis,3,weilheim-schongau
-092,Niederbayern,False,Regierungsbezirk,,niederbayern
+092,Niederbayern,False,Regierungsbezirk,2,niederbayern
 09261,Landshut,False,Stadt,3,landshut-stadt
 09262,Passau,False,Stadt,3,passau-stadt
 09263,Straubing,False,Stadt,3,straubing
@@ -290,7 +290,7 @@ DG,Deutschland,False,Staat,0,deutschland
 09277,Rottal-Inn,False,Kreis,3,rottal-inn
 09278,Straubing-Bogen,False,Kreis,3,straubing-bogen
 09279,Dingolfing-Landau,False,Kreis,3,dingolfing-landau
-093,Oberpfalz,False,Regierungsbezirk,,oberpfalz
+093,Oberpfalz,False,Regierungsbezirk,2,oberpfalz
 09361,Amberg,False,Stadt,3,amberg
 09362,Regensburg,False,Stadt,3,regensburg-stadt
 09363,Weiden i.d.OPf.,False,Kreis,3,weiden-i-d-opf
@@ -301,7 +301,7 @@ DG,Deutschland,False,Staat,0,deutschland
 09375,Regensburg,False,Kreis,3,regensburg-kreis
 09376,Schwandorf,False,Kreis,3,schwandorf
 09377,Tirschenreuth,False,Kreis,3,tirschenreuth
-094,Oberfranken,False,Regierungsbezirk,,oberfranken
+094,Oberfranken,False,Regierungsbezirk,2,oberfranken
 09461,Bamberg,False,Stadt,3,bamberg-stadt
 09462,Bayreuth,False,Stadt,3,bayreuth-stadt
 09463,Coburg,False,Stadt,3,coburg-stadt
@@ -315,7 +315,7 @@ DG,Deutschland,False,Staat,0,deutschland
 09477,Kulmbach,False,Kreis,3,kulmbach
 09478,Lichtenfels,False,Kreis,3,lichtenfels
 09479,Wunsiedel i.Fichtelgebirge,False,Kreis,3,wunsiedel-i-fichtelgebirge
-095,Mittelfranken,False,Regierungsbezirk,,mittelfranken
+095,Mittelfranken,False,Regierungsbezirk,2,mittelfranken
 09561,Ansbach,False,Stadt,3,ansbach-stadt
 09562,Erlangen,False,Stadt,3,erlangen
 09563,Fürth,False,Stadt,3,fuerth-stadt
@@ -328,7 +328,7 @@ DG,Deutschland,False,Staat,0,deutschland
 09575,Neustadt a.d.Aisch-Bad Windsheim,False,Kreis,3,neustadt-a-d-aisch-bad-windsheim
 09576,Roth,False,Kreis,3,roth
 09577,Weißenburg-Gunzenhausen,False,Kreis,3,weissenburg-gunzenhausen
-096,Unterfranken,False,Regierungsbezirk,,unterfranken
+096,Unterfranken,False,Regierungsbezirk,2,unterfranken
 09661,Aschaffenburg,False,Stadt,3,aschaffenburg-stadt
 09662,Schweinfurt,False,Stadt,3,schweinfurt-stadt
 09663,Würzburg,False,Stadt,3,wuerzburg-stadt
@@ -341,7 +341,7 @@ DG,Deutschland,False,Staat,0,deutschland
 09677,Main-Spessart,False,Kreis,3,main-spessart
 09678,Schweinfurt,False,Kreis,3,schweinfurt-kreis
 09679,Würzburg,False,Kreis,3,wuerzburg-kreis
-097,Schwaben,False,Regierungsbezirk,,schwaben
+097,Schwaben,False,Regierungsbezirk,2,schwaben
 09761,Augsburg,False,Stadt,3,augsburg-stadt
 09762,Kaufbeuren,False,Kreis,3,kaufbeuren
 09763,Kempten (Allgäu),False,Kreis,3,kempten-allgaeu
@@ -356,16 +356,16 @@ DG,Deutschland,False,Staat,0,deutschland
 09778,Unterallgäu,False,Kreis,3,unterallgaeu
 09779,Donau-Ries,False,Kreis,3,donau-ries
 09780,Oberallgäu,False,Kreis,3,oberallgaeu
-10,Saarland,False,Bundesland,2,saarland
+10,Saarland,False,Bundesland,1,saarland
 10041,Saarbrücken,False,Regionalverband,3,saarbruecken-regionalverband
-10041100,Saarbrücken,False,Landeshauptstadt,,saarbruecken-landeshauptstadt
+10041100,Saarbrücken,False,Landeshauptstadt,2,saarbruecken-landeshauptstadt
 10042,Merzig-Wadern,False,Kreis,3,merzig-wadern
 10043,Neunkirchen,False,Kreis,3,neunkirchen
 10044,Saarlouis,False,Kreis,3,saarlouis
 10045,Saarpfalz-Kreis,False,Kreis,3,saarpfalz-kreis
 10046,St. Wendel,False,Kreis,3,st-wendel
-11,Berlin,False,Bundesland,2,berlin
-12,Brandenburg,False,Bundesland,2,brandenburg
+11,Berlin,False,Bundesland,1,berlin
+12,Brandenburg,False,Bundesland,1,brandenburg
 12051,Brandenburg an der Havel,False,Kreisfreie Stadt,3,brandenburg-an-der-havel
 12052,Cottbus,False,Kreisfreie Stadt,3,cottbus
 12053,Frankfurt (Oder),False,Kreisfreie Stadt,3,frankfurt-oder
@@ -384,7 +384,7 @@ DG,Deutschland,False,Staat,0,deutschland
 12071,Spree-Neiße,False,Kreis,3,spree-neisse
 12072,Teltow-Fläming,False,Kreis,3,teltow-flaeming
 12073,Uckermark,False,Kreis,3,uckermark
-13,Mecklenburg-Vorpommern,False,Bundesland,2,mecklenburg-vorpommern
+13,Mecklenburg-Vorpommern,False,Bundesland,1,mecklenburg-vorpommern
 13001,Greifswald,True,Hansestadt,3,greifswald--deprecated
 13002,Neubrandenburg,True,Stadt,3,neubrandenburg--deprecated
 13003,Rostock,False,Hansestadt,3,rostock-hansestadt
@@ -409,8 +409,8 @@ DG,Deutschland,False,Staat,0,deutschland
 13074,Nordwestmecklenburg,False,Stadt,3,nordwestmecklenburg-stadt
 13075,Vorpommern-Greifswald,False,Kreis,3,vorpommern-greifswald
 13076,Ludwigslust-Parchim,False,Kreis,3,ludwigslust-parchim
-14,Sachsen,False,Bundesland,2,sachsen
-141,Chemnitz,True,Regierungsbezirk,,chemnitz-regierungsbezirk--deprecated
+14,Sachsen,False,Bundesland,1,sachsen
+141,Chemnitz,True,Regierungsbezirk,2,chemnitz-regierungsbezirk--deprecated
 14161,Chemnitz,True,Kreisfreie Stadt,3,chemnitz-kreisfreie-stadt--deprecated
 14166,Plauen,True,Kreisfreie Stadt,3,plauen--deprecated
 14167,Zwickau,True,Kreisfreie Stadt,3,zwickau-kreisfreie-stadt--deprecated
@@ -423,7 +423,7 @@ DG,Deutschland,False,Staat,0,deutschland
 14188,Stollberg,True,Kreis,3,stollberg--deprecated
 14191,Aue-Schwarzenberg,True,Kreis,3,aue-schwarzenberg--deprecated
 14193,Zwickauer Land,True,Kreis,3,zwickauer-land--deprecated
-142,Dresden,True,Regierungsbezirk,,dresden-regierungsbezirk--deprecated
+142,Dresden,True,Regierungsbezirk,2,dresden-regierungsbezirk--deprecated
 14262,Dresden,True,Kreisfreie Stadt,3,dresden-kreisfreie-stadt--deprecated
 14263,Görlitz,True,Kreisfreie Stadt,3,goerlitz-kreisfreie-stadt--deprecated
 14264,Hoyerswerda,True,Kreisfreie Stadt,3,hoyerswerda--deprecated
@@ -435,30 +435,30 @@ DG,Deutschland,False,Staat,0,deutschland
 14287,Sächsische Schweiz,True,Kreis,3,saechsische-schweiz--deprecated
 14290,Weißeritzkreis,True,Kreis,3,weisseritzkreis--deprecated
 14292,Kamenz,True,Kreis,3,kamenz--deprecated
-143,Leipzig,True,Regierungsbezirk,,leipzig-regierungsbezirk--deprecated
+143,Leipzig,True,Regierungsbezirk,2,leipzig-regierungsbezirk--deprecated
 14365,Leipzig,True,Kreisfreie Stadt,3,leipzig-kreisfreie-stadt--deprecated
 14374,Delitzsch,True,Kreis,3,delitzsch--deprecated
 14375,Döbeln,True,Kreis,3,doebeln--deprecated
 14379,Leipziger Land,True,Kreis,3,leipziger-land--deprecated
 14383,Muldentalkreis,True,Kreis,3,muldentalkreis--deprecated
 14389,Torgau-Oschatz,True,Kreis,3,torgau-oschatz--deprecated
-145,Chemnitz,False,NUTS 2-Region,,chemnitz-nuts-2-region
+145,Chemnitz,False,NUTS 2-Region,2,chemnitz-nuts-2-region
 14511,Chemnitz,False,Stadt,3,chemnitz-stadt
 14521,Erzgebirgskreis,False,Stadt,3,erzgebirgskreis
 14522,Mittelsachsen,False,Kreis,3,mittelsachsen
 14523,Vogtlandkreis,False,Stadt,3,vogtlandkreis-stadt
 14524,Zwickau,False,Kreis,3,zwickau-kreis
-146,Dresden,False,NUTS 2-Region,,dresden-nuts-2-region
+146,Dresden,False,NUTS 2-Region,2,dresden-nuts-2-region
 14612,Dresden,False,Stadt,3,dresden-stadt
 14625,Bautzen,False,Kreis,3,bautzen-kreis
 14626,Görlitz,False,Kreis,3,goerlitz-kreis
 14627,Meißen,False,Kreis,3,meissen-kreis
 14628,Sächsische Schweiz-Osterzgebirge,False,Kreis,3,saechsische-schweiz-osterzgebirge
-147,Leipzig,False,NUTS 2-Region,,leipzig-nuts-2-region
+147,Leipzig,False,NUTS 2-Region,2,leipzig-nuts-2-region
 14713,Leipzig,False,Stadt,3,leipzig-stadt
 14729,Leipzig,False,Kreis,3,leipzig-kreis
 14730,Nordsachsen,False,Kreis,3,nordsachsen
-15,Sachsen-Anhalt,False,Bundesland,2,sachsen-anhalt
+15,Sachsen-Anhalt,False,Bundesland,1,sachsen-anhalt
 15001,Dessau-Roßlau,False,Kreisfreie Stadt,3,dessau-rosslau
 15002,Halle (Saale),False,Kreisfreie Stadt,3,halle-saale-kreisfreie-stadt
 15003,Magdeburg,False,Kreisfreie Stadt,3,magdeburg-kreisfreie-stadt
@@ -473,14 +473,14 @@ DG,Deutschland,False,Staat,0,deutschland
 15089,Salzlandkreis,False,Kreis,3,salzlandkreis
 15090,Stendal,False,Kreis,3,stendal-kreis
 15091,Wittenberg,False,Kreis,3,wittenberg-kreis
-151,Dessau,True,Stat. Region,,dessau-stat-region--deprecated
+151,Dessau,True,Stat. Region,2,dessau-stat-region--deprecated
 15101,Dessau,True,Kreisfreie Stadt,3,dessau-kreisfreie-stadt--deprecated
 15151,Anhalt-Zerbst,True,Kreis,3,anhalt-zerbst--deprecated
 15153,Bernburg,True,Kreis,3,bernburg--deprecated
 15154,Bitterfeld,True,Kreis,3,bitterfeld--deprecated
 15159,Köthen,True,Kreis,3,koethen--deprecated
 15171,Wittenberg,True,Kreis,3,wittenberg-kreis--deprecated
-152,Halle,True,Stat. Region,,halle--deprecated
+152,Halle,True,Stat. Region,2,halle--deprecated
 15202,Halle (Saale),True,Kreisfreie Stadt,3,halle-saale-kreisfreie-stadt--deprecated
 15256,Burgenlandkreis,True,Stadt,3,burgenlandkreis-stadt--deprecated
 15260,Mansfelder Land,True,Kreis,3,mansfelder-land--deprecated
@@ -488,7 +488,7 @@ DG,Deutschland,False,Staat,0,deutschland
 15265,Saalkreis,True,Kreis,3,saalkreis--deprecated
 15266,Sangerhausen,True,Kreis,3,sangerhausen--deprecated
 15268,Weißenfels,True,Kreis,3,weissenfels--deprecated
-153,Magdeburg,True,Stat. Region,,magdeburg-stat-region--deprecated
+153,Magdeburg,True,Stat. Region,2,magdeburg-stat-region--deprecated
 15303,Magdeburg,True,Kreisfreie Stadt,3,magdeburg-kreisfreie-stadt--deprecated
 15352,Aschersleben-Staßfurt,True,Kreis,3,aschersleben-stassfurt--deprecated
 15355,Bördekreis,True,Kreis,3,boerdekreis--deprecated
@@ -500,7 +500,7 @@ DG,Deutschland,False,Staat,0,deutschland
 15367,Schönebeck,True,Kreis,3,schoenebeck--deprecated
 15369,Wernigerode,True,Kreis,3,wernigerode--deprecated
 15370,Altmarkkreis Salzwedel,True,Kreis,3,altmarkkreis-salzwedel-kreis--deprecated
-16,Thüringen,False,Bundesland,2,thueringen
+16,Thüringen,False,Bundesland,1,thueringen
 16051,Erfurt,False,krsfr. Stadt,3,erfurt
 16052,Gera,False,krsfr. Stadt,3,gera
 16053,Jena,False,krsfr. Stadt,3,jena
