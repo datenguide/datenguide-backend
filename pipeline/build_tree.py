@@ -66,10 +66,20 @@ def run():
     data_tree = {id_: t[id_] for id_, t in trees}
     keys_tree = get_key_tree(df)
 
-    # add ids FIXME
+    # add ids
     for id_ in ids:
         data_tree[id_]['id'] = id_
     keys_tree['id'] = {}
+
+    # fix Hamburg and Berlin FIXME think about that.
+    data_tree['02000'] = json.loads(json.dumps(data_tree['02']))
+    data_tree['02000']['nuts']['level'] = 3
+    data_tree['02000']['id'] = '02000'
+    data_tree['02000']['name_ext'] = 'Hauptstadt'
+    data_tree['11000'] = json.loads(json.dumps(data_tree['11']))
+    data_tree['11000']['nuts']['level'] = 3
+    data_tree['11000']['id'] = '11000'
+    data_tree['02000']['name_ext'] = 'Hansestadt'
 
     with open(settings.DATA_TREE, 'w') as f:
         json.dump(data_tree, f)

@@ -3,12 +3,12 @@ names:
   - name
   - deprecated
   - name_ext
-  - geo__nuts__level
+  - nuts__level
   - slug
 delimiter: ","
 encoding: utf-8
 dtypes:
-  geo__nuts__level: int
+  nuts__level: int
 maps:
   deprecated:
     target: valid
