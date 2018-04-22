@@ -1,5 +1,5 @@
 from graphql.type import (GraphQLArgument,
-                          # GraphQLBoolean,
+                          GraphQLBoolean,
                           # GraphQLEnumType,
                           # GraphQLEnumValue,
                           GraphQLField,
@@ -17,6 +17,7 @@ from database import DB, DB_KEYS, KEYS, DTYPES
 
 
 DTYPE_MAPPING = {
+    'bool': GraphQLBoolean,
     'float': GraphQLFloat,
     'float64': GraphQLFloat,
     'str': GraphQLString,
@@ -77,7 +78,9 @@ def arg_resolver(root, info, *args, **kwargs):
 
 _region_lookups = {
     'nuts': lambda r, x: r.get('geo', {}).get('nuts', {}).get('level', None) == x,
-    'parent': lambda r, x: r['id'][:len(x)] == x
+    'parent': lambda r, x: r['id'][:len(x)] == x,
+    'deprecated': lambda r, x: r['deprecated'] if x else not bool(r['deprecated']),
+    'valid': lambda r, x: r['valid'] if x else not bool(r['valid'])
 }
 
 
@@ -172,6 +175,14 @@ query = GraphQLObjectType(
                 'parent': GraphQLArgument(
                     description='Parent region by ID',
                     type=GraphQLString
+                ),
+                'valid': GraphQLArgument(
+                    description='Filter for valid flag',
+                    type=GraphQLBoolean
+                ),
+                'deprecated': GraphQLArgument(
+                    description='Filter for deprecated flag',
+                    type=GraphQLBoolean
                 )
             },
             resolver=regions_resolver

@@ -1,6 +1,7 @@
 names:
   - _id
   - name
+  - deprecated
   - name_ext
   - geo__nuts__level
   - slug
@@ -8,3 +9,7 @@ delimiter: ","
 encoding: utf-8
 dtypes:
   geo__nuts__level: int
+maps:
+  deprecated:
+    target: valid
+    func: "lambda x: not x"

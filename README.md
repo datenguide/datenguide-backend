@@ -60,9 +60,12 @@ Data is stored in nested key-value pairs.
 
 #### arguments
 
-To filter this list of regions, currently 2 filter arguments are implemented:
+To filter this list of regions, currently 4 filter arguments are implemented:
 - nuts: filter by [nuts level](https://en.wikipedia.org/wiki/Nomenclature_of_Territorial_Units_for_Statistics)
 - parent: filter by regions from this parent id
+- deprecated: `true` for regions that are not valid anymore (because of
+  "Kreisgebietsreformen")
+- valid: `not deprecated`
 
 [List all german states](https://api.datengui.de/?query=%7B%0A%20%20regions(nuts%3A%202)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%7D%0A%7D%0A)
 
@@ -75,11 +78,11 @@ To filter this list of regions, currently 2 filter arguments are implemented:
 }
 ```
 
-[List all districts in North-Rhine Westphalia](https://api.datengui.de/?query=%7B%0A%20%20regions(parent%3A%20%2205%22%2C%20nuts%3A%203)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%7D%0A%7D%0A)
+[List all districts in North-Rhine Westphalia that are not deprecated](https://api.datengui.de/?query=%7B%0A%20%20regions(parent%3A%20%2205%22%2C%20nuts%3A%203%2C%20deprecated%3A%20false)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%7D%0A%7D%0A)
 
 ```graphql
 {
-  regions(parent: "05", nuts: 3) {
+  regions(parent: "05", nuts: 3, valid: true) {
     id
     name
   }
