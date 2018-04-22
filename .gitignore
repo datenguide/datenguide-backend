@@ -1,9 +1,6 @@
 # data
-data/db.csv
-data/src
-data/excerpt
-data/keys
-*_cleaned.csv
+data
+data/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
