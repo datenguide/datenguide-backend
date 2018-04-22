@@ -118,7 +118,7 @@ def csv_to_pandas(fp, definition={}):
         df = df[[c for c in df.columns if c not in definition['exclude']]]
 
     for col, dtype in df.dtypes.items():
-        if dtype.name == 'object':
+        if dtype.name == 'object' and col not in definition.get('maps', []):
             df[col] = df[col].str.strip()
 
     if 'replace' in definition:

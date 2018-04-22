@@ -85,6 +85,9 @@ def run():
                 df = csv_to_pandas(_fpsrc('%s.csv' % name), defaults)
                 dtypes.update(df.dtypes.map(str).T.to_dict())
 
+                if 'dtypes' in defaults:
+                    dtypes.update(defaults['dtypes'])
+
                 with Pool(processes=CPUS) as P:
                     chunks += P.starmap(
                         _process_rows,

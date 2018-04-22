@@ -16,6 +16,15 @@ from util import slugify as _slugify
 from database import DB, DB_KEYS, KEYS, DTYPES
 
 
+DTYPE_MAPPING = {
+    'float': GraphQLFloat,
+    'float64': GraphQLFloat,
+    'str': GraphQLString,
+    'int': GraphQLInt,
+    'list': GraphQLList
+}
+
+
 def _get_key_info(key):
     return KEYS.get(key, {
         'id': key,
@@ -29,8 +38,16 @@ def _get_field_type(key_path):
         return GraphQLFloat
     if key_path.startswith('Region__'):
         key_path = key_path[8:]
-    if 'float' in DTYPES.get(key_path, ''):
-        return GraphQLFloat
+    dtype = DTYPES.get(key_path, '')
+    try:
+        return DTYPE_MAPPING[dtype]
+    except KeyError:
+        if dtype.startswith('list__'):
+            try:
+                inner_dtype = DTYPE_MAPPING[dtype.split('__')[1]]
+                return GraphQLList(inner_dtype)
+            except KeyError:
+                pass
     return GraphQLString
 
 
