@@ -67,7 +67,7 @@ To filter this list of regions, currently 4 filter arguments are implemented:
   "Kreisgebietsreformen")
 - valid: `not deprecated`
 
-[List all german states](https://api.datengui.de/?query=%7B%0A%20%20regions(nuts%3A%202)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%7D%0A%7D%0A)
+[List all german states](https://api.datengui.de/?query=%7B%0A%20%20regions(nuts%3A%201)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%7D%0A%7D%0A)
 
 ```graphql
 {
