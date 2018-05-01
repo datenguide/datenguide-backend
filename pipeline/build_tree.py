@@ -75,11 +75,13 @@ def run():
     data_tree['02000'] = json.loads(json.dumps(data_tree['02']))
     data_tree['02000']['nuts']['level'] = 3
     data_tree['02000']['id'] = '02000'
-    data_tree['02000']['name_ext'] = 'Hauptstadt'
+    data_tree['02000']['name_ext'] = 'Hansestadt'
+    data_tree['02000']['slug'] = 'hamburg'
     data_tree['11000'] = json.loads(json.dumps(data_tree['11']))
     data_tree['11000']['nuts']['level'] = 3
     data_tree['11000']['id'] = '11000'
-    data_tree['02000']['name_ext'] = 'Hansestadt'
+    data_tree['11000']['name_ext'] = 'Hauptstadt'
+    data_tree['11000']['slug'] = 'berlin'
 
     with open(settings.DATA_TREE, 'w') as f:
         json.dump(data_tree, f)

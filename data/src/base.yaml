@@ -5,6 +5,9 @@ names:
   - name_ext
   - nuts__level
   - slug
+  - state__id
+  - state__slug
+  - state__name
 delimiter: ","
 encoding: utf-8
 dtypes:

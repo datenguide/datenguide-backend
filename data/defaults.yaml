@@ -5,8 +5,6 @@ dtype:
   _name: str
   _id: str
   _date: str
-# filter:
-#   _id: 'lambda x: len(x) == 5'
 post_maps:
   _date:
     target: _year
