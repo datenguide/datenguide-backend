@@ -79,8 +79,8 @@ def arg_resolver(root, info, *args, **kwargs):
 _region_lookups = {
     'nuts': lambda r, x: r.get('nuts', {}).get('level', None) == x,
     'parent': lambda r, x: r['id'][:len(x)] == x,
-    'deprecated': lambda r, x: r['deprecated'] if x else not bool(r['deprecated']),
-    'valid': lambda r, x: r['valid'] if x else not bool(r['valid'])
+    'deprecated': lambda r, x: r.get('deprecated') if x else not bool(r.get('deprecated')),
+    'valid': lambda r, x: r.get('valid') if x else not bool(r.get('valid')),
 }
 
 
