@@ -3,7 +3,7 @@ build a tree-like database interface out of a
 single master path->value `pd.DataFrame`
 """
 
-import json
+import simplejson as json
 import pandas as pd
 import sys
 
@@ -83,8 +83,9 @@ def run():
     data_tree['11000']['name_ext'] = 'Hauptstadt'
     data_tree['11000']['slug'] = 'berlin'
 
+    data_str = json.dumps(data_tree, ignore_nan=True).replace('{}', 'null')  # FIXME
     with open(settings.DATA_TREE, 'w') as f:
-        json.dump(data_tree, f)
+        f.write(data_str)
     sys.stdout.write('Saved data tree to "%s" .\n' % settings.DATA_TREE)
 
     with open(settings.KEYS_TREE, 'w') as f:
