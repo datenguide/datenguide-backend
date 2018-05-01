@@ -12,6 +12,7 @@ delimiter: ","
 encoding: utf-8
 dtypes:
   nuts__level: int
+  state__id: str
 maps:
   deprecated:
     target: valid
