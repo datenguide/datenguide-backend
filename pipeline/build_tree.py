@@ -83,7 +83,7 @@ def run():
     data_tree['11000']['name_ext'] = 'Hauptstadt'
     data_tree['11000']['slug'] = 'berlin'
 
-    data_str = json.dumps(data_tree, ignore_nan=True).replace('{}', 'null')  # FIXME
+    data_str = json.dumps(data_tree, ignore_nan=True).replace('{}', 'null').replace('NaN', 'null')  # FIXME
     with open(settings.DATA_TREE, 'w') as f:
         f.write(data_str)
     sys.stdout.write('Saved data tree to "%s" .\n' % settings.DATA_TREE)
