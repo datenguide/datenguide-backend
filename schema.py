@@ -13,7 +13,8 @@ from graphql.type import (GraphQLArgument,
                           GraphQLString)
 from util import slugify as _slugify
 
-from database import DB, DB_KEYS, KEYS, DTYPES
+from database import DB_KEYS, DTYPES
+from storage import Storage
 
 
 DTYPE_MAPPING = {
@@ -24,14 +25,6 @@ DTYPE_MAPPING = {
     'int': GraphQLInt,
     'list': GraphQLList
 }
-
-
-def _get_key_info(key):
-    return KEYS.get(key, {
-        'id': key,
-        'name': key.title(),
-        'description': ''
-    })
 
 
 def _get_field_type(key_path):
@@ -50,10 +43,6 @@ def _get_field_type(key_path):
             except KeyError:
                 pass
     return GraphQLString
-
-
-Regions = [DB[k] for k in sorted(DB.keys())]
-Keys = [KEYS[k] for k in sorted(KEYS.keys())]
 
 
 def slugify(value):
@@ -76,21 +65,6 @@ def arg_resolver(root, info, *args, **kwargs):
             return data.get(sorted(data.keys())[-1])
 
 
-_region_lookups = {
-    'nuts': lambda r, x: r.get('nuts', {}).get('level', None) == x,
-    'parent': lambda r, x: r['id'][:len(x)] == x,
-    'deprecated': lambda r, x: r.get('deprecated') if x else not bool(r.get('deprecated')),
-    'valid': lambda r, x: r.get('valid') if x else not bool(r.get('valid')),
-}
-
-
-def regions_resolver(*args, **kwargs):
-    regions = Regions
-    for key, value in kwargs.items():
-        regions = [r for r in regions if _region_lookups[key](r, value)]
-    return regions
-
-
 def get_queryable_field(data, key, prefix):
     args = set([k.split(':')[0] for k in data.keys()])
     return GraphQLField(
@@ -102,7 +76,7 @@ def get_queryable_field(data, key, prefix):
             )
             for arg in args
         },
-        description=_get_key_info(key)['description'],
+        description=Storage.get_key(key)['description'],
         resolver=arg_resolver
     )
 
@@ -110,7 +84,7 @@ def get_queryable_field(data, key, prefix):
 def get_leaf_field(k, prefix):
     return GraphQLField(
         _get_field_type('%s__%s' % (prefix, k)),
-        description=_get_key_info(k)['description'],
+        description=Storage.get_key(k)['description'],
         resolver=resolver
     )
 
@@ -128,7 +102,7 @@ def get_fields(field_dict, prefix='Region'):
                 field_dict[k],
                 prefix='%s__%s' % (prefix, slugify(k))
             )),
-            description=_get_key_info(k)['description'],
+            description=Storage.get_key(k)['description'],
             resolver=resolver
         )
         if field_dict[k].keys()
@@ -163,29 +137,17 @@ query = GraphQLObjectType(
                     type=GraphQLNonNull(GraphQLString)
                 )
             },
-            resolver=lambda root, info, **args: DB[args['id']]
+            resolver=lambda root, info, **kwargs: Storage.get_region(kwargs['id'])
         ),
         'regions': GraphQLField(
             GraphQLList(region),
             args={
-                'nuts': GraphQLArgument(
-                    description='NUTS level to filter Regions for',
-                    type=GraphQLInt
-                ),
-                'parent': GraphQLArgument(
-                    description='Parent region by ID',
-                    type=GraphQLString
-                ),
-                'valid': GraphQLArgument(
-                    description='Filter for valid flag',
-                    type=GraphQLBoolean
-                ),
-                'deprecated': GraphQLArgument(
-                    description='Filter for deprecated flag',
-                    type=GraphQLBoolean
-                )
+                arg: GraphQLArgument(
+                    description=info['description'],
+                    type=DTYPE_MAPPING[info['type']]
+                ) for arg, info in Storage.lookups.items()
             },
-            resolver=regions_resolver
+            resolver=lambda root, info, **kwargs: Storage.get_regions(info, **kwargs)
         ),
         'key': GraphQLField(
             key,
@@ -195,11 +157,11 @@ query = GraphQLObjectType(
                     type=GraphQLNonNull(GraphQLString)
                 )
             },
-            resolver=lambda root, info, **args: _get_key_info(args['id'])
+            resolver=lambda root, info, **args: Storage.get_key(args['id'])
         ),
         'keys': GraphQLField(
             GraphQLList(key),
-            resolver=lambda *args: Keys
+            resolver=lambda *args: Storage.get_keys()
         )
     }
 )

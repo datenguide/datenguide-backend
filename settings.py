@@ -19,6 +19,9 @@ KEYS_TREE = os.path.join(DATA_ROOT, 'keys.json')
 KEYS_INFO = os.path.join(DATA_ROOT, 'keys_info.json')
 KEYS_DIR = os.path.join(DATA_ROOT, 'keys')
 KEYS_DTYPES = os.path.join(DATA_ROOT, 'keys_dtypes.json')
+IDS_FILE = os.path.join(DATA_ROOT, 'ids.csv')
+STORAGE = 'JSONFileStorage'
+
 
 # genesis webservice
 GENESIS_SERVICES = {
