@@ -1,8 +1,5 @@
 Flask==0.12.2
 zeep==2.4.0
 Flask-GraphQL==1.4.1
-pandas==0.21.1
-PyYAML==3.12
 graphql-core==2.0
 awesome-slugify==1.6.5
-simplejson==3.14.0
