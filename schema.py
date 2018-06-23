@@ -1,20 +1,16 @@
 from graphql.type import (GraphQLArgument,
                           GraphQLBoolean,
-                          # GraphQLEnumType,
-                          # GraphQLEnumValue,
                           GraphQLField,
                           GraphQLFloat,
                           GraphQLInt,
-                          # GraphQLInterfaceType,
                           GraphQLList,
                           GraphQLNonNull,
                           GraphQLObjectType,
                           GraphQLSchema,
                           GraphQLString)
-from util import slugify as _slugify
 
-from database import DB_KEYS, DTYPES
 from storage import Storage
+from util import slugify as _slugify
 
 
 DTYPE_MAPPING = {
@@ -23,6 +19,7 @@ DTYPE_MAPPING = {
     'float64': GraphQLFloat,
     'str': GraphQLString,
     'int': GraphQLInt,
+    'int64': GraphQLInt,
     'list': GraphQLList
 }
 
@@ -32,7 +29,7 @@ def _get_field_type(key_path):
         return GraphQLFloat
     if key_path.startswith('Region__'):
         key_path = key_path[8:]
-    dtype = DTYPES.get(key_path, '')
+    dtype = Storage.dtypes.get(key_path, '')
     try:
         return DTYPE_MAPPING[dtype]
     except KeyError:
@@ -114,7 +111,7 @@ def get_fields(field_dict, prefix='Region'):
 
 
 region = GraphQLObjectType(
-    'Region', fields=lambda: get_fields(DB_KEYS)
+    'Region', fields=lambda: get_fields(Storage.keys_tree)
 )
 
 key = GraphQLObjectType(

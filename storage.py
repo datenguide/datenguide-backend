@@ -1,4 +1,5 @@
 import json
+
 from elasticsearch import Elasticsearch, NotFoundError
 
 import settings
@@ -30,6 +31,10 @@ class BaseStorage(object):
         }
         with open(settings.KEYS_INFO) as f:
             self.keys = json.load(f)
+        with open(settings.DTYPES) as f:
+            self.dtypes = json.load(f)
+        with open(settings.KEYS_TREE) as f:
+            self.keys_tree = json.load(f)
 
     def get_region(self, id_):
         raise NotImplemented
@@ -62,7 +67,7 @@ class JSONFileStorage(BaseStorage):
     def get_region(self, id_):
         return self.db[id_]
 
-    def get_regions(self, **filters):
+    def get_regions(self, info, **filters):
         return self._filter_region_list(self.db.values(), **filters)
 
 
