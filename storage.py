@@ -83,12 +83,9 @@ class ElasticStorage(BaseStorage):
 
     def get_regions(self, info, **filters):
         fields = [f.name.value for f in info.field_asts[0].selection_set.selections]
-        try:
-            res = self.client.mget({'ids': self.ids}, index=self.index, doc_type='region', _source=fields)
-            regions = [doc['_source'] for doc in res['docs']]
-            return self._filter_region_list(regions, **filters)
-        except NotFoundError as e:
-            raise str(e)
+        res = self.client.mget({'ids': self.ids}, index=self.index, doc_type='region', _source=fields)
+        regions = [doc['_source'] for doc in res['docs'] if doc['found']]
+        return self._filter_region_list(regions, **filters)
 
 
 Storage = locals()[settings.STORAGE]()
