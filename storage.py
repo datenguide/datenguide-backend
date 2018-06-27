@@ -1,96 +1,138 @@
 import json
+import requests
 
-from elasticsearch import Elasticsearch, NotFoundError
+from elasticsearch import Elasticsearch
+from elasticsearch_dsl import Search, Q, A
 
 import settings
+from util import get_fields_from_info
 
 
-class BaseStorage(object):
+NUTS_LEN = (None, 2, 3, 5, 8)  # FIXME
+
+LOOKUPS = {
+    'nuts': {
+        'func': lambda id_, x: len(id_) == NUTS_LEN[x] if x < 5 else False,
+        'type': 'int',
+        'description': 'NUTS level to filter Regions for'
+    },
+    'parent': {
+        'func': lambda id_, x: id_.startswith(x),
+        'type': 'str',
+        'description': 'Parent region by ID'
+    },
+    'deprecated': {
+        'func': lambda r, x: r.get('deprecated') if x else not bool(r.get('deprecated')),
+        'type': 'bool',
+        'description': 'Filter for valid regions'
+    },
+    'valid': {
+        'func': lambda r, x: r.get('valid') if x else not bool(r.get('valid')),
+        'type': 'bool',
+        'description': 'Filter for deprecated flag'
+    }
+}
+
+
+class ElasticStorage(object):
     def __init__(self):
-        self.lookups = {
-            'nuts': {
-                'func': lambda r, x: r.get('nuts', {}).get('level', None) == x,
-                'type': 'int',
-                'description': 'NUTS level to filter Regions for'
-            },
-            'parent': {
-                'func': lambda r, x: r['id'].startswith(x),
-                'type': 'str',
-                'description': 'Parent region by ID'
-            },
-            'deprecated': {
-                'func': lambda r, x: r.get('deprecated') if x else not bool(r.get('deprecated')),
-                'type': 'bool',
-                'description': 'Filter for valid regions'
-            },
-            'valid': {
-                'func': lambda r, x: r.get('valid') if x else not bool(r.get('valid')),
-                'type': 'bool',
-                'description': 'Filter for deprecated flag'
-            },
+        with open(settings.SCHEMA) as f:
+            self.schema = json.load(f)
+        self.host = ':'.join((settings.ELASTIC['HOST'], settings.ELASTIC['PORT']))
+        self.client = Elasticsearch(hosts=[self.host])
+        self.index = settings.ELASTIC['INDEX']
+        self.ids = self._get_ids()
+        self.dtypes = self._get_dtypes()
+        self.lookups = LOOKUPS
+
+    def S(self):
+        return Search(using=self.client, index=self.index, doc_type='fact')
+
+    def _get_dtypes(self):
+        res = requests.get('http://%s/%s/_mapping/fact/' % (self.host, self.index))
+        data = res.json()
+        return {
+            k: v['properties']['value']['type']
+            for k, v in data[self.index]['mappings']['fact']['properties'].items()
+            if k in self.schema.keys()
         }
-        with open(settings.KEYS_INFO) as f:
-            self.keys = json.load(f)
-        with open(settings.DTYPES) as f:
-            self.dtypes = json.load(f)
-        with open(settings.KEYS_TREE) as f:
-            self.keys_tree = json.load(f)
 
-    def get_region(self, id_):
-        raise NotImplemented
-
-    def get_regions(self, **filters):
-        raise NotImplemented
-
-    def get_key(self, id_):
-        return self.keys.get(id_, {
-            'id': id_,
-            'name': id_.title(),
-            'description': ''
-        })
-
-    def get_keys(self):
-        return sorted(self.keys.values(), key=lambda x: x.get('id'))
-
-    def _filter_region_list(self, regions, **filters):
+    def _filter_regions(self, **filters):
+        regions = self.ids
         for key, value in filters.items():
             regions = [r for r in regions if self.lookups[key]['func'](r, value)]
         return regions
 
+    def _get_ids(self):
+        s = self.S()
+        s.aggs.bucket('ids', A('terms', field='id', size=20000))
+        res = s.execute()
+        return sorted([i['key'] for i in res.aggregations.ids.buckets
+                       if len(str(i['key'])) < 6])  # FIXME
 
-class JSONFileStorage(BaseStorage):
-    def __init__(self):
-        super().__init__()
-        with open(settings.DATA_TREE) as f:
-            self.db = json.load(f)
+    def _get_field_query(self, field, **filters):
+        return Q('bool', must=[Q('exists', **{'field': field})] +
+                 [Q('term', **{k: v}) for k, v in filters.items()])
 
-    def get_region(self, id_):
-        return self.db[id_]
+    def _get_ids_query(self, ids):
+        return Q('bool', should=[Q('term', **{'id': id_}) for id_ in ids])
 
-    def get_regions(self, info, **filters):
-        return self._filter_region_list(self.db.values(), **filters)
+    def _get_regions_query(self, ids, **fields):
+        return Q('bool', must=self._get_ids_query(ids),
+                 should=[self._get_field_query(field, **filters)
+                         for field, filters in fields.items()])
 
+    def _get_region_query(self, id_, **fields):
+        return Q('bool', must=Q('term', **{'id': id_}),
+                 should=[self._get_field_query(field, **filters)
+                         for field, filters in fields.items()])
 
-class ElasticStorage(BaseStorage):
-    def __init__(self):
-        super().__init__()
-        self.client = Elasticsearch(hosts=[':'.join((settings.ELASTIC['HOST'], settings.ELASTIC['PORT']))])
-        self.index = settings.ELASTIC['INDEX']
-        with open(settings.IDS_FILE) as f:
-            self.ids = sorted([i.strip() for i in f.readlines()])
+    def _compute_result(self, ids, fields, search):
+        roots = self.schema.keys()
+        result = {i: {f: [] for f in fields} for i in ids}
+        for hit in search.scan():
+            for field in fields:
+                if field in hit:
+                    if field in roots:
+                        result[hit.id][field].append(self._get_fact(field, hit))
+                    else:
+                        result[hit.id][field] = hit[field]
+        return result.values()
 
-    def get_region(self, id_):
-        try:
-            res = self.client.get(index=self.index, doc_type='region', id=id_)
-            return res['_source']
-        except NotFoundError:
-            return {}
+    def _get_fact(self, key, hit):
+        # FIXME index source directly to boost performance?
+        hit = hit.to_dict()
+        fact = hit.pop(key)
+        fact.update(hit)
+        fact.update({
+            'id': hit['fact_id'],
+            'year': hit.get('year'),
+            'source': self.schema.get(key, {}).get('source', {})
+        })
+        return fact
 
-    def get_regions(self, info, **filters):
-        fields = [f.name.value for f in info.field_asts[0].selection_set.selections]
-        res = self.client.mget({'ids': self.ids}, index=self.index, doc_type='region', _source=fields)
-        regions = [doc['_source'] for doc in res['docs'] if doc['found']]
-        return self._filter_region_list(regions, **filters)
+    def region_resolver(self, root, info, **kwargs):
+        id_ = kwargs.pop('id')
+        if id_ in self.ids:
+            fields = get_fields_from_info(info)
+            q = self._get_region_query(id_, **fields)
+            s = self.S().query(q)
+            return list(self._compute_result([id_], fields.keys(), s))[0]  # FIXME
 
+    def regions_resolver(self, root, info, **kwargs):
+        ids = self._filter_regions(**kwargs)
+        if ids:
+            fields = get_fields_from_info(info)
+            q = self._get_regions_query(ids, **fields)
+            s = self.S().query(q)
+            return self._compute_result(ids, fields.keys(), s)
 
-Storage = locals()[settings.STORAGE]()
+    # def get_key(self, id_):
+    #     return self.keys.get(id_, {
+    #         'id': id_,
+    #         'name': id_.title(),
+    #         'description': ''
+    #     })
+
+    # def get_keys(self):
+    #     return sorted(self.keys.values(), key=lambda x: x.get('id'))
