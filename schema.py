@@ -10,6 +10,7 @@ from graphql.type import (GraphQLArgument,
                           GraphQLString)
 
 from storage import ElasticStorage
+from util import get_arg_description, get_field_description
 
 
 Storage = ElasticStorage()
@@ -29,26 +30,20 @@ def r(root, info, *args, **kwargs):
     return root.get(info.field_name)
 
 
-def get_arg_description(arg_info):
-    return '{name}\n\n*Mögliche Werte:*\n\n{values}'.format(
-        name=arg_info['name'],
-        values='\n\n'.join(['**{value}** - {name}'.format(**v) for v in arg_info['values']])
-    )
-
-
 SOURCE_FIELDS = ('title_de', 'valid_from', 'periodicity', 'name', 'url')
 
 
 source = GraphQLObjectType(
-    'Source',
+    'Quelle',
+    description='Quellenverweis zur GENESIS Regionaldatenbank',
     fields=lambda: {f: GraphQLField(GraphQLString, resolver=r) for f in SOURCE_FIELDS}
 )
 
 
 base_fact_fields = {
-    'id': GraphQLField(GraphQLString, resolver=r),
-    'year': GraphQLField(GraphQLString, resolver=r),
-    'source': GraphQLField(source, resolver=r)
+    'id': GraphQLField(GraphQLString, resolver=r, description='Interne eindeutige id'),
+    'year': GraphQLField(GraphQLString, resolver=r, description='Jahr oder Jahr des Stichtages'),
+    'source': GraphQLField(source, resolver=r, description='Quellenverweis zur GENESIS Regionaldatenbank')
 }
 
 
@@ -56,7 +51,7 @@ def build_fact(name, info):
     fields = {k: GraphQLField(GraphQLString, resolver=r) for k in info['args'].keys()}
     fields.update(base_fact_fields)
     fields.update(value=GraphQLField(DTYPE_MAPPING.get(Storage.dtypes.get(name, 'str'), GraphQLString), resolver=r))
-    return GraphQLObjectType(name, fields=fields)
+    return GraphQLObjectType(name, description=get_field_description(info), fields=fields)
 
 
 def get_args(args):
@@ -79,7 +74,7 @@ def get_args(args):
 fields = {
     root: GraphQLField(
         GraphQLList(build_fact(root, info)),
-        description=info['name'],
+        description=get_field_description(info),
         args=get_args(info['args'].items()),
         resolver=r
     )
@@ -95,7 +90,11 @@ fields.update({
     )
 })
 
-region = GraphQLObjectType('Region', fields=lambda: fields)
+region = GraphQLObjectType(
+    'Region',
+    description='Eine statistische Region in Deutschland.\n\n*(Bundesland, Kreis, Regierungsbezirk, Gemeinde)*',
+    fields=fields
+)
 
 # key = GraphQLObjectType(
 #     'Key', fields={
@@ -107,10 +106,12 @@ region = GraphQLObjectType('Region', fields=lambda: fields)
 
 
 query = GraphQLObjectType(
-    'Query',
+    'genesapi',
+    description='Graphql-API zum Datenbestand der GENESIS-Datenbank "Regionalstatistik"',
     fields=lambda: {
         'region': GraphQLField(
             region,
+            description='Detail-Endpunkt zur Abfrage exakt einer Region',
             args={
                 'id': GraphQLArgument(
                     description='Regionalschlüssel',
@@ -121,6 +122,7 @@ query = GraphQLObjectType(
         ),
         'regions': GraphQLField(
             GraphQLList(region),
+            description='Listen-Endpunkt zur Abfrage mehrerer Regionen',
             args={
                 arg: GraphQLArgument(
                     description=info['description'],
