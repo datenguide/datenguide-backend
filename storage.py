@@ -2,7 +2,7 @@ import json
 import requests
 
 from elasticsearch import Elasticsearch
-from elasticsearch_dsl import Search, Q, A
+from elasticsearch_dsl import Search, A  # , Q
 
 import settings
 from util import get_fields_from_info
@@ -67,29 +67,52 @@ class ElasticStorage(object):
         s = self.S()
         s.aggs.bucket('ids', A('terms', field='id', size=20000))
         res = s.execute()
-        return sorted([i['key'] for i in res.aggregations.ids.buckets
-                       if len(str(i['key'])) < 6])  # FIXME
+        return sorted([i['key'] for i in res.aggregations.ids.buckets])
 
-    def _get_field_query(self, field, **filters):
-        return Q('bool', must=[Q('exists', **{'field': field})] +
-                 [Q('term', **{k: v}) for k, v in filters.items()])
+    # def _get_field_query(self, field, **filters):
+    #     return Q('bool', must=[Q('exists', **{'field': field})] +
+    #              [Q('term', **{k: v}) for k, v in filters.items()])
 
-    def _get_ids_query(self, ids):
-        return Q('bool', should=[Q('term', **{'id': id_}) for id_ in ids])
+    # def _get_ids_query(self, ids):
+    #     return Q('bool', should=[Q('term', **{'id': id_}) for id_ in ids])
+    def _get_id_part(self, ids):
+        if len(ids) > 1:
+            return {'terms': {'id': ids}}
+        return {'term': {'id': ids[0]}}
 
-    def _get_regions_query(self, ids, **fields):
-        return Q('bool', must=self._get_ids_query(ids),
-                 should=[self._get_field_query(field, **filters)
-                         for field, filters in fields.items()])
+    def _get_field_part(self, field, **filters):
+        return [{'exists': {'field': field}}] + [{'term': {k: v}} for k, v in filters.items()]
 
-    def _get_region_query(self, id_, **fields):
-        return Q('bool', must=Q('term', **{'id': id_}),
-                 should=[self._get_field_query(field, **filters)
-                         for field, filters in fields.items()])
+    def _get_query(self, ids, fields):
+        return {
+            'query': {
+                'constant_score': {
+                    'filter': {
+                        'bool': {
+                            'must': self._get_id_part(ids),
+                            'should': [{
+                                'bool': {
+                                    'must': self._get_field_part(field, **filters)
+                                }
+                            } for field, filters in fields.items() if field in self.schema.keys()]
+                        }
+                    }
+                }
+            }
+        }
+    # def _get_regions_query(self, ids, **fields):
+    #     return Q('bool', filter=self._get_ids_query(ids),
+    #              should=[self._get_field_query(field, **filters)
+    #                      for field, filters in fields.items()])
+
+    # def _get_region_query(self, id_, **fields):
+    #     return Q('bool', filter=Q('term', **{'id': id_}),
+    #              should=[self._get_field_query(field, **filters)
+    #                      for field, filters in fields.items()])
 
     def _compute_result(self, ids, fields, search):
         roots = self.schema.keys()
-        result = {i: {f: [] for f in fields} for i in ids}
+        result = {i: {f: i if f == 'id' else [] for f in fields} for i in ids}  # FIXME
         for hit in search.scan():
             for field in fields:
                 if field in hit:
@@ -100,7 +123,6 @@ class ElasticStorage(object):
         return result.values()
 
     def _get_fact(self, key, hit):
-        # FIXME index source directly to boost performance?
         hit = hit.to_dict()
         fact = hit.pop(key)
         fact.update(hit)
@@ -115,16 +137,19 @@ class ElasticStorage(object):
         id_ = kwargs.pop('id')
         if id_ in self.ids:
             fields = get_fields_from_info(info)
-            q = self._get_region_query(id_, **fields)
-            s = self.S().query(q)
+            # q = self._get_region_query(id_, **fields)
+            s = self.S().update_from_dict(self._get_query([id_], fields))
+            # print(json.dumps(s.to_dict(), indent=2))
             return list(self._compute_result([id_], fields.keys(), s))[0]  # FIXME
 
     def regions_resolver(self, root, info, **kwargs):
         ids = self._filter_regions(**kwargs)
         if ids:
             fields = get_fields_from_info(info)
-            q = self._get_regions_query(ids, **fields)
-            s = self.S().query(q)
+            # q = self._get_regions_query(ids, **fields)
+            # s = self.S().query(q)
+            s = self.S().update_from_dict(self._get_query(ids, fields))
+            # print(json.dumps(s.to_dict(), indent=2))
             return self._compute_result(ids, fields.keys(), s)
 
     # def get_key(self, id_):
