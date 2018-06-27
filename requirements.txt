@@ -3,3 +3,4 @@ Flask-GraphQL==1.4.1
 graphql-core==2.0
 awesome-slugify==1.6.5
 elasticsearch-dsl
+requests
