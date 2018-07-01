@@ -18,8 +18,10 @@ Storage = ElasticStorage()
 
 DTYPE_MAPPING = {
     'bool': GraphQLBoolean,
+    'boolean': GraphQLBoolean,
     'float': GraphQLFloat,
     'str': GraphQLString,
+    'text': GraphQLString,
     'int': GraphQLInt,
     'long': GraphQLInt,
     'list': GraphQLList
@@ -79,7 +81,19 @@ fields = {
         resolver=r
     )
     for root, info in Storage.schema.items()
+    if not info['source'] == 'extra'
 }
+
+
+fields.update({
+    key: GraphQLField(
+        DTYPE_MAPPING.get(Storage.dtypes.get(key), GraphQLString),
+        description=get_field_description(info),
+        resolver=r
+    )
+    for key, info in Storage.schema.items()
+    if info['source'] == 'extra'
+})
 
 
 fields.update({

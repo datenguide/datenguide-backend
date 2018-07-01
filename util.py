@@ -23,6 +23,8 @@ field_tmpl = """
 
 
 def get_field_description(info):
+    if info['source'] == 'extra':
+        return '**%s**\n\nExtra hinzugefügte Daten (nicht in GENESIS)' % info['name']
     return field_tmpl.format(**info).strip()
 
 

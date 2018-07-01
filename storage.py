@@ -12,7 +12,7 @@ NUTS_LEN = (None, 2, 3, 5, 8)  # FIXME
 
 LOOKUPS = {
     'nuts': {
-        'func': lambda id_, x: len(id_) == NUTS_LEN[x] if x < 5 else False,
+        'func': lambda id_, x: len(id_) == NUTS_LEN[x] if x < 5 and not id_ == 'DG' else False,
         'type': 'int',
         'description': 'NUTS level to filter Regions for'
     },
@@ -21,13 +21,8 @@ LOOKUPS = {
         'type': 'str',
         'description': 'Parent region by ID'
     },
-    'deprecated': {
-        'func': lambda r, x: r.get('deprecated') if x else not bool(r.get('deprecated')),
-        'type': 'bool',
-        'description': 'Filter for valid regions'
-    },
     'valid': {
-        'func': lambda r, x: r.get('valid') if x else not bool(r.get('valid')),
+        'func': lambda: True,
         'type': 'bool',
         'description': 'Filter for deprecated flag'
     }
@@ -52,7 +47,7 @@ class ElasticStorage(object):
         res = requests.get('http://%s/%s/_mapping/fact/' % (self.host, self.index))
         data = res.json()
         return {
-            k: v['properties']['value']['type']
+            k: v.get('properties', {}).get('value', v)['type']
             for k, v in data[self.index]['mappings']['fact']['properties'].items()
             if k in self.schema.keys()
         }
@@ -67,7 +62,7 @@ class ElasticStorage(object):
         s = self.S()
         s.aggs.bucket('ids', A('terms', field='id', size=20000))
         res = s.execute()
-        return sorted([i['key'] for i in res.aggregations.ids.buckets])
+        return [i['key'] for i in res.aggregations.ids.buckets]
 
     # def _get_field_query(self, field, **filters):
     #     return Q('bool', must=[Q('exists', **{'field': field})] +
@@ -111,20 +106,22 @@ class ElasticStorage(object):
     #                      for field, filters in fields.items()])
 
     def _compute_result(self, ids, fields, search):
-        roots = self.schema.keys()
-        result = {i: {f: i if f == 'id' else [] for f in fields} for i in ids}  # FIXME
+        data_roots = [k for k, v in self.schema.items() if not v['source'] == 'extra']
+        result = {i: {f: i if f == 'id' else [] if f in data_roots else None for f in fields} for i in ids}
         for hit in search.scan():
             for field in fields:
                 if field in hit:
-                    if field in roots:
+                    if field in data_roots:
                         result[hit.id][field].append(self._get_fact(field, hit))
                     else:
                         result[hit.id][field] = hit[field]
-        return result.values()
+        return sorted(result.values(), key=lambda x: x.get('id'))
 
     def _get_fact(self, key, hit):
         hit = hit.to_dict()
         fact = hit.pop(key)
+        if isinstance(fact, str):  # 'extra' fact
+            return fact
         fact.update(hit)
         fact.update({
             'id': hit['fact_id'],
