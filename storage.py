@@ -119,7 +119,7 @@ class ElasticStorage(object):
                         result[hit.id][field].append(self._get_fact(field, hit))
                     else:
                         result[hit.id][field] = hit[field]
-        return sorted(result.values(), key=lambda x: x.get('id'))
+        return sorted(result.values(), key=lambda x: x.get('id', 0))
 
     def _get_fact(self, key, hit):
         hit = hit.to_dict()
