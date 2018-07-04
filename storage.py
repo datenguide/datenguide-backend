@@ -14,18 +14,22 @@ LOOKUPS = {
     'nuts': {
         'func': lambda id_, x: len(id_) == NUTS_LEN[x] if x < 5 and not id_ == 'DG' else False,
         'type': 'int',
-        'description': 'NUTS level to filter Regions for'
+        'description': """**Filter Regionen nach NUTS-Ebene.**\n\n*Optionen:*\n\n
+1 – Bundesländer\n\n
+2 – Regierungsbezirke / statistische Regionen\n\n
+3 – Kreise / kreisfreie Städte\n\n
+4 – Gemeinden (LAU 1 / LAU 2)"""
     },
     'parent': {
         'func': lambda id_, x: id_.startswith(x),
         'type': 'str',
-        'description': 'Parent region by ID'
+        'description': 'Filter Regionen nach ID (Regionalschlüssel) der Elternregion'
     },
-    'valid': {
-        'func': lambda: True,
-        'type': 'bool',
-        'description': 'Filter for deprecated flag'
-    }
+    # 'valid': {
+    #     'func': lambda: True,
+    #     'type': 'bool',
+    #     'description': 'Filter for deprecated flag'
+    # }
 }
 
 
