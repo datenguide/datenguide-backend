@@ -124,8 +124,6 @@ class ElasticStorage(object):
     def _get_fact(self, key, hit):
         hit = hit.to_dict()
         fact = hit.pop(key)
-        if isinstance(fact, str):  # 'extra' fact
-            return fact
         fact.update(hit)
         fact.update({
             'id': hit['fact_id'],
