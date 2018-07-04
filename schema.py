@@ -80,7 +80,7 @@ fields = {
         args=get_args(info['args'].items()),
         resolver=r
     )
-    for root, info in Storage.schema.items()
+    for root, info in sorted(Storage.schema.items(), key=lambda x: x[0])
     if not info['source'] == 'extra'
 }
 
