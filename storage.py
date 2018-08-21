@@ -2,7 +2,7 @@ import json
 import requests
 
 from elasticsearch import Elasticsearch
-from elasticsearch_dsl import Search, A  # , Q
+from elasticsearch_dsl import Search, A
 
 import settings
 from util import get_fields_from_info
@@ -35,8 +35,11 @@ LOOKUPS = {
 
 class ElasticStorage(object):
     def __init__(self):
+        with open(settings.NAMES) as f:
+            self.names = json.load(f)
         with open(settings.SCHEMA) as f:
             self.schema = json.load(f)
+        self.data_roots = self.schema.keys()
         self.host = ':'.join((settings.ELASTIC['HOST'], settings.ELASTIC['PORT']))
         self.client = Elasticsearch(hosts=[self.host])
         self.index = settings.ELASTIC['INDEX']
@@ -45,14 +48,14 @@ class ElasticStorage(object):
         self.lookups = LOOKUPS
 
     def S(self):
-        return Search(using=self.client, index=self.index, doc_type='fact')
+        return Search(using=self.client, index=self.index)
 
     def _get_dtypes(self):
-        res = requests.get('http://%s/%s/_mapping/fact/' % (self.host, self.index))
+        res = requests.get('http://%s/%s/_mapping/' % (self.host, self.index))
         data = res.json()
         return {
             k: v.get('properties', {}).get('value', v)['type']
-            for k, v in data[self.index]['mappings']['fact']['properties'].items()
+            for k, v in data[self.index]['mappings']['doc']['properties'].items()
             if k in self.schema.keys()
         }
 
@@ -68,12 +71,6 @@ class ElasticStorage(object):
         res = s.execute()
         return [i['key'] for i in res.aggregations.ids.buckets]
 
-    # def _get_field_query(self, field, **filters):
-    #     return Q('bool', must=[Q('exists', **{'field': field})] +
-    #              [Q('term', **{k: v}) for k, v in filters.items()])
-
-    # def _get_ids_query(self, ids):
-    #     return Q('bool', should=[Q('term', **{'id': id_}) for id_ in ids])
     def _get_id_part(self, ids):
         if len(ids) > 1:
             return {'terms': {'id': ids}}
@@ -99,19 +96,19 @@ class ElasticStorage(object):
                 }
             }
         }
-    # def _get_regions_query(self, ids, **fields):
-    #     return Q('bool', filter=self._get_ids_query(ids),
-    #              should=[self._get_field_query(field, **filters)
-    #                      for field, filters in fields.items()])
 
-    # def _get_region_query(self, id_, **fields):
-    #     return Q('bool', filter=Q('term', **{'id': id_}),
-    #              should=[self._get_field_query(field, **filters)
-    #                      for field, filters in fields.items()])
+    def _get_base_value(self, id_, field):
+        if field == 'id':
+            return id_
+        if field == 'name':
+            return self.get_region_name(id_)
+        if field in self.data_roots:
+            return []
+        return None
 
     def _compute_result(self, ids, fields, search):
-        data_roots = [k for k, v in self.schema.items() if not v['source'] == 'extra']
-        result = {i: {f: i if f == 'id' else [] if f in data_roots else None for f in fields} for i in ids}
+        data_roots = self.data_roots
+        result = {i: {f: self._get_base_value(i, f) for f in fields} for i in ids}
         for hit in search.scan():
             for field in fields:
                 if field in hit:
@@ -128,7 +125,8 @@ class ElasticStorage(object):
         fact.update({
             'id': hit['fact_id'],
             'year': hit.get('year'),
-            'source': self.schema.get(key, {}).get('source', {})
+            'date': hit.get('date'),
+            'source': self.get_source(key)
         })
         return fact
 
@@ -136,27 +134,78 @@ class ElasticStorage(object):
         id_ = kwargs.pop('id')
         if id_ in self.ids:
             fields = get_fields_from_info(info)
-            # q = self._get_region_query(id_, **fields)
             s = self.S().update_from_dict(self._get_query([id_], fields))
-            # print(json.dumps(s.to_dict(), indent=2))
             return list(self._compute_result([id_], fields.keys(), s))[0]  # FIXME
 
     def regions_resolver(self, root, info, **kwargs):
         ids = self._filter_regions(**kwargs)
         if ids:
             fields = get_fields_from_info(info)
-            # q = self._get_regions_query(ids, **fields)
-            # s = self.S().query(q)
             s = self.S().update_from_dict(self._get_query(ids, fields))
-            # print(json.dumps(s.to_dict(), indent=2))
             return self._compute_result(ids, fields.keys(), s)
 
-    # def get_key(self, id_):
-    #     return self.keys.get(id_, {
-    #         'id': id_,
-    #         'name': id_.title(),
-    #         'description': ''
-    #     })
+    def get_key(self, key):
+        return self.schema.get(key, {'name': key})
 
-    # def get_keys(self):
-    #     return sorted(self.keys.values(), key=lambda x: x.get('id'))
+    def get_key_name(self, key):
+        return self.schema.get(key, {}).get('name', key)
+
+    def get_region_name(self, id_):
+        return self.names.get(id_, '(Region ohne Name)')
+
+    def get_source(self, key):
+        return self.schema.get(key, {}).get('source', {})
+
+    def get_verbose_fact(self, hit):
+        """
+        return a dictionary for a fact with it's data, metadata and verbose key names included
+        """
+        if not isinstance(hit, dict):
+            hit = hit.to_dict()
+        key = hit['fact_key']
+        fact = {
+            'id': hit['fact_id'],
+            'key': key,
+            'title': self.get_key_name(key),
+            'value': hit[key],
+            'date': hit.get('date'),
+            'year': hit.get('year'),
+            'source': self.get_source(key),
+            'args': []
+        }
+        key = self.get_key(key)
+        if key.get('args', {}):
+            for a in key['args']:
+                if a in hit:
+                    arg = key['args'][a]
+                    val = [v for v in arg['values'] if v['value'] == hit[a]][0]
+                    fact['args'].append({
+                        'key': a,
+                        'name': arg['name'],
+                        'value': {
+                            'key': val['value'],
+                            'name': val['name']
+                        }
+                    })
+        return fact
+
+    def get_fact(self, fact_id):
+        res = requests.get('http://%s/%s/doc/%s' % (self.host, self.index, fact_id))
+        if res.status_code == 200:
+            return self.get_verbose_fact(res.json()['_source'])
+
+    def suggest(self, q):
+        s = self.S().suggest('suggestions', q, completion={
+            'field': 'fulltext_suggest',
+            'skip_duplicates': True,
+            'fuzzy': {
+                'min_length': 6
+            }
+        }).source(False)
+        res = s.execute()
+        for suggestion in res.suggest.suggestions:
+            for option in suggestion.options:
+                yield option.text
+
+
+Storage = ElasticStorage()

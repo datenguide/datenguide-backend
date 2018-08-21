@@ -9,11 +9,8 @@ from graphql.type import (GraphQLArgument,
                           GraphQLSchema,
                           GraphQLString)
 
-from storage import ElasticStorage
+from storage import Storage
 from util import get_arg_description, get_field_description
-
-
-Storage = ElasticStorage()
 
 
 DTYPE_MAPPING = {
@@ -45,6 +42,7 @@ source = GraphQLObjectType(
 base_fact_fields = {
     'id': GraphQLField(GraphQLString, resolver=r, description='Interne eindeutige id'),
     'year': GraphQLField(GraphQLString, resolver=r, description='Jahr oder Jahr des Stichtages'),
+    'date': GraphQLField(GraphQLString, resolver=r, description='Stichtag'),
     'source': GraphQLField(source, resolver=r, description='Quellenverweis zur GENESIS Regionaldatenbank')
 }
 
@@ -81,19 +79,7 @@ fields = {
         resolver=r
     )
     for root, info in sorted(Storage.schema.items(), key=lambda x: x[0])
-    if not info['source'] == 'extra'
 }
-
-
-fields.update({
-    key: GraphQLField(
-        DTYPE_MAPPING.get(Storage.dtypes.get(key), GraphQLString),
-        description=get_field_description(info),
-        resolver=r
-    )
-    for key, info in Storage.schema.items()
-    if info['source'] == 'extra'
-})
 
 
 fields.update({
@@ -101,22 +87,20 @@ fields.update({
         GraphQLString,
         description='Regionalschlüssel',
         resolver=r
+    ),
+    'name': GraphQLField(
+        GraphQLString,
+        description='Name',
+        resolver=r
     )
 })
+
 
 region = GraphQLObjectType(
     'Region',
     description='Eine statistische Region in Deutschland.\n\n*(Bundesland, Kreis, Regierungsbezirk, Gemeinde)*',
     fields=fields
 )
-
-# key = GraphQLObjectType(
-#     'Key', fields={
-#         'id': GraphQLField(GraphQLString, resolver=r),
-#         'name': GraphQLField(GraphQLString, resolver=r),
-#         'description': GraphQLField(GraphQLString, resolver=r)
-#     }
-# )
 
 
 query = GraphQLObjectType(
@@ -144,21 +128,7 @@ query = GraphQLObjectType(
                 ) for arg, info in Storage.lookups.items()
             },
             resolver=Storage.regions_resolver
-        ),
-        # 'key': GraphQLField(
-        #     key,
-        #     args={
-        #         'id': GraphQLArgument(
-        #             description='ID of the key',
-        #             type=GraphQLNonNull(GraphQLString)
-        #         )
-        #     },
-        #     resolver=lambda root, info, **args: Storage.get_key(args['id'])
-        # ),
-        # 'keys': GraphQLField(
-        #     GraphQLList(key),
-        #     resolver=lambda *args: Storage.get_keys()
-        # )
+        )
     }
 )
 
