@@ -156,56 +156,5 @@ class ElasticStorage(object):
     def get_source(self, key):
         return self.schema.get(key, {}).get('source', {})
 
-    def get_verbose_fact(self, hit):
-        """
-        return a dictionary for a fact with it's data, metadata and verbose key names included
-        """
-        if not isinstance(hit, dict):
-            hit = hit.to_dict()
-        key = hit['fact_key']
-        fact = {
-            'id': hit['fact_id'],
-            'key': key,
-            'title': self.get_key_name(key),
-            'value': hit[key],
-            'date': hit.get('date'),
-            'year': hit.get('year'),
-            'source': self.get_source(key),
-            'args': []
-        }
-        key = self.get_key(key)
-        if key.get('args', {}):
-            for a in key['args']:
-                if a in hit:
-                    arg = key['args'][a]
-                    val = [v for v in arg['values'] if v['value'] == hit[a]][0]
-                    fact['args'].append({
-                        'key': a,
-                        'name': arg['name'],
-                        'value': {
-                            'key': val['value'],
-                            'name': val['name']
-                        }
-                    })
-        return fact
-
-    def get_fact(self, fact_id):
-        res = requests.get('http://%s/%s/doc/%s' % (self.host, self.index, fact_id))
-        if res.status_code == 200:
-            return self.get_verbose_fact(res.json()['_source'])
-
-    def suggest(self, q):
-        s = self.S().suggest('suggestions', q, completion={
-            'field': 'fulltext_suggest',
-            'skip_duplicates': True,
-            'fuzzy': {
-                'min_length': 6
-            }
-        }).source(False)
-        res = s.execute()
-        for suggestion in res.suggest.suggestions:
-            for option in suggestion.options:
-                yield option.text
-
 
 Storage = ElasticStorage()
