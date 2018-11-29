@@ -9,7 +9,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # locations
-SCHEMA = os.getenv('SCHEMA', os.path.join(BASE_DIR, 'data' 'schema.json'))
+SCHEMA = os.getenv('SCHEMA', os.path.join(BASE_DIR, 'data', 'schema.json'))
 NAMES = os.getenv('NAMES', os.path.join(BASE_DIR, 'data', 'names.json'))
 
 # elastic

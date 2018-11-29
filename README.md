@@ -9,7 +9,8 @@ public data from *GENESIS*-instances like
 It is also the backend api that runs behind [datengui.de](https://datengui.de),
 to make this data accessible for *humans* then.
 
-It also provides a web frontend to play around with the api:
+It also provides an interactive web frontend to play around with the api and
+explore the documentation:
 
 ![graphiql screenshot](img/graphiql.png)
 
@@ -29,6 +30,9 @@ request data from.
 
 There is a dedicated app that can download data cubes from *GENESIS*-Instances
 and load them into an Elasticsearch index: [genesapi-cli](https://github.com/datenguide/genesapi-cli)
+
+See below how to set up a small Elasticsearch cluster for local developement
+(without using `genesapi-cli`).
 
 ## Run Flask app
 
@@ -56,6 +60,47 @@ If the data is somewhere else, just add these env vars before:
 
 For deployment, set the `DEBUG`-variable to `False`, obviously, and adjust the
 other environment variables.
+
+## Setup small local Elasticsearch
+
+Instead of using the [full data
+pipeline](https://github.com/datenguide/genesapi-cli) that would be necessary
+for loading a complete data dump from *GENESIS* into Elasticsearch, you can do
+the short way in just importing some sample json *facts* as described below:
+
+**Prerequisites**
+
+1. install [Elasticsearch](https://www.elastic.co/downloads/elasticsearch)
+2. install [Logstash](https://www.elastic.co/downloads/logstash)
+
+*See for detailed installation instructions there.*
+
+It's usually the best idea for UNIX-based systems just to download the
+executables and run them directly from somewhere in your local filesystem
+(like, run the executable only for the time of developement) instead of
+installing via package manager and have to run it as services.
+
+Once an Elasticsearch cluster is running, and Logstash is installed, follow
+these steps to load the sample data in:
+
+download (aka checkout repo) & unpack all the content in this repo's `./data/`
+folder:
+
+    cd ./data/
+    tar -xvf facts.tar.xz
+
+inside the `./data/` folder, run these commands:
+
+create elasticsearch index template / mapping
+
+    curl -H 'Content-Type: application/json' -XPUT http://localhost:9200/_template/genesis -d@template.json
+
+import the json file via logstash, using the provided logstash config
+
+    cat facts.json | ~/path/to/logstash -f logstash.conf
+
+That's it! Now you can launch the flask app as described above and should see a
+nice `GraphiQL` interface in your browser.
 
 ## How to query data
 
