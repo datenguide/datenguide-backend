@@ -1,14 +1,14 @@
 # datenguide-backend
 
-A small [Flask](http://flask.pocoo.org/) powered app that exposes an
-[Elasticsearch](https://www.elastic.co/products/elasticsearch) index via a 
+A small [Flask](http://flask.pocoo.org/)-powered app that exposes an
+[Elasticsearch](https://www.elastic.co/products/elasticsearch) index via a
 [GraphQL](https://graphql.org/) API to make German official statistics data 
 from *GENESIS* instances, such as 
-[www.regionalstatistik.de](http://www.regionalstatistik.de), accessible for
+[regionalstatistik.de](https://www.regionalstatistik.de), accessible for
 *computers*.
 
-It is the backend API that powers the [datengui.de](https://datengui.de),
-to make this data accessible for *humans*.
+This app provides the data for the [datengui.de website](https://datengui.de),
+which makes German official statistics accessible for *humans*.
 
 It also provides an interactive web frontend to play with the API and
 explore the documentation:
@@ -17,18 +17,19 @@ explore the documentation:
 
 ## Live instance
 
-You can find this app running live at https://api.genesapi.org
+You can find this app running live at https://api.genesapi.org.
 
 ## Setup
 
-requires Python 3
+This app requires Python 3.
+
+For installing requirements, use PIP:
 
     pip install -r requirements.txt
 
-This app relies on an Elasticsearch index as a data source.
-
-There is a dedicated tool that can download data cubes from *GENESIS* instances
-and load them into an Elasticsearch index: [genesapi-cli](https://github.com/datenguide/genesapi-cli)
+This app relies on an Elasticsearch index as a data source. There is a dedicated 
+tool that can download data cubes from *GENESIS* instances and load them into an 
+Elasticsearch index: [genesapi-cli](https://github.com/datenguide/genesapi-cli)
 
 See below how to set up a small Elasticsearch cluster for local developement
 (without using `genesapi-cli`).
