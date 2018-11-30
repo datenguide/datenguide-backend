@@ -1,22 +1,23 @@
 # datenguide-backend
 
-A small [flask](http://flask.pocoo.org/) powered app that exposes an
-elasticsearch index into a [GraphQL](https://graphql.org/)-api to make german
-public data from *GENESIS*-instances like
-[www.regionalstatistik.de](http://www.regionalstatistik.de) accessible for
+A small [Flask](http://flask.pocoo.org/) powered app that exposes an
+[Elasticsearch](https://www.elastic.co/products/elasticsearch) index via a 
+[GraphQL](https://graphql.org/) API to make German official statistics data 
+from *GENESIS* instances, such as 
+[www.regionalstatistik.de](http://www.regionalstatistik.de), accessible for
 *computers*.
 
-It is also the backend api that runs behind [datengui.de](https://datengui.de),
-to make this data accessible for *humans* then.
+It is the backend API that powers the [datengui.de](https://datengui.de),
+to make this data accessible for *humans*.
 
-It also provides an interactive web frontend to play around with the api and
+It also provides an interactive web frontend to play with the API and
 explore the documentation:
 
 ![graphiql screenshot](img/graphiql.png)
 
-## Live running instance
+## Live instance
 
-You could find this app running live at https://api.genesapi.org
+You can find this app running live at https://api.genesapi.org
 
 ## Setup
 
@@ -24,11 +25,9 @@ requires Python 3
 
     pip install -r requirements.txt
 
-The app relies on an
-[Elasticsearch](https://www.elastic.co/products/elasticsearch)-Index to
-request data from.
+This app relies on an Elasticsearch index as a data source.
 
-There is a dedicated app that can download data cubes from *GENESIS*-Instances
+There is a dedicated tool that can download data cubes from *GENESIS* instances
 and load them into an Elasticsearch index: [genesapi-cli](https://github.com/datenguide/genesapi-cli)
 
 See below how to set up a small Elasticsearch cluster for local developement
@@ -49,7 +48,7 @@ ELASTIC_PORT = 9200
 ELASTIC_INDEX = 'genesapi'
 ```
 
-for debug mode, run the app locally like this, assuming the names & schema
+For debug mode, run the app locally like this, assuming the names & schema
 data is in `./data/` (there is some sample data in this repo):
 
     FLASK_DEBUG=1 FLASK_APP=app.py flask run
@@ -58,48 +57,48 @@ If the data is somewhere else, just add these env vars before:
 
     NAMES=/path/to/data/names.json SCHEMA=/path/to/data/schema.json FLASK_DEBUG=1 FLASK_APP=app.py flask run
 
-For deployment, set the `DEBUG`-variable to `False`, obviously, and adjust the
-other environment variables.
+For deployment, set the `DEBUG` variable to `False` and adjust the other 
+environment variables.
 
-## Setup small local Elasticsearch
+## Setup Elasticsearch locally with sample data
 
 Instead of using the [full data
 pipeline](https://github.com/datenguide/genesapi-cli) that would be necessary
 for loading a complete data dump from *GENESIS* into Elasticsearch, you can do
-the short way in just importing some sample json *facts* as described below:
+the short way in just importing some sample JSON *facts* as described below:
 
 **Prerequisites**
 
-1. install [Elasticsearch](https://www.elastic.co/downloads/elasticsearch)
-2. install [Logstash](https://www.elastic.co/downloads/logstash)
+1. Install [Elasticsearch](https://www.elastic.co/downloads/elasticsearch)
+2. Install [Logstash](https://www.elastic.co/downloads/logstash)
 
-*See for detailed installation instructions there.*
+*See individual websites for detailed installation instructions.*
 
-It's usually the best idea for UNIX-based systems just to download the
+It's usually the best idea for UNIX-based systems to just download the
 executables and run them directly from somewhere in your local filesystem
 (like, run the executable only for the time of developement) instead of
-installing via package manager and have to run it as services.
+installing via package manager and running it as services.
 
 Once an Elasticsearch cluster is running, and Logstash is installed, follow
-these steps to load the sample data in:
+these steps to load the sample data into the Elasticsearch index:
 
-download (aka checkout repo) & unpack all the content in this repo's `./data/`
+Download (aka checkout repo) & unpack all the content in this repo's `./data/`
 folder:
 
     cd ./data/
     tar -xvf facts.tar.xz
 
-inside the `./data/` folder, run these commands:
+Inside the `./data/` folder, run the following commands:
 
-create elasticsearch index template / mapping
+Create elasticsearch index template / mapping
 
     curl -H 'Content-Type: application/json' -XPUT http://localhost:9200/_template/genesis -d@template.json
 
-import the json file via logstash, using the provided logstash config
+Import the JSON file via Logstash, using the provided logstash config:
 
     cat facts.json | ~/path/to/logstash -f logstash.conf
 
-That's it! Now you can launch the flask app as described above and should see a
+That's it! Now you can launch the Flask app as described above and you should see a
 nice `GraphiQL` interface in your browser.
 
 ## How to query data
