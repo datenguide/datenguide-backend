@@ -1,3 +1,5 @@
+> **OUTDATED** This app is outdated and has been [ported to a Node.js-App](https://github.com/datenguide/datenguide-api)
+
 # datenguide-backend
 
 A small [Flask](http://flask.pocoo.org/)-powered app that exposes an
